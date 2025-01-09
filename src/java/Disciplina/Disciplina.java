@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Disciplina;
 
-/**
- *
- * @author WINDOWS 10
- */
+import Professor.Professor;
+import Turma.Turma;
+import java.util.ArrayList;
+
 public class Disciplina {
+    String nome;
+    int cargaHoraria;
     
+    ArrayList<Professor> professor;
+    ArrayList<Turma> turmas;
 }

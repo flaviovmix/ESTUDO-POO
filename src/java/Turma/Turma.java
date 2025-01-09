@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Turma;
 
-/**
- *
- * @author WINDOWS 10
- */
+import Aluno.Aluno;
+import Disciplina.Disciplina;
+import Professor.Professor;
+import java.util.ArrayList;
+
 public class Turma {
+    private String sigla;
+    int ano;
     
+    ArrayList<Aluno> alunos;
+    ArrayList<Professor> professores;
+    ArrayList<Disciplina> disciplinas;
+    
+    void adcionarAluno() {
+        
+    }
 }
