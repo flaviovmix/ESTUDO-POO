@@ -13,6 +13,7 @@ public class Pessoa {
     private Date matriculado_em;
     private Date data_do_registro;
     private String telefone;
+    private double salario;
     private String email;
     private String cep;
     private String cidade;
@@ -30,6 +31,7 @@ public class Pessoa {
     private String cpf;
     private String religiao;
     private String raca_cor;
+    private String formacaoAcademica;
     private String obs;    
 
     public int getCodigo() {
@@ -104,6 +106,16 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    
+    
     public String getEmail() {
         return email;
     }
@@ -240,6 +252,16 @@ public class Pessoa {
         this.raca_cor = raca_cor;
     }
 
+    public String getFormacaoAcademica() {
+        return formacaoAcademica;
+    }
+
+    public void setFormacaoAcademica(String formacaoAcademica) {
+        this.formacaoAcademica = formacaoAcademica;
+    }
+
+    
+    
     public String getObs() {
         return obs;
     }
