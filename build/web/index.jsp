@@ -19,6 +19,10 @@
 
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="listarAluno.jsp"  target="centro">ALUNOS</a>
+                            </li>       
+                            
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="listarAluno_1.jsp"  target="centro">DISCIPLINAS</a>
                             </li>                           
 <!--
                             <li class="nav-item dropdown">
@@ -80,7 +84,7 @@
             </div>            
         </main>
         <div>
-            <iframe src="listarAluno.jsp" name="centro"></iframe>
+            <iframe src="listarAluno_1.jsp" name="centro"></iframe>
         </div>
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     </body>
