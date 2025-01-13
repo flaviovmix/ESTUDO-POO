@@ -10,7 +10,5 @@ public class Aluno extends Pessoa{
     void realizarAvaliacao() {
         
     }
-        
-    
     
 }
