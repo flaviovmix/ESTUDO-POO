@@ -114,8 +114,6 @@ public class Pessoa {
         this.salario = salario;
     }
 
-    
-    
     public String getEmail() {
         return email;
     }
@@ -259,8 +257,6 @@ public class Pessoa {
     public void setFormacaoAcademica(String formacaoAcademica) {
         this.formacaoAcademica = formacaoAcademica;
     }
-
-    
     
     public String getObs() {
         return obs;

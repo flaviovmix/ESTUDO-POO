@@ -143,7 +143,7 @@
                 <h2 class="mb-1 my-5">Disciplinas</h2>
                 <div class="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
 
-                    <div class="col-5 p-3 rounded-3 shadow-lg row mx-1">
+                    <div class="col-7 p-3 rounded-3 shadow-lg row mx-1">
 
 
 
@@ -153,8 +153,8 @@
                                     <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start">
                                         <svg class="bi" width="24" height="24"><use xlink:href="#apple"/></svg>
                                         <div>
-                                            <strong class="d-block">Média de notas</strong>
-                                            <small>Média 87.3 total de 52.</small>
+                                            <strong class="d-block">Total de disciplinas</strong>
+                                            <small>14 disciplinas.</small>
                                         </div>
                                     </a>
                                 </li>
@@ -162,17 +162,11 @@
                                     <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start">
                                         <svg class="bi" width="24" height="24"><use xlink:href="#music-note-beamed"/></svg>
                                         <div>
-                                            <strong class="d-block">Notas baixa</strong>
-                                            <small>22 alunos com notas.</small>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-1 px-3 lh-sm text-start">
-                                        <svg class="bi" width="24" height="24"><use xlink:href="#question-circle"/></svg>
-                                        <div>
-                                            <strong class="d-block">Média de </strong>
-                                            <small>Get help from our.</small>
+                                            <strong class="d-block">Disciplinas com maior evasão</strong>
+                                            <small>Português</small><br/>
+                                            <small>Matemática</small><br/>
+                                            <small>Geografia</small><br/>
+                                            <small>História</small><br/>
                                         </div>
                                     </a>
                                 </li>
@@ -249,12 +243,11 @@
 
                         <nav class="col-4">
                             <ul class="d-flex flex-column gap-2 list-unstyled small">
-                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">novo aluno</a></li>
-                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">todos alunos</a></li>
+                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">nova disciplina</a></li>
+                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">listar disciplinas</a></li>
                                 <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">com notas baixa</a></li>
                                 <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">relatório completo</a></li>
-                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">relatório completo</a></li>
-                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">relatório completo</a></li>
+                                <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">mais</a></li>
                             </ul>
                         </nav>
                     </div>  
@@ -264,7 +257,7 @@
                 <h2 class="mb-1 my-5">Alunos</h2>
                 <div class="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
 
-                    <div class="col-5 p-3 rounded-3 shadow-lg row mx-1">
+                    <div class="col-7 p-3 rounded-3 shadow-lg row mx-1">
 
 
 
@@ -385,7 +378,7 @@
                 <h2 class="mb-1 my-5">Turmas</h2>
                 <div class="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
 
-                    <div class="col-5 p-3 rounded-3 shadow-lg row mx-1">
+                    <div class="col-7 p-3 rounded-3 shadow-lg row mx-1">
 
 
 
@@ -506,7 +499,7 @@
                 <h2 class="mb-1 my-5">Professores</h2>
                 <div class="d-flex flex-column flex-md-row gap-4 align-items-center justify-content-center">
 
-                    <div class="col-5 p-3 rounded-3 shadow-lg row mx-1">
+                    <div class="col-7 p-3 rounded-3 shadow-lg row mx-1">
 
 
 
