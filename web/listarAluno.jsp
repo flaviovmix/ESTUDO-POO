@@ -27,6 +27,52 @@
         <link href="style.css" rel="stylesheet">     
     </head>
     <body>
+        <main>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-none d-md-block fixed-top mb-5" aria-label="Third navbar example">
+                <div class="container-xl">
+                    <a class="navbar-brand" href="index.jsp"  target="centro">SISTEMA</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarsExample03">
+                        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="listarAluno.jsp"  target="centro">ALUNOS</a>
+                            </li>       
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="listarProfessor.jsp"  target="centro">PROFESSORES</a>
+                            </li>                           
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="listarTurma.jsp"  target="centro">TURMAS</a>
+                            </li>                           
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="listarDisciplina.jsp"  target="centro">DISCIPLINAS</a>
+                            </li>                           
+                            <!--
+                                                        <li class="nav-item dropdown">
+                                                            <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">DROPDOWN </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="cadastroProduto.html" target="centro">Cadastrar</a></li>
+                                                                <li><a class="dropdown-item" href="listaProduto.jsp"  target="centro">Listar</a></li>
+                                                                <li><a class="dropdown-item" href="#"  target="centro">Excluir</a></li>
+                                                                <li><a class="dropdown-item" href="#"  target="centro">Alterar</a></li>
+                                                            </ul>
+                                                        </li>
+                            -->
+                        </ul>
+                        <!--                        <form role="search">
+                                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                                    </form>-->
+                    </div>
+                </div>
+            </nav>        
+        
+        
         <div class="container-xl"> 
             <h2 class="d-none d-md-block">LISTAGEM DE ALUNOS</h2>   
             <h2 class="d-block d-md-none h2-celular">LISTAGEM DE ALUNOS</h2>   
@@ -221,7 +267,7 @@
                 </div>
             </div>              
         </div>
-
+</main>
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {

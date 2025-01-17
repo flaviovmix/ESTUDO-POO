@@ -1,5 +1,4 @@
 
-<%@page import="Disciplina.Disciplina"%>
 <%@page import="funcoes.icones"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -117,31 +116,98 @@
                 <table class="table">
                     <thead>
                         <tr>
+
+                            <th scope="col" style="width: 3%;">#</th>
                             <th scope="col" style="width: 30%;">Nome</th>
-                            <th scope="col" style="width: 15%;" class="d-none d-md-table-cell text-center">Carga Horária</th>
+                            <th scope="col" style="width: 15%;" class="d-none d-md-table-cell">CPF</th>
+                            <th scope="col" style="width: 20%;" class="d-none d-lg-table-cell">email</th>
+                            <th scope="col" style="width: 15%;" class="d-none d-md-table-cell">Telefone</th>
+                            <th scope="col" style="width: 10%;" class="text-center">Editar</th>
+                            <th scope="col" style="width: 5%;" class="text-center">Deletar</th>
                         </tr>
                     </thead>
 
                     <tbody class="table-group-divider">
 
                         <%
-                            
-                            Disciplina disciplina1 = new Disciplina();
-                            disciplina1.setNome("Matemática");
-                            disciplina1.setCargaHoraria(-100);
-                            
-                            out.print("<tr>");
+                            try {
+                                //CONECTAR COM O BANDO DE DADOS
+                                Connection conecta;
+                                PreparedStatement comando;
 
-                            out.print("<td>");
-                            out.print(disciplina1.getNome());
-                            out.print("</td>");
+                                Class.forName("org.postgresql.Driver");
+                                conecta = DriverManager.getConnection(
+                                        "jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey"
+                                );
 
-                            out.print("<td class='d-none d-md-table-cell text-center'>");
-                            out.print(disciplina1.getCargaHoraria());
-                            out.print("</td>");
+                                if (infoBuscada == "") {
+                                    comando = conecta.prepareStatement("select * from cliente order by nome");
+                                } else {
+                                    if (campoBuscado.equals("Codigo")) {
+                                        comando = conecta.prepareStatement("select * from cliente WHERE codigo = " + infoBuscada);
+                                    } else {
+                                        comando = conecta.prepareStatement("select * from cliente WHERE LOWER(" + campoBuscado + ") LIKE ('%" + infoBuscada + "%') order by " + campoBuscado);
+                                    }
+                                }
+                                ResultSet resultado = comando.executeQuery();
 
-                            out.print("</tr>");
+                                while (resultado.next()) {
+                                    out.print("<tr>");
 
+                                    out.print("<th scope='row'>");
+                                    out.print(resultado.getString("codigo"));
+                                    out.print("</th>");
+
+                                    out.print("<td>");
+                                    out.print(resultado.getString("nome"));
+                                    out.print("</td>");
+
+                                    out.print("<td class='d-none d-md-table-cell'>");
+                                    out.print(resultado.getString("cpf"));
+                                    out.print("</td>");
+
+                                    out.print("<td class='d-none d-lg-table-cell'>");
+                                    out.print(resultado.getString("email"));
+                                    out.print("</td>");
+
+                                    out.print("<td class='d-none d-md-table-cell'>");
+                                    out.print(resultado.getString("telefone"));
+                                    out.print("</td>");
+
+                                    StringBuilder tdCompletaAlterar = new StringBuilder();
+                                    tdCompletaAlterar
+                                            .append("<td class='text-center'>")
+                                            .append("<a href=")
+                                            .append("http://localhost:8081/ESTUDO-POO/FormEditarAluno.jsp")
+                                            .append("?codigo=" + resultado.getString("codigo"))
+                                            .append(">")
+                                            .append(icones.editar())
+                                            .append("</a>")
+                                            .append("</td>");
+                                    out.print(tdCompletaAlterar);
+
+                                    StringBuilder tdCompletaDeletar = new StringBuilder();
+                                    tdCompletaDeletar
+                                            .append("<td class='text-center'>")
+                                            .append("<a ")
+                                            .append("href=")
+                                            .append("http://localhost:8081/ESTUDO-POO/excluirAluno.jsp")
+                                            .append("?codigo=" + resultado.getString("codigo"))
+                                            .append(" id=\"")
+                                            .append(resultado.getString("codigo"))
+                                            .append("\"")
+                                            .append(">")
+                                            .append(icones.deletar())
+                                            .append("</a>")
+                                            .append("</td>");
+                                    out.print(tdCompletaDeletar);
+
+                                    out.print("</tr>");
+
+                                }
+                            } catch (Exception x) {
+                                out.print("Erro: " + x.getMessage());
+                            }
 
                         %>
 
@@ -181,12 +247,12 @@
                     </div>
                 </div>              
             </div>
-        </main>
-        <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                document.getElementById("infoBuscada").focus();
-            });
-        </script>
+</main>
+            <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById("infoBuscada").focus();
+                });
+            </script>
     </body>
 </html>

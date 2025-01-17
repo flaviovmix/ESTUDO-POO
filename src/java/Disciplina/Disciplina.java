@@ -8,7 +8,7 @@ public class Disciplina {
     private String nome;
     private int cargaHoraria;
     
-    ArrayList<Professor> professor;
+    ArrayList<Professor> professores;
     ArrayList<Turma> turmas;
 
     public String getNome() {

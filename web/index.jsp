@@ -9,7 +9,7 @@
         <main>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-none d-md-block fixed-top mb-5" aria-label="Third navbar example">
                 <div class="container-xl">
-                    <a class="navbar-brand" href="apresentacao.html"  target="centro">SISTEMA</a>
+                    <a class="navbar-brand" href="index.jsp">SISTEMA</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -18,7 +18,7 @@
                         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
 
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="listarAluno.jsp"  target="centro">ALUNOS</a>
+                                <a class="nav-link active" aria-current="page" href="listarAluno.jsp">ALUNOS</a>
                             </li>       
 
                             <li class="nav-item">
@@ -30,7 +30,7 @@
                             </li>                           
 
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="listarDisciplina.jsp"  target="centro">DISCIPLINAS</a>
+                                <a class="nav-link active" aria-current="page" href="listarDisciplina.jsp">DISCIPLINAS</a>
                             </li>                           
                             <!--
                                                         <li class="nav-item dropdown">
