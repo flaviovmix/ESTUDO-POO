@@ -27,6 +27,11 @@
         <link href="style.css" rel="stylesheet">     
     </head>
     <body>
+        
+        <main>
+        
+        <%@ include file="interface/navbar.html" %>
+        
         <div class="container-xl"> 
             <h2 class="d-none d-md-block">LISTAGEM DE PROFESSORES</h2>   
             <h2 class="d-block d-md-none h2-celular">LISTAGEM DE PROFESSORES</h2>   
@@ -221,7 +226,7 @@
                 </div>
             </div>              
         </div>
-
+</main>
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
