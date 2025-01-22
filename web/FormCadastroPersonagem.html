@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">        
+    </head>
+    <body>      
+        <div class="container-xl">
+
+            <form id="form_cliente" method="post" action="salvarAluno.jsp">
+                <h2>CADASTRO DE PERSONAGEM</h2>  
+                <fieldset class="row g-3 cadastro">
+
+                    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-8">
+                        <label for="nome" class="form-label">Nome completo:</label>
+                        <input type="text" class="form-control campo-texto" id="nome" name="nome" placeholder="" value="Flávio José dos Passos" required>
+                    </div>
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="nacionalidade" class="form-label">Nacionalidade:</label>
+                        <input type="text" class="form-control campo-texto" id="nacionalidade" name="nacionalidade" placeholder="" value="Brasileira" required>
+                    </div>  
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="orientacaoSexual" class="form-label">Orientacao Sexual:</label>
+                        <input type="text" class="form-control campo-texto" id="cpf" name="orientacaoSexual" placeholder="" value="Heterosexual" required>
+                    </div>  
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="civil" class="form-label">Estado Civil:</label>
+                        <input type="text" class="form-control campo-texto" id="rg" name="civil" placeholder="" value="Namorando" required>
+                    </div>  
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="data_nascimento" class="form-label">Data Nasc.:</label>
+                        <input type="date" class="form-control campo-texto" id="data_nascimento" name="data_nascimento" placeholder="" value="1982-11-05" required>
+                    </div>     
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="peso" class="form-label">Peso:</label>
+                        <input type="text" class="form-control campo-texto" id="peso" name="peso" placeholder="" value="45,8" required>
+                    </div>    
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="quadil" class="form-label">Quadil:</label>
+                        <input type="text" class="form-control campo-texto" id="quadil" name="quadil" placeholder="" value="48" required>
+                    </div>    
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="busto" class="form-label">Busto:</label>
+                        <input type="text" class="form-control campo-texto" id="busto" name="busto" placeholder="" value="52" required>
+                    </div>    
+
+                    <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                        <label for="altura" class="form-label">Altura:</label>
+                        <input type="text" class="form-control campo-texto" id="altura" name="altura" placeholder="" value="1,78" required>
+                    </div>    
+                    
+                    <div class="col-xxl-4 col-xl-4 col-lg-7 col-md-7 col-sm-9">
+                        <label for="hobbie" class="form-label">Hobbie:</label>
+                        <input type="text" class="form-control campo-texto" id="cidade" name="hobbie" placeholder="" value="Dancar" required>
+                    </div>              
+
+                    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
+                        <label for="obs" class="form-label">Observação:</label>
+                        <textarea class="form-control campo-texto" rows="3" id="obs" name="obs" placeholder="" required>LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING INDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT EVER SINCE THE 1500S.</textarea>
+                    </div>     
+
+
+                    <div class="col-md-12">
+                        <!--quebra de linha no form-->
+                    </div>
+
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary link-botao">Salvar</button>
+                    </div>
+
+                    <div class="col-3">
+                        <a class="btn btn-secondary link-botao" href="listarAluno.jsp">Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+    </div>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const formProduto = document.getElementById('form_cliente');
+
+        formProduto.addEventListener('submit', (event) => {
+            const dateInput = document.getElementById('data_nascimento');
+            const dateValue = dateInput.value; // Data no formato 'yyyy-MM-dd'
+
+            if (dateValue.includes('/')) {
+                // Substituir barras por traços
+                dateInput.value = dateValue.replace(/\//g, '-');
+            }
+        });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("nome").focus();
+        });        
+    </script>        
+</body>
+</html>

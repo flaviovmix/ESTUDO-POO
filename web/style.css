@@ -61,7 +61,7 @@ a {
 }
 
 span {
-    font-weight: bolder;
+    /*font-weight: bolder;*/
 }
 
 input[type="date"],

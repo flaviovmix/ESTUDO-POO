@@ -169,12 +169,16 @@
                                     tdCompletaDeletar
                                             .append("<td class='text-center'>")
                                             .append("<a ")
-                                            .append("href=")
-                                            .append("http://localhost:8081/ESTUDO-POO/excluirAluno.jsp")
-                                            .append("?codigo=" + resultado.getString("codigo"))
-                                            .append(" id=\"")
-                                            .append(resultado.getString("codigo"))
-                                            .append("\"")
+                                            .append("href='#' ")
+                                            .append("class='btn-excluir' ")
+                                            .append("data-bs-toggle='modal' ")
+                                            .append("data-bs-target='#staticBackdrop' ")
+                                            .append("data-id='" + resultado.getString("codigo") + "' ")
+                                            .append("data-nome='" + resultado.getString("nome") + "' ")
+                                            .append("data-conjuge='" + resultado.getString("conjuge") + "' ")
+                                            .append("data-cpf='" + resultado.getString("cpf") + "' ")
+                                            .append("data-email='" + resultado.getString("email") + "' ")
+                                            .append("data-nascimento='" + resultado.getString("data_nascimento") + "' ")
                                             .append(">")
                                             .append(icones.deletar())
                                             .append("</a>")
@@ -205,25 +209,27 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title fs-5" id="staticBackdropLabel">Tem certeza que deseja excluir o registro:</h4>
+                                <h4 class="modal-title fs-5" id="staticBackdropLabel">Tem certeza que deseja excluir o registro?</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p><span>Nome completo: </span> Flávio José dos Passos</p>
-                                <p><span>Conjuge: </span>Adriely Baldo Sotele dos Passos</p>
-                                <p><span>CPF: </span> 114.897.999-83</p>
-                                <p><span>Email: </span> flaviovmix@gmail</p>
-                                <p><span>Data Fabricação:</span> 05/11/1982</p>
+                                <p><strong>Nome completo:</strong> <span id="modal-nome"></span></p>
+                                <p><strong>Cônjuge:</strong> <span id="modal-conjuge"></span></p>
+                                <p><strong>CPF:</strong> <span id="modal-cpf"></span></p>
+                                <p><strong>Email:</strong> <span id="modal-email"></span></p>
+                                <p><strong>Data de Nascimento:</strong> <span id="modal-nascimento"></span></p>
+                                <input type="hidden" id="modal-id">
                             </div>
                             <div class="modal-footer">  
                                 <div class="col-12 text-center">
-                                    <button type="button" class="btn btn-danger col-5">Excluir</button>
-                                    <button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Editar</button>
+                                    <button type="button" class="btn btn-danger col-5" id="btn-confirmar-exclusao">Excluir</button>
+                                    <button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>              
+                </div>
+
             </div>
         </main>
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -232,5 +238,38 @@
                 document.getElementById("infoBuscada").focus();
             });
         </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const modalNome = document.getElementById("modal-nome");
+                const modalConjuge = document.getElementById("modal-conjuge");
+                const modalCpf = document.getElementById("modal-cpf");
+                const modalEmail = document.getElementById("modal-email");
+                const modalNascimento = document.getElementById("modal-nascimento");
+                const modalId = document.getElementById("modal-id");
+                const btnConfirmarExclusao = document.getElementById("btn-confirmar-exclusao");
+
+                // Atualizar o modal com os dados do registro
+                document.querySelectorAll(".btn-excluir").forEach(button => {
+                    button.addEventListener("click", function () {
+                        modalId.value = this.getAttribute("data-id");
+                        modalNome.textContent = this.getAttribute("data-nome");
+                        modalConjuge.textContent = this.getAttribute("data-conjuge");
+                        modalCpf.textContent = this.getAttribute("data-cpf");
+                        modalEmail.textContent = this.getAttribute("data-email");
+                        modalNascimento.textContent = this.getAttribute("data-nascimento");
+                    });
+                });
+
+                // Confirmar exclusão
+                btnConfirmarExclusao.addEventListener("click", function () {
+                    const id = modalId.value;
+
+                    // Redirecionar para o script de exclusão (ou usar AJAX se preferir)
+                    window.location.href = `excluirAluno.jsp?codigo=${id}`;
+                });
+            });
+        </script>
+
     </body>
 </html>
