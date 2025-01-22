@@ -44,6 +44,7 @@
                 </div>
             </div>
             <div class="row">
+                
                 <div class="col-3 d-none d-md-table-cell">
                     <a class="btn btn-success link-botao" href="FormCadastroAluno.html">Novo Aluno</a>     
                 </div>
@@ -89,9 +90,9 @@
 
             </div>
 
-
-
+                                
             <table class="table">
+                
                 <thead>
                     <tr>
 
@@ -190,7 +191,6 @@
                     %>
 
                 </tbody>
-
 
             </table>
 

@@ -2,6 +2,32 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
+
+<%
+    request.setCharacterEncoding("UTF-8");
+    String campoBuscado = request.getParameter("campoBuscado") != null && !request.getParameter("campoBuscado").isEmpty()
+            ? request.getParameter("campoBuscado")
+            : "";
+
+    String infoBuscada = request.getParameter("infoBuscada") != null && !request.getParameter("infoBuscada").isEmpty()
+            ? request.getParameter("infoBuscada")
+            : "";
+
+    //CONECTAR COM O BANDO DE DADOS
+    Connection conecta;
+    PreparedStatement comando;
+
+    Class.forName("org.postgresql.Driver");
+    conecta = DriverManager.getConnection(
+            "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
+    );
+
+    comando = conecta.prepareStatement("select * from personagem");
+    ResultSet resultado = comando.executeQuery();
+
+
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -19,30 +45,68 @@
         <main class="container">
             <%@ include file="interface/navbar.html" %>
 
-            <div class="container-xl"> 
-                <h2 class="d-none d-md-block">GAMER DAS GAROTAS</h2>   
+            <h2 class="d-none d-md-block">MODO CARD</h2>   
+            <h2 class="d-block d-md-none h2-celular">MODO CARD</h2>   
+            <div class="row">
+                <div class="col-2 d-block d-md-none">
+                </div>
+                <div class="col-8 d-block d-md-none">
+                    <a class="btn btn-success link-botao botaonovo-small" href="FormCadastroAluno.html">Novo Registro</a>     
+                </div>
+                <div class="col-2 d-block d-md-none">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-3 d-none d-md-table-cell">
+                    <a class="btn btn-success link-botao" href="FormCadastroAluno.html">Novo Registro</a>     
+                </div>
+
+                <form  class="col-md-7" method="post" action="listarAluno.jsp">
+                    <div>
+                        <div class="input-group mb-2">
+                            <select id="inputState" name="campoBuscado">
+                                <option <%if (campoBuscado.equals("Nome")) {
+                                        out.print("selected");
+                                    }%>>Nome
+                                </option>
+                                
+                                <option <%if (campoBuscado.equals("Codigo")) {
+                                        out.print("selected");
+                                    }%>>Codigo
+                                </option>
+
+                                <option <%if (campoBuscado.equals("Conjuge")) {
+                                        out.print("selected");
+                                    }%>>Conjuge
+                                </option>
+
+                                <option <%if (campoBuscado.equals("CPF")) {
+                                        out.print("selected");
+                                    }%>>CPF
+                                </option>
+
+                                <option <%if (campoBuscado.equals("Telefone")) {
+                                        out.print("selected");
+                                    }%>>Telefone
+                                </option>
+
+                                <option <%if (campoBuscado.equals("Email")) {
+                                        out.print("selected");
+                                    }%>>Email
+                                </option>
+                            </select>
+                            <input type="text" class="form-control" id="infoBuscada" name="infoBuscada" value="" placeholder="faça sua busca aqui, vazio para todos">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
             </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 g-4">
 
-                <%
-
-                    //CONECTAR COM O BANDO DE DADOS
-                    Connection conecta;
-                    PreparedStatement comando;
-
-                    Class.forName("org.postgresql.Driver");
-                    conecta = DriverManager.getConnection(
-                            "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
-                    );
-
-                    comando = conecta.prepareStatement("select * from personagem");
-                    ResultSet resultado = comando.executeQuery();
-
-                    while (resultado.next()) {
-
-
-                %>                
-
+                <% while (resultado.next()) {%>
+                
                 <div class="col">
                     <div class="card">
                         <img src="assets/img/<%= resultado.getInt("codigo")%>.png" class="card-img-top" alt="Imagem 1">
