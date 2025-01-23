@@ -56,6 +56,10 @@ button {
     box-shadow: 3px 3px 20px #bbb;
 }
 
+.card-form {
+    margin: 20px 0 0 20px;
+}
+
 .card-body {
     padding: 10px !important;
     position: relative;
