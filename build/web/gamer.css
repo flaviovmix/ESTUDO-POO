@@ -67,9 +67,35 @@ button {
     background-color: white; /* Define o fundo branco para evitar transparência */
 }
 
-.card:hover .card-img-top {
+.area-efeito:hover .card-img-top {
     transform: scale(1.5);
     object-position: top; /* Centraliza a imagem ao aplicar o efeito */
+}
+
+.info-nome {
+    position: absolute;
+    top: 0; /* Começa na parte superior */
+    left: 50%; /* Centraliza horizontalmente */
+    width: 100%;
+    transform: translate(-50%, -120%); /* Move para fora da parte visível (para cima) */
+    /*background-color: rgba(0, 0, 0, 0.7);*/
+    background: linear-gradient(to bottom, transparent 25%, black 100%);
+    color: #fff;
+    padding: 0;
+    font-size: 14px;
+    opacity: 0; /* Invisível inicialmente */
+    transition: transform 0.4s ease, opacity 0.4s ease, background 0.4s ease;
+}
+
+.info-nome h6 {
+    padding: 20px 0 2px 10px;
+    font-size: 1.2rem;
+}
+
+.card-body:hover .info-nome {
+    transform: translate(-50%, -50px); /* Move para a posição visível */
+    opacity: 1; /* Torna visível */
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
 }
 
 .info-overlay {
@@ -89,7 +115,7 @@ button {
     z-index: 2;
 }
 
-.card:hover .info-overlay {
+.area-efeito:hover .info-overlay {
     right: 0;
 }
 
@@ -115,4 +141,19 @@ table {
     margin: -10px 0 -15px 0;
     border-bottom: #ff01bb 1px solid;
     border-top: #ff01bb 1px solid;
+}
+
+.spam-estrelas-positiva {
+    color: #f1a119;
+}
+
+.spam-estrelas-neutra {
+    color: #bbb;
+}
+
+
+@media (max-width:1200px){
+    form {
+        margin-left: 30px;
+    }
 }

@@ -6,9 +6,17 @@ import java.util.Date;
 public class Pessoa {
     private int codigo;
     private String nome;
+    private String nomeArquivo;
+    private String nacionalidade;
+    private String orientacaoSexual;
+    private String estadoCivil;
+    private double peso;
+    private double quadil;
+    private double busto;
+    private double altura;
+    private String hobbie;
     private int quant_filhos;
     private double valor_mensalidade;
-    private double altura;
     private LocalTime hora_aula;
     private Date matriculado_em;
     private Date data_do_registro;
@@ -50,6 +58,78 @@ public class Pessoa {
         this.nome = nome;
     }
 
+    public String getNomeArquivo() {
+        return nomeArquivo;
+    }
+
+    public void setNomeArquivo(String nomeArquivo) {
+        this.nomeArquivo = nomeArquivo;
+    }
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
+    public String getOrientacaoSexual() {
+        return orientacaoSexual;
+    }
+
+    public void setOrientacaoSexual(String orientacaoSexual) {
+        this.orientacaoSexual = orientacaoSexual;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getQuadil() {
+        return quadil;
+    }
+
+    public void setQuadil(double quadil) {
+        this.quadil = quadil;
+    }
+
+    public double getBusto() {
+        return busto;
+    }
+
+    public void setBusto(double busto) {
+        this.busto = busto;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public String getHobbie() {
+        return hobbie;
+    }
+
+    public void setHobbie(String hobbie) {
+        this.hobbie = hobbie;
+    }
+
     public int getQuant_filhos() {
         return quant_filhos;
     }
@@ -64,14 +144,6 @@ public class Pessoa {
 
     public void setValor_mensalidade(double valor_mensalidade) {
         this.valor_mensalidade = valor_mensalidade;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
     }
 
     public LocalTime getHora_aula() {
@@ -257,7 +329,7 @@ public class Pessoa {
     public void setFormacaoAcademica(String formacaoAcademica) {
         this.formacaoAcademica = formacaoAcademica;
     }
-    
+
     public String getObs() {
         return obs;
     }
@@ -265,6 +337,9 @@ public class Pessoa {
     public void setObs(String obs) {
         this.obs = obs;
     }
+
+    
+    
 
     
 }
