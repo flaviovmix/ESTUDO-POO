@@ -134,7 +134,7 @@
                                 // Executa a consulta e processa o resultado
                                 try (ResultSet resultado = comando.executeQuery()) {
                                     while (resultado.next()) {
-                                        out.print("<tr class='py-0'>");
+                                        out.print("<tr>");
 
                                         out.print("<th scope='row'>");
                                         out.print(resultado.getString("codigo"));
@@ -159,7 +159,7 @@
                                         StringBuilder tdCompletaAlterar = new StringBuilder();
                                         tdCompletaAlterar
                                                 .append("<td class='text-center'>")
-                                                .append("<a class='btn py-0' href=")
+                                                .append("<a href=")
                                                 .append("http://localhost:8081/ESTUDO-POO/FormEditarAluno.jsp")
                                                 .append("?codigo=" + resultado.getString("codigo"))
                                                 .append(">")
@@ -171,17 +171,16 @@
                                         StringBuilder tdCompletaDeletar = new StringBuilder();
                                         tdCompletaDeletar
                                                 .append("<td class='text-center'>")
-                                                .append("<button ")
-                                                .append("class='btn py-0'")
-                                                .append("onclick=\"abrirModalExcluir('")
-                                                .append(resultado.getString("codigo")).append("', '")
-                                                .append(resultado.getString("nome")).append("', '")
-                                                .append(resultado.getString("email")).append("', '")
-                                                .append(resultado.getString("conjuge")).append("', '")
-                                                .append(resultado.getString("data_nascimento")).append("', '")
-                                                .append(resultado.getString("cpf")).append("')\">")
+                                                .append("<a ")
+                                                .append("href=")
+                                                .append("http://localhost:8081/ESTUDO-POO/excluirAluno.jsp")
+                                                .append("?codigo=" + resultado.getString("codigo"))
+                                                .append(" id=\"")
+                                                .append(resultado.getString("codigo"))
+                                                .append("\"")
+                                                .append(">")
                                                 .append(icones.deletar())
-                                                .append("</button>")
+                                                .append("</a>")
                                                 .append("</td>");
                                         out.print(tdCompletaDeletar);
 
@@ -209,85 +208,40 @@
                     Launch static backdrop modal
                 </button>
 
-                <%
-                    String codigo = request.getParameter("codigo");
-
-                    try (Connection conecta = DriverManager.getConnection(
-                            "jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey")) {
-
-                        PreparedStatement comando = conecta.prepareStatement("DELETE FROM cliente WHERE codigo = ?");
-                        comando.setInt(1, Integer.parseInt(codigo));
-
-                        int linhasAfetadas = comando.executeUpdate();
-                        if (linhasAfetadas > 0) {
-                            response.sendRedirect("listarAluno.jsp?mensagem=Registro excluído com sucesso");
-                        } else {
-                            response.sendRedirect("listarAluno.jsp?mensagem=Erro ao excluir o registro");
-                        }
-
-                    } catch (Exception e) {
-                        out.print("Erro: " + e.getMessage());
-                    }
-                %>                
-
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title fs-5" id="staticBackdropLabel">Tem certeza que deseja excluir o registro?</h4>
+                                <h4 class="modal-title fs-5" id="staticBackdropLabel">Tem certeza que deseja excluir o registro:</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                
-                                <p><strong>Nome completo:</strong> <span id="modalNome"></span></p>
-                                <p><strong>CPF:</strong> <span id="modalCpf"></span></p>
-                                <p><strong>Conjuge:</strong> <span id="modalConjuge"></span></p>
-                                <p><strong>Email:</strong> <span id="modalEmail"></span></p>
-                                <p><strong>Data Nascimento:</strong> <span id="modalData_nascimento"></span></p>
-                                
-                                <!-- Campo oculto para o código -->
-                                <input type="hidden" id="modalCodigo" name="codigo">
+                                <p><span>Nome completo: </span> Flávio José dos Passos</p>
+                                <p><span>Conjuge: </span>Adriely Baldo Sotele dos Passos</p>
+                                <p><span>CPF: </span> 114.897.999-83</p>
+                                <p><span>Email: </span> flaviovmix@gmail</p>
+                                <p><span>Data Fabricação:</span> 05/11/1982</p>
                             </div>
                             <div class="modal-footer">  
-                                <button type="button" class="btn btn-danger col-5" onclick="excluirRegistro()">Excluir</button>
-                                <button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Cancelar</button>
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-danger col-5">Excluir</button>
+                                    <button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Editar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>             
+                </div>              
             </div>
         </main>
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        document.getElementById("infoBuscada").focus();
-                    });
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("infoBuscada").focus();
+            });
         </script>
-
-        <script>
-            function abrirModalExcluir(codigo, nome, email, conjuge, data_nascimento, cpf) {
-                // Atualiza os elementos do modal com as informações do registro
-                document.getElementById("modalCodigo").value = codigo; // Campo oculto para o código
-                document.getElementById("modalNome").innerText = nome;
-                document.getElementById("modalEmail").innerText = email;
-                document.getElementById("modalConjuge").innerText = conjuge;
-                document.getElementById("modalData_nascimento").innerText = data_nascimento;
-                document.getElementById("modalCpf").innerText = cpf;
-
-                // Exibe o modal
-                let modalExcluir = new bootstrap.Modal(document.getElementById("staticBackdrop"));
-                modalExcluir.show();
-            }
-        </script>     
-
-        <script>
-            function excluirRegistro() {
-                const codigo = document.getElementById("modalCodigo").value;
-
-                // Redireciona para a página de exclusão com o código
-                window.location.href = `excluirAluno.jsp?codigo=${codigo}`;
-            }
-        </script>        
     </body>
 </html>
+
+
+como fazer para o modal excluir o registro selecionado

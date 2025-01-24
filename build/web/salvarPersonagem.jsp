@@ -16,7 +16,7 @@
         <%
             //PEGANDO OS DADOS ENVIADO PELO FORMULARIO;
             String nome = request.getParameter("nome");
-            String nomeArquivo = request.getParameter("nomeArquivo");
+            String nomeArquivo = request.getParameter("imageInput");
             String nacionalidade = request.getParameter("nacionalidade");
             String orientacaoSexual = request.getParameter("orientacaoSexual");
             String estadoCivil = request.getParameter("estadoCivil");
