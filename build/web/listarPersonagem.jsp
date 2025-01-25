@@ -103,7 +103,7 @@
                 </form>
 
             </div>
-        </div>
+        
         <div class="row row-cols-1 row-cols-sm-2 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 g-4">
 
             <% while (resultado.next()) {%>
@@ -180,7 +180,7 @@
                         </div>    
                         <div class="descricao">
                             <!--<h5 class="card-title"><%= resultado.getString("nome")%></h5>-->
-                            <a href="interface/tela-do-jogo.jsp" class="btn btn-light">Jogar</a>
+                            <a href="quebra-cabeca.jsp" class="btn btn-light">Jogar</a>
                             <div>
                                 <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
                                 <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
