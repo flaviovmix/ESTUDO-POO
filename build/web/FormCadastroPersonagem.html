@@ -7,6 +7,7 @@
         <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">        
         <link href="gamer.css" rel="stylesheet">        
+        <link href="card-fase.css" rel="stylesheet">        
     </head>
     <body>      
         <div class="container-xl">
@@ -76,13 +77,22 @@
                             <!--quebra de linha no form-->
                         </div>
 
-                        <div class="col-3">
-                            <button type="submit" class="btn btn-primary link-botao">Salvar</button>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary link-botao">Salvar</button>
+                            </div>
+
+                            <div class="col-3">
+                                <a class="btn btn-secondary link-botao" href="listarPersonagem.jsp">Cancelar</a>
+                            </div>
+
+                            <div class="col-4 offset-2 text-end">
+                                <button type="button" class="btn btn-warning link-botao" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Selecionar Fases
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="col-3">
-                            <a class="btn btn-secondary link-botao" href="listarAluno.jsp">Cancelar</a>
-                        </div>
                     </fieldset>
 
                     <div class="col-lg-3 col-md-4">
@@ -101,41 +111,123 @@
 
             </form>
         </div>
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header row">
+
+
+                        <h4 class=" col-8" id="staticBackdropLabel">Seleciona as fazes da personagem.</h4>
+
+                        <div class="col-4">
+                            <button type="button" class="btn btn-success col-8 mx-4" data-bs-dismiss="modal">Salvar</button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-xxl-2 row-cols-xl-2 row-cols-lg-3 row-cols-md-3 g-4">
+
+                                    <script>
+                                        for (var i = 1; i <= 4; i++) {
+                                        document.write(`
+                                                <div class="col">
+                                                    <div class="card-fases">
+                                                    <div class="area-efeito">
+                                                        <img src="assets/img/imgem.png" class="card-img-top-fase" alt="Imagem 1">
+                                                    </div>
+                                                <div class="card-body">   
+                                                <div class="descricao">
+                                                    <a href="quebra-cabeca.jsp" class="btn btn-light w-100">Subir img${i}</a>
+                                                    <input type="text" class="campo-largura-altura">
+                                                    <input type="text" class="campo-largura-altura">
+                                                </div>
+                                                </div>
+
+                                                  </div>
+                                            </div>   
+                                        `);
+                                        }
+                                    </script>   
+
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="row row-cols-12 row-cols-sm-12 row-cols-xxl-12 row-cols-xl-12 row-cols-lg-12 row-cols-md-12 g-4">
+                                    <div class="col">
+                                        <div class="card-fases">
+                                            <div class="area-efeito">
+                                                <img src="assets/img/imgem.png" class="card-img-top-fase-final" alt="Imagem 1">
+                                            </div>
+                                            <div class="card-body">   
+                                                <div class="descricao">
+                                                    <a href="quebra-cabeca.jsp" class="btn btn-light w-100">Carregar Imagem Final</a>
+                                                    <input type="text" class="campo-largura-altura">
+                                                    <input type="text" class="campo-largura-altura">                                                    
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>   
+
+                                    <!--
+                                        <div class="modal-footer">  
+                                            <button type="button" class="btn btn-success col-2" onclick="excluirRegistro()">Salvar</button>
+                                            <button type="button" class="btn btn-primary col-2" data-bs-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    -->
+                                </div>      
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>          
+
+
+
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script>
 
-            document.getElementById('imageInput').addEventListener('change', function (event) {
-                const file = event.target.files[0]; // Pegando o arquivo selecionado pelo usuário
-                if (file) {
-                    const reader = new FileReader(); // Criando uma instância do FileReader
-                    reader.onload = function (e) {
-                        const preview = document.getElementById('preview');
-                        const imgReferencia = document.getElementById('img-referencia');
-                        preview.src = e.target.result; // Atribuindo o resultado da leitura como fonte da imagem de pré-visualização
-                        preview.style.display = 'block'; // Tornando a pré-visualização visível
-                        imgReferencia.style.display = 'none';
-                    };
-                    reader.readAsDataURL(file); // Lendo o arquivo como um Data URL
-                }
-            });
-
+                                        document.getElementById('imageInput').addEventListener('change', function (event) {
+                                        const file = event.target.files[0]; // Pegando o arquivo selecionado pelo usuário
+                                        if (file) {
+                                        const reader = new FileReader(); // Criando uma instância do FileReader
+                                        reader.onload = function (e) {
+                                        const preview = document.getElementById('preview');
+                                        const imgReferencia = document.getElementById('img-referencia');
+                                        preview.src = e.target.result; // Atribuindo o resultado da leitura como fonte da imagem de pré-visualização
+                                        preview.style.display = 'block'; // Tornando a pré-visualização visível
+                                        imgReferencia.style.display = 'none';
+                                        };
+                                        reader.readAsDataURL(file); // Lendo o arquivo como um Data URL
+                                        }
+                                        });
         </script>
 
         <script>
             const formProduto = document.getElementById('form_cliente');
-
             formProduto.addEventListener('submit', (event) => {
-                const dateInput = document.getElementById('data_nascimento');
-                const dateValue = dateInput.value; // Data no formato 'yyyy-MM-dd'
+            const dateInput = document.getElementById('data_nascimento');
+            const dateValue = dateInput.value; // Data no formato 'yyyy-MM-dd'
 
-                if (dateValue.includes('/')) {
-                    // Substituir barras por traços
-                    dateInput.value = dateValue.replace(/\//g, '-');
-                }
+            if (dateValue.includes('/')) {
+            // Substituir barras por traços
+            dateInput.value = dateValue.replace(/\//g, '-');
+            }
             });
-
             document.addEventListener("DOMContentLoaded", function () {
-                document.getElementById("nome").focus();
+            document.getElementById("nome").focus();
             });
         </script>        
     </body>

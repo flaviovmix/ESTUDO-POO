@@ -5,7 +5,7 @@ import Turma.Turma;
 
 public class Aluno extends Pessoa{
     
-    Turma turma;
+    private Turma turma;
     
     void realizarAvaliacao() {
         

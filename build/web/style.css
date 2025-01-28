@@ -108,3 +108,7 @@ footer {
 footer a {
     color: gray !important;
 }
+
+.custom-modal {
+    width: 100% !important;
+}

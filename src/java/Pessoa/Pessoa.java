@@ -40,8 +40,8 @@ public class Pessoa {
     private String religiao;
     private String raca_cor;
     private String formacaoAcademica;
-    private String obs;    
-
+    private String obs;
+    
     public int getCodigo() {
         return codigo;
     }

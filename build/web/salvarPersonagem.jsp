@@ -84,7 +84,7 @@
                 out.print("Erro: " + x.getMessage());
             }
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("listarPersonagem.jsp");
         %>
     </body>
 </html>
