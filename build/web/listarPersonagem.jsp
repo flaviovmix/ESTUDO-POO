@@ -6,11 +6,10 @@
 
 <%
     request.setCharacterEncoding("UTF-8");
-    
+
     String pagAtual = request.getParameter("pag");
     int paginaAtual = (pagAtual != null && !pagAtual.isEmpty()) ? Integer.parseInt(pagAtual) : 1;
-    
-    
+
     String campoBuscado = request.getParameter("campoBuscado") != null && !request.getParameter("campoBuscado").isEmpty()
             ? request.getParameter("campoBuscado")
             : "";
@@ -30,11 +29,11 @@
 
     int limitePorPagina = 8;
     int offset = (paginaAtual - 1) * limitePorPagina;
-    
+
     comando = conecta.prepareStatement("SELECT * FROM personagem ORDER BY codigo LIMIT ? OFFSET ?;");
     comando.setInt(1, limitePorPagina);
     comando.setInt(2, offset);
-    
+
     //comando = conecta.prepareStatement("select * from personagem limit 8");
     ResultSet resultado = comando.executeQuery();
 
@@ -123,7 +122,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="area-efeito">
-                            <img src="assets/img/<%= resultado.getString("nomearquivo")%>" class="card-img-top" alt="Imagem 1">
+                            <img src="assets/img/<%= resultado.getString("nomearquivo")%>.png" class="card-img-top" alt="Imagem 1">
 
 
 
@@ -192,18 +191,40 @@
                             </div>    
                             <div class="descricao">
                                 <!--<h5 class="card-title"><%= resultado.getString("nome")%></h5>-->
-                                <a href="quebra-cabeca.jsp" class="btn btn-light">Jogar</a>
-<!--
-                                <button type="button" class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#gameModal">
-                                    Abrir Jogo
-                                </button>                            -->
+
+                                <!--
+                                                                <button type="button" class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#gameModal">
+                                                                    Abrir Jogo
+                                                                </button>                            -->
                                 <div>
-                                    <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
-                                    <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
-                                    <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
-                                    <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
-                                    <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.1.png">
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                    </a>
+                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.2.png">
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                    </a>
+                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.3.png">
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                    </a>
+                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.4.png">
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                    </a>
+                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.5.png">
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                    </a>
                                 </div>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam class="spam-estrelas-positiva"> . </spam>
+                                <spam> <% out.print(icones.editar()); %> </spam>
+                                <spam> <% out.print(icones.deletar());%> </spam>
+                                <!--<a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>" class="btn btn-light">Jogar</a>-->
+                                <!--<a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>" class="btn btn-light">Jogar</a>-->
                             </div>
                         </div>
 
@@ -218,9 +239,15 @@
                     <li class="page-item">
                         <a class="page-link">Anterior</a>
                     </li>
-                    <li class="page-item <%if (paginaAtual == 1) {out.print("active");}%>"><a class="page-link" href="listarPersonagem.jsp?pag=1">1</a></li>
-                    <li class="page-item <%if (paginaAtual == 2) {out.print("active");}%>"><a class="page-link" href="listarPersonagem.jsp?pag=2">2</a></li>
-                    <li class="page-item <%if (paginaAtual == 3) {out.print("active");}%>"><a class="page-link" href="listarPersonagem.jsp?pag=3">3</a></li>
+                    <li class="page-item <%if (paginaAtual == 1) {
+                            out.print("active");
+                        }%>"><a class="page-link" href="listarPersonagem.jsp?pag=1">1</a></li>
+                    <li class="page-item <%if (paginaAtual == 2) {
+                            out.print("active");
+                        }%>"><a class="page-link" href="listarPersonagem.jsp?pag=2">2</a></li>
+                    <li class="page-item <%if (paginaAtual == 3) {
+                            out.print("active");
+                        }%>"><a class="page-link" href="listarPersonagem.jsp?pag=3">3</a></li>
                     <li class="page-item">
                         <a class="page-link" href="#">Próximo</a>
                     </li>

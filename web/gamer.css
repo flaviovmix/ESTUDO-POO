@@ -20,6 +20,10 @@ span {
     font-size: .8rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 th {
     padding: 0 !important;
     font-weight: 700;
