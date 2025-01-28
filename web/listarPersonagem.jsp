@@ -198,16 +198,16 @@
                                                                 </button>                            -->
                                 <div>
                                     <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.1.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
                                     </a>
                                     <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.2.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
                                     </a>
                                     <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.3.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
                                     </a>
                                     <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.4.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
+                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
                                     </a>
                                     <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.5.png">
                                         <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
@@ -237,8 +237,21 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center py-5 pb-0">
                     <li class="page-item">
-                        <a class="page-link">Anterior</a>
+                        <a class="page-link" href="
+                        listarPersonagem.jsp?pag=1">Primeiro</a>
                     </li>
+                    <li class="page-item"> <a class="page-link" href="
+                                              
+                                              <%
+                           if(paginaAtual == 1) {
+                              out.print("listarPersonagem.jsp?pag=1");
+                           }else {
+                               int pag = paginaAtual - 1;
+                              out.print("listarPersonagem.jsp?pag=" + pag);
+                           }
+                        %>"><
+                        </a></li>                    
+
                     <li class="page-item <%if (paginaAtual == 1) {
                             out.print("active");
                         }%>"><a class="page-link" href="listarPersonagem.jsp?pag=1">1</a></li>
@@ -249,8 +262,20 @@
                             out.print("active");
                         }%>"><a class="page-link" href="listarPersonagem.jsp?pag=3">3</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="#">Próximo</a>
-                    </li>
+                        <a class="page-link" href="
+                        <%
+                           if(paginaAtual == 3) {
+                              out.print("listarPersonagem.jsp?pag=3");
+                           }else {
+                               int pag = paginaAtual + 1;
+                              out.print("listarPersonagem.jsp?pag=" + pag);
+                           }
+                        %>                           
+                           ">></a></li>
+                    
+                    <li class="page-item">
+                        <a class="page-link" href="listarPersonagem.jsp?pag=3">Último</a>
+                    </li>                    
                 </ul>
             </nav>
 
