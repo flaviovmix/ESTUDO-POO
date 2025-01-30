@@ -1,4 +1,5 @@
 
+<%@page import="app.core.Conexao"%>
 <%@page import="funcoes.icones"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -210,12 +211,14 @@
                 </button>
 
                 <%
+                    
+                    Conexao db = new Conexao();
+                    
                     String codigo = request.getParameter("codigo");
 
-                    try (Connection conecta = DriverManager.getConnection(
-                            "jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey")) {
+                    try {
 
-                        PreparedStatement comando = conecta.prepareStatement("DELETE FROM cliente WHERE codigo = ?");
+                        PreparedStatement comando = db.getConn().prepareStatement("DELETE FROM cliente WHERE codigo = ?");
                         comando.setInt(1, Integer.parseInt(codigo));
 
                         int linhasAfetadas = comando.executeUpdate();
@@ -228,7 +231,7 @@
                     } catch (Exception e) {
                         out.print("Erro: " + e.getMessage());
                     }
-                %>                
+                %>             
 
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

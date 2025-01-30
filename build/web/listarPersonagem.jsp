@@ -49,6 +49,22 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <link href="gamer.css" rel="stylesheet">
+        
+<style>
+/*    .pagination-custom .page-item .page-link {
+        background-color: #4CAF50;  Cor de fundo verde 
+        color: white;  Cor do texto 
+    }
+
+    .pagination-custom .page-item.active .page-link {
+        background-color: #333;  Cor do item ativo 
+        color: white;  Cor do texto ativo 
+    }
+
+    .pagination-custom .page-item:hover .page-link {
+        background-color: #555;  Cor ao passar o mouse 
+    }*/
+</style>        
     </head>
     <body>
 
@@ -56,9 +72,10 @@
 
         <main class="container">
             <%@ include file="interface/navbar.html" %>
-
+<!--
             <h2 class="d-none d-md-block">MODO CARD</h2>   
             <h2 class="d-block d-md-none h2-celular">MODO CARD</h2>   
+-->
             <div class="row">
                 <div class="col-2 d-block d-md-none">
                 </div>
@@ -70,12 +87,12 @@
             </div>
             <div class="row">
 
-                <div class="col-3 d-none d-md-table-cell">
-                    <a class="btn btn-success link-botao" href="FormCadastroPersonagem.html">Novo Registro</a>     
+                <div class="col-3 d-none d-md-table-cell text-center">
+                    <a class="btn btn-success link-botao w-75" href="FormCadastroPersonagem.html">Novo Registro</a>     
                 </div>
 
-                <form  class="col-md-7" method="post" action="listarAluno.jsp">
-                    <div>
+                <form  class="col-md-9 d-flex justify-content-center" method="post" action="listarAluno.jsp">
+                    <div class="w-75">
                         <div class="input-group mb-2">
                             <select id="inputState" name="campoBuscado">
                                 <option <%if (campoBuscado.equals("Nome")) {
@@ -189,42 +206,59 @@
                             <div class="info-nome">
                                 <h6><%= resultado.getString("nome")%></h6>
                             </div>    
-                            <div class="descricao">
-                                <!--<h5 class="card-title"><%= resultado.getString("nome")%></h5>-->
+                            <div class="row descricao justify-content-between my-1 px-2">
 
-                                <!--
-                                                                <button type="button" class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#gameModal">
-                                                                    Abrir Jogo
-                                                                </button>                            -->
-                                <div>
-                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.1.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
-                                    </a>
-                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.2.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
-                                    </a>
-                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.3.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
-                                    </a>
-                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.4.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela());%> </spam>
-                                    </a>
-                                    <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.5.png">
-                                        <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
-                                    </a>
-                                </div>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam class="spam-estrelas-positiva"> . </spam>
-                                <spam> <% out.print(icones.editar()); %> </spam>
-                                <spam> <% out.print(icones.deletar());%> </spam>
-                                <!--<a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>" class="btn btn-light">Jogar</a>-->
-                                <!--<a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>" class="btn btn-light">Jogar</a>-->
+                                
+                                    <div class="col-6 d-flex gap-2">
+                                        <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.1.png">
+                                            <spam class="spam-estrelas-positiva"> 
+                                                <% 
+                                                    String estrela1 = icones.estrela().replace("<svg", "<svg width='25' height='25'");
+                                                    out.print(estrela1);
+                                                %> 
+                                            </spam>
+                                        </a>
+                                        <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.2.png">
+                                            <spam class="spam-estrelas-positiva">
+                                                <%
+                                                    String estrela2 = icones.estrela().replace("<svg", "<svg width='25' height='25'");
+                                                    out.print(estrela2);
+                                                %> 
+                                            </spam>
+                                        </a>
+                                        <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.3.png">
+                                            <spam class="spam-estrelas-positiva">
+                                                <%
+                                                    String estrela3 = icones.estrela().replace("<svg", "<svg width='25' height='25'");
+                                                    out.print(estrela3);
+                                                %> 
+                                            </spam>
+                                        </a>
+                                        <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.4.png">
+                                            <spam class="spam-estrelas-positiva">
+                                                <%
+                                                    String estrela4 = icones.estrela().replace("<svg", "<svg width='25' height='25'");
+                                                    out.print(estrela4);
+                                                %> 
+                                            </spam>
+                                        </a>
+                                        <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.5.png">
+                                            <spam class="spam-estrelas-positiva">
+                                                <%
+                                                    String estrela5 = icones.estrela().replace("<svg", "<svg width='25' height='25'");
+                                                    out.print(estrela5);
+                                                %> 
+                                            </spam>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-6 d-flex justify-content-end gap-3">                         
+                                        <spam> <% out.print(icones.editar()); %> </spam>
+                                        <spam> <% out.print(icones.deletar());%> </spam>
+                                    </div>
+                                
+                                                                <!--<a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>" class="btn btn-light">Jogar</a>-->
+                                                                <!--<a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>" class="btn btn-light">Jogar</a>-->
                             </div>
                         </div>
 
@@ -234,50 +268,45 @@
                 <%}%>        
             </div>
 
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center py-5 pb-0">
-                    <li class="page-item">
-                        <a class="page-link" href="
-                        listarPersonagem.jsp?pag=1">Primeiro</a>
-                    </li>
-                    <li class="page-item"> <a class="page-link" href="
-                                              
-                                              <%
-                           if(paginaAtual == 1) {
-                              out.print("listarPersonagem.jsp?pag=1");
-                           }else {
-                               int pag = paginaAtual - 1;
-                              out.print("listarPersonagem.jsp?pag=" + pag);
-                           }
-                        %>"><
-                        </a></li>                    
-
-                    <li class="page-item <%if (paginaAtual == 1) {
-                            out.print("active");
-                        }%>"><a class="page-link" href="listarPersonagem.jsp?pag=1">1</a></li>
-                    <li class="page-item <%if (paginaAtual == 2) {
-                            out.print("active");
-                        }%>"><a class="page-link" href="listarPersonagem.jsp?pag=2">2</a></li>
-                    <li class="page-item <%if (paginaAtual == 3) {
-                            out.print("active");
-                        }%>"><a class="page-link" href="listarPersonagem.jsp?pag=3">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="
-                        <%
-                           if(paginaAtual == 3) {
-                              out.print("listarPersonagem.jsp?pag=3");
-                           }else {
-                               int pag = paginaAtual + 1;
-                              out.print("listarPersonagem.jsp?pag=" + pag);
-                           }
-                        %>                           
-                           ">></a></li>
-                    
-                    <li class="page-item">
-                        <a class="page-link" href="listarPersonagem.jsp?pag=3">Último</a>
-                    </li>                    
-                </ul>
-            </nav>
+<nav aria-label="Page navigation example">
+    <ul class="pagination pagination-custom justify-content-center py-5 pb-0">
+        <li class="page-item">
+            <a class="page-link" href="listarPersonagem.jsp?pag=1">Primeiro</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="<%
+                if (paginaAtual == 1) {
+                    out.print("listarPersonagem.jsp?pag=1");
+                } else {
+                    int pag = paginaAtual - 1;
+                    out.print("listarPersonagem.jsp?pag=" + pag);
+                }
+            %>"><</a>
+        </li>
+        <li class="page-item <%if (paginaAtual == 1) { out.print("active"); }%>">
+            <a class="page-link" href="listarPersonagem.jsp?pag=1">1</a>
+        </li>
+        <li class="page-item <%if (paginaAtual == 2) { out.print("active"); }%>">
+            <a class="page-link" href="listarPersonagem.jsp?pag=2">2</a>
+        </li>
+        <li class="page-item <%if (paginaAtual == 3) { out.print("active"); }%>">
+            <a class="page-link" href="listarPersonagem.jsp?pag=3">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="<%
+                if (paginaAtual == 3) {
+                    out.print("listarPersonagem.jsp?pag=3");
+                } else {
+                    int pag = paginaAtual + 1;
+                    out.print("listarPersonagem.jsp?pag=" + pag);
+                }
+            %>">></a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="listarPersonagem.jsp?pag=3">Último</a>
+        </li>
+    </ul>
+</nav>
 
         </main>
 

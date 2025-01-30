@@ -1,5 +1,7 @@
 package Aluno;
 
-public class AlunoBean {
+import Pessoa.Pessoa;
+
+public class AlunoBean extends Pessoa{
     
 }

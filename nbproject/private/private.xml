@@ -3,13 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/ESTUDO-POO/src/java/Aluno/AlunoAction.java</file>
             <file>file:/C:/ESTUDO-POO/web/listarAluno.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/FormCadastroPersonagem.html</file>
+            <file>file:/C:/ESTUDO-POO/src/java/Aluno/Aluno.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/Aluno/AlunoBean.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/Pessoa/Pessoa.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/app/core/Conexao.java</file>
+            <file>file:/C:/ESTUDO-POO/web/FormCadastroAluno.html</file>
+            <file>file:/C:/ESTUDO-POO/web/listarPersonagem.jsp</file>
+            <file>file:/C:/ESTUDO-POO/src/java/Aluno/AlunoDAO.java</file>
+            <file>file:/C:/ESTUDO-POO/web/salvarAluno.jsp</file>
             <file>file:/C:/ESTUDO-POO/web/card-fase.css</file>
             <file>file:/C:/ESTUDO-POO/web/interface/navbar.html</file>
-            <file>file:/C:/ESTUDO-POO/web/gamer.css</file>
-            <file>file:/C:/ESTUDO-POO/web/quebra-cabeca-16x9.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/quebra-cabeca-9x16.jsp</file>
+            <file>file:/C:/ESTUDO-POO/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -45,7 +45,7 @@
 
             <%@ include file="interface/footer.html" %>
             
-            <% response.sendRedirect("listarAluno.jsp"); %>
+            <% response.sendRedirect("listarPersonagem.jsp"); %>
 
         </main>
         <!--        <div>
