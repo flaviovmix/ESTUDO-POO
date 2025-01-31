@@ -16,7 +16,9 @@ public class AlunoDAO {
     public void adicionarAluno(AlunoBean aluno) throws SQLException {
         PreparedStatement ps;
         ps = db.getConn().prepareStatement(
-            "INSERT INTO cliente (nome, conjuge, cpf, telefone, email, cep, cidade, estado, endereco, numero, obs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            "INSERT INTO aluno "
+                    + "(nome, conjuge, cpf, telefone, email, cep, cidade, estado, endereco, numero, obs) VALUES "
+                    + "(   ?,       ?,   ?,        ?,     ?,   ?,      ?,      ?,        ?,      ?,   ?)"
         );     
         ps.setString(1, aluno.getNome());
         ps.setString(2, aluno.getConjuge());

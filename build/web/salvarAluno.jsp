@@ -1,6 +1,5 @@
 <%@page import="Aluno.AlunoDAO"%>
 <%@page import="Aluno.AlunoBean"%>
-<%@page import="Aluno.Aluno"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.sql.Connection"%>
@@ -15,9 +14,12 @@
     </head>
     <body>
         <%
-            //PEGANDO OS DADOS ENVIADO PELO FORMULARIO;
+            //data não ta funcionando direito
+            String data_nascimentooStr = request.getParameter("data_nascimento");
+            Date data_nascimento = Date.valueOf(data_nascimentooStr);   
             
             AlunoBean aluno = new AlunoBean();
+            
             aluno.setNome(request.getParameter("nome"));
             aluno.setConjuge(request.getParameter("conjuge"));
             aluno.setCpf(request.getParameter("cpf"));
@@ -25,6 +27,7 @@
             aluno.setEmail(request.getParameter("email"));
             aluno.setCep(request.getParameter("cep"));
             aluno.setCidade(request.getParameter("cidade"));
+            aluno.setData_nascimento(data_nascimento);
             aluno.setEstado(request.getParameter("estado"));
             aluno.setEndereco(request.getParameter("endereco"));
             aluno.setNumero(request.getParameter("numero"));
@@ -32,14 +35,6 @@
             
             AlunoDAO dao = new AlunoDAO();
             dao.adicionarAluno(aluno);
-
-//            String data_nascimentooStr = request.getParameter("data_nascimento");
-//            Date data_nascimento = Date.valueOf(data_nascimentooStr);
-            
-
-//            cliente.setData_nascimento(data_nascimento);
-
-            
 
             response.sendRedirect("listarAluno.jsp");
         %>

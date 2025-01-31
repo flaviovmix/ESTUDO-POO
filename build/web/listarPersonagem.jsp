@@ -139,7 +139,7 @@
                 <div class="col">
                     <div class="card">
                         <div class="area-efeito">
-                            <img src="assets/img/<%= resultado.getString("nomearquivo")%>.png" class="card-img-top" alt="Imagem 1">
+                            <img src="assets/img/<%= resultado.getString("nomearquivo")%>.png" class="card-img-top" alt="Imagem <%= resultado.getString("nomearquivo")%>">
 
 
 
@@ -209,7 +209,7 @@
                             <div class="row descricao justify-content-between my-1 px-2">
 
                                 
-                                    <div class="col-6 d-flex gap-2">
+                                    <div class="col-6 d-flex gap-0">
                                         <a href="quebra-cabeca-9x16.jsp?pag=<%= resultado.getString("nomeArquivo")%>.1.png">
                                             <spam class="spam-estrelas-positiva"> 
                                                 <% 

@@ -12,7 +12,7 @@ public class Conexao {
 
         try {
             Class.forName("org.postgresql.Driver");
-            this.conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey"); 
+            this.conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"); 
         } catch (Exception e) {
             //System.out.println(e.getMessage());
             e.printStackTrace();

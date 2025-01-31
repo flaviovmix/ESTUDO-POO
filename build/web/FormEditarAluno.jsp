@@ -27,12 +27,12 @@
 
                 Class.forName("org.postgresql.Driver");
                 conecta = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey"
+                        "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
                 );
 
                 PreparedStatement comando;
                 comando = conecta.prepareStatement(
-                        "SELECT * FROM cliente WHERE codigo=?"
+                        "SELECT * FROM aluno WHERE codigo=?"
                 );
                 comando.setInt(1, codigo);
 
@@ -73,7 +73,7 @@
 
                     <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4">
                         <label for="data_nascimento" class="form-label">Data Nasc.:</label>
-                        <input type="date" class="form-control campo-texto" id="data_nascimento" name="data_nascimento" placeholder="" value="<%= resultado.getString("data_nascimento")%>" required>
+                        <input type="date" class="form-control campo-texto" id="data_nascimento" name="data_nascimento" placeholder="" value="<%= resultado.getString("data_nascimento")%>">
                     </div>   
 
                     <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-9">

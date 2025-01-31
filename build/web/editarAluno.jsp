@@ -35,12 +35,12 @@
 
                 Class.forName("org.postgresql.Driver");
                 conecta = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey"
+                        "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
                 );
 
                 PreparedStatement comando;
                 comando = conecta.prepareStatement(
-                        "UPDATE cliente set nome = ?, conjuge = ?, cpf = ?, telefone = ?, email = ?, cep = ?, cidade = ?, estado = ?, endereco = ?, numero = ?, data_nascimento = ?, obs = ?  WHERE codigo=?"
+                        "UPDATE aluno set nome = ?, conjuge = ?, cpf = ?, telefone = ?, email = ?, cep = ?, cidade = ?, estado = ?, endereco = ?, numero = ?, data_nascimento = ?, obs = ?  WHERE codigo=?"
                 );
 
                 comando.setString(1, nome);

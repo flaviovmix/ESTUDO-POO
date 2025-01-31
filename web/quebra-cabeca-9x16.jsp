@@ -78,8 +78,8 @@
             const canvas = document.getElementById("puzzleCanvas");
             const ctx = canvas.getContext("2d");
 
-            const rows = 5; // Número de linhas
-            const cols = 3; // Número de colunas
+            const rows = 2; // Número de linhas
+            const cols = 2; // Número de colunas
             const pieceWidth = 478 / cols;
             const pieceHeight = 849 / rows;
 
