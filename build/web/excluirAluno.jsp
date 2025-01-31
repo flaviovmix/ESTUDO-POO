@@ -22,12 +22,12 @@
 
                 Class.forName("org.postgresql.Driver");
                 conecta = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/regis", "postgres", "masterkey"
+                        "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
                 );
 
                 PreparedStatement comando;
                 comando = conecta.prepareStatement(
-                        "DELETE FROM cliente WHERE codigo=?"
+                        "DELETE FROM aluno WHERE codigo=?"
                 );
                 comando.setInt(1, codigo);
                 comando.executeUpdate();

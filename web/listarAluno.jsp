@@ -1,4 +1,8 @@
 
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.util.List"%>
+<%@page import="Aluno.AlunoDAO"%>
+<%@page import="Aluno.AlunoBean"%>
 <%@page import="funcoes.icones"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -110,85 +114,81 @@
                     <tbody class="table-group-divider">
 
                         <%
-                            try {
-                                //CONECTAR COM O BANDO DE DADOS
-                                Connection conecta;
-                                PreparedStatement comando;
 
-                                Class.forName("org.postgresql.Driver");
-                                conecta = DriverManager.getConnection(
-                                        "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
-                                );
-
-                                if (infoBuscada == "") {
-                                    comando = conecta.prepareStatement("select * from aluno order by nome");
-                                } else {
-                                    if (campoBuscado.equals("Codigo")) {
-                                        comando = conecta.prepareStatement("select * from aluno WHERE codigo = " + infoBuscada);
+                                try {
+                                    AlunoDAO alunoDAO = new AlunoDAO(); 
+                                    String busca;
+                                    if (infoBuscada == "") {
+                                        busca = "SELECT * FROM aluno ORDER BY nome";
                                     } else {
-                                        comando = conecta.prepareStatement("select * from aluno WHERE LOWER(" + campoBuscado + ") LIKE ('%" + infoBuscada + "%') order by " + campoBuscado);
+                                        if (campoBuscado.equals("Codigo")) {
+                                            busca = ("select * from aluno WHERE codigo = " + infoBuscada);
+                                        } else {
+                                            busca = ("select * from aluno WHERE LOWER(" + campoBuscado + ") LIKE ('%" + infoBuscada + "%') order by " + campoBuscado);
+                                        }
                                     }
+                                    
+                                    List<AlunoBean> alunos = alunoDAO.listarAlunos(busca);
+
+                                    // Exibir os alunos retornados
+                                    for (AlunoBean aluno : alunos) {
+                                        out.print("<tr>");
+                                        
+                                            out.print("<th scope='row'>");
+                                            out.print(aluno.getCodigo());
+                                            out.print("</th>");
+                                            
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getNome());
+                                            out.print("</td>");                                            
+
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getCpf());
+                                            out.print("</td>");                                            
+
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getEmail());
+                                            out.print("</td>");                                                                                        
+                                            
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getTelefone());
+                                            out.print("</td>");     
+                                            
+                                            StringBuilder tdCompletaAlterar = new StringBuilder();
+                                            tdCompletaAlterar
+                                                    .append("<td class='text-center'>")
+                                                    .append("<a href=")
+                                                    .append("http://localhost:8081/ESTUDO-POO/FormEditarAluno.jsp")
+                                                    .append("?codigo=" + aluno.getCodigo())
+                                                    .append(">")
+                                                    .append(icones.editar())
+                                                    .append("</a>")
+                                                    .append("</td>");
+                                            out.print(tdCompletaAlterar);  
+                                            
+                                            StringBuilder tdCompletaDeletar = new StringBuilder();
+                                            tdCompletaDeletar
+                                                    .append("<td class='text-center'>")
+                                                    .append("<a ")
+                                                    .append("href=")
+                                                    .append("http://localhost:8081/ESTUDO-POO/excluirAluno.jsp")
+                                                    .append("?codigo=" + aluno.getCodigo())
+                                                    .append(" id=\"")
+                                                    .append(aluno.getCodigo())
+                                                    .append("\"")
+                                                    .append(">")
+                                                    .append(icones.deletar())
+                                                    .append("</a>")
+                                                    .append("</td>");
+                                            out.print(tdCompletaDeletar);                                            
+                                            
+                                        
+                                        out.print("</tr>");
+                                    }
+
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
                                 }
-                                ResultSet resultado = comando.executeQuery();
-
-                                while (resultado.next()) {
-                                    out.print("<tr>");
-
-                                    out.print("<th scope='row'>");
-                                    out.print(resultado.getString("codigo"));
-                                    out.print("</th>");
-
-                                    out.print("<td>");
-                                    out.print(resultado.getString("nome"));
-                                    out.print("</td>");
-
-                                    out.print("<td class='d-none d-md-table-cell'>");
-                                    out.print(resultado.getString("cpf"));
-                                    out.print("</td>");
-
-                                    out.print("<td class='d-none d-lg-table-cell'>");
-                                    out.print(resultado.getString("email"));
-                                    out.print("</td>");
-
-                                    out.print("<td class='d-none d-md-table-cell'>");
-                                    out.print(resultado.getString("telefone"));
-                                    out.print("</td>");
-
-                                    StringBuilder tdCompletaAlterar = new StringBuilder();
-                                    tdCompletaAlterar
-                                            .append("<td class='text-center'>")
-                                            .append("<a href=")
-                                            .append("http://localhost:8081/ESTUDO-POO/FormEditarAluno.jsp")
-                                            .append("?codigo=" + resultado.getString("codigo"))
-                                            .append(">")
-                                            .append(icones.editar())
-                                            .append("</a>")
-                                            .append("</td>");
-                                    out.print(tdCompletaAlterar);
-
-                                    StringBuilder tdCompletaDeletar = new StringBuilder();
-                                    tdCompletaDeletar
-                                            .append("<td class='text-center'>")
-                                            .append("<a ")
-                                            .append("href=")
-                                            .append("http://localhost:8081/ESTUDO-POO/excluirAluno.jsp")
-                                            .append("?codigo=" + resultado.getString("codigo"))
-                                            .append(" id=\"")
-                                            .append(resultado.getString("codigo"))
-                                            .append("\"")
-                                            .append(">")
-                                            .append(icones.deletar())
-                                            .append("</a>")
-                                            .append("</td>");
-                                    out.print(tdCompletaDeletar);
-
-                                    out.print("</tr>");
-
-                                }
-                            } catch (Exception x) {
-                                out.print("Erro: " + x.getMessage());
-                            }
-
                         %>
 
                     </tbody>
@@ -198,7 +198,7 @@
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Launch static backdrop modal
+                   chama o modal
                 </button>
 
                 <!-- Modal -->
@@ -210,16 +210,16 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p><span>Nome completo: </span> Flávio José dos Passos</p>
-                                <p><span>Conjuge: </span>Adriely Baldo Sotele dos Passos</p>
-                                <p><span>CPF: </span> 114.897.999-83</p>
-                                <p><span>Email: </span> flaviovmix@gmail</p>
-                                <p><span>Data Fabricação:</span> 05/11/1982</p>
+                                <p><strong>Nome completo: </strong> Flávio José dos Passos</p>
+                                <p><strong>Conjuge: </strong>Adriely Baldo Sotele dos Passos</p>
+                                <p><strong>CPF: </strong> 114.897.999-83</p>
+                                <p><strong>Email: </strong> flaviovmix@gmail</p>
+                                <p><strong>Data Fabricação:</strong> 05/11/1982</p>
                             </div>
                             <div class="modal-footer">  
                                 <div class="col-12 text-center">
-                                    <button type="button" class="btn btn-danger col-5">Excluir</button>
-                                    <button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Editar</button>
+                                    <button type="button" class="btn btn-danger col-10">Excluir</button>
+                                    <!--<button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Editar</button>-->
                                 </div>
                             </div>
                         </div>
