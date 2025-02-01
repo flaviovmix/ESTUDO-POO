@@ -1,5 +1,5 @@
 body {
-  
+    
 }
 
 main{
@@ -111,4 +111,8 @@ footer a {
 
 .custom-modal {
     width: 100% !important;
+}
+
+.zoom-menor {
+    zoom: 85%;
 }

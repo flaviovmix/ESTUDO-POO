@@ -57,7 +57,7 @@ button {
 .card {
     overflow: hidden;
     position: relative;
-    box-shadow: 3px 3px 20px #bbb;
+    box-shadow: 1px 3px 5px #bbb;
 }
 
 .card-form {

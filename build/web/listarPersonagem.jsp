@@ -27,7 +27,7 @@
             "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
     );
 
-    int limitePorPagina = 8;
+    int limitePorPagina = 12;
     int offset = (paginaAtual - 1) * limitePorPagina;
 
     comando = conecta.prepareStatement("SELECT * FROM personagem ORDER BY codigo LIMIT ? OFFSET ?;");
@@ -132,7 +132,7 @@
 
             </div>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-xxl-4 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 g-4 zoom-menor w-75 m-auto">
 
                 <% while (resultado.next()) {%>
 
