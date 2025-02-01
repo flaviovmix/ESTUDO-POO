@@ -227,6 +227,8 @@
                 </div>              
             </div>
         </main>
+                        
+        
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {

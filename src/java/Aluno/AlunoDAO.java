@@ -94,5 +94,16 @@ public class AlunoDAO {
         }      
         return alunos;
     }
+    
+    public void excluirAlunos(Integer codigo) throws SQLException {
+        PreparedStatement ps;
+        String sql;
+        sql = ("DELETE FROM aluno WHERE codigo=?");
+        
+        ps = db.getConn().prepareStatement(sql);
+        ps.setInt(1, codigo);       
+        ps.executeUpdate();  
+     
+    }    
 
 }
