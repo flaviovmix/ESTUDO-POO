@@ -7,7 +7,7 @@
     </head>
     <body>    
         <main>
-           <%@ include file="interface/navbar.html" %>
+           <%@ include file="../interface/navbar.html" %>
            
             <div class="offcanvas offcanvas-start d-block d-md-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
@@ -45,7 +45,7 @@
 
             <%@ include file="interface/footer.html" %>
             
-            <% response.sendRedirect("listarPersonagem.jsp"); %>
+            <% response.sendRedirect("entidades/aluno/listarAluno.jsp"); %>
 
         </main>
         <!--        <div>

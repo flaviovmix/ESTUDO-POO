@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-none d-md-block fixed-top mb-5" aria-label="Third navbar example">
     <div class="container-xl">
-        <a class="navbar-brand" href="index.jsp">SISTEMA</a>
+        <a class="navbar-brand" href="http://localhost:8081/ESTUDO-POO/index.jsp">SISTEMA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,26 +10,17 @@
             <ul class="navbar-nav me-auto mb-2 mb-sm-0">
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="listarAluno.jsp">ALUNOS</a>
+                    <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/aluno/listarAluno.jsp">ALUNOS</a>
                 </li>       
-<!--
+                           
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="listarProfessor.jsp"  target="centro">PROFESSORES</a>
-                </li>                           
--->
-<!--
+                    <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/personagem/listarPersonagem.jsp">GAROTAS</a>
+                </li>    
+                
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="listarTurma.jsp"  target="centro">TURMAS</a>
-                </li>                           
--->
-<!--
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="listarDisciplina.jsp">DISCIPLINAS</a>
-                </li>                                 
--->
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="listarPersonagem.jsp">GAROTAS</a>
-                </li>                           
+                    <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/todo/todoist.jsp">TO-DO</a>
+                </li>           
+
 <!--
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="listarAtletas.jsp">FUTEBOL</a>
@@ -52,7 +43,7 @@
             -->
         </div>
     </div>
-</nav>    
+</nav>
 <nav class="navbar navbar-dark bg-dark d-block d-md-none">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">

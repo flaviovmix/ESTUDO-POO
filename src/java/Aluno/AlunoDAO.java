@@ -1,7 +1,6 @@
 package Aluno;
 
 import app.core.Conexao;
-import static java.lang.System.out;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
