@@ -44,6 +44,7 @@ public class TarefaDAO {
 
             while (rs.next()) {
                 TarefaBean tarefa = new TarefaBean();
+                tarefa.setCodigo(rs.getInt("codigo"));
                 tarefa.setTarefa(rs.getString("tarefa"));
                 tarefa.setData(rs.getDate("data"));
                 tarefa.setAtiva(rs.getInt("ativa"));
@@ -54,6 +55,17 @@ public class TarefaDAO {
             e.printStackTrace();
         }      
         return tarefas;
-    }    
+    }   
+    
+    public void excluirTarefa(Integer codigo) throws SQLException {
+        PreparedStatement ps;
+        String sql;
+        sql = ("DELETE FROM todo WHERE codigo=?");
+        
+        ps = db.getConn().prepareStatement(sql);
+        ps.setInt(1, codigo);       
+        ps.executeUpdate();  
+     
+    }     
     
 }

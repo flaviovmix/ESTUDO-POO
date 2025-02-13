@@ -16,7 +16,7 @@
         <%
             int codigo = Integer.parseInt(request.getParameter("codigo"));
 
-            AlunoBean aluno = new AlunoBean();            
+//            AlunoBean aluno = new AlunoBean();            
             AlunoDAO dao = new AlunoDAO();
             dao.excluirAlunos(codigo);
             

@@ -78,6 +78,15 @@ form {
     gap: 8px;
 }
 
+.input-checkbox {
+    margin-top: 5px;
+    height: 100%;
+}
+
+.input-checkbox:focus {
+    box-shadow: none !important;
+}
+
 .input-item {
     display: block;
     padding: 12px 16px;
@@ -206,11 +215,6 @@ form {
     padding: 10px 0 !important;
 }
 
-
-.input-checkbox {
-    display: none;
-}
-
 hr {
     border: none;
     border-bottom: 3px dotted var(--cor-primaria);
@@ -218,6 +222,15 @@ hr {
 }
 
 .titulo-item {
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
+.linha-nome-icones {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.linha-nome-icones span {
+    margin-left: 15px;
+}

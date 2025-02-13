@@ -1,3 +1,4 @@
+<%@page import="Todo.TarefaDAO"%>
 <%@page import="Aluno.AlunoDAO"%>
 <%@page import="Aluno.AlunoBean"%>
 <%@page import="java.sql.Date"%>
@@ -15,12 +16,11 @@
     <body>
         <%
             int codigo = Integer.parseInt(request.getParameter("codigo"));
-
-//            AlunoBean aluno = new AlunoBean();            
-            AlunoDAO dao = new AlunoDAO();
-            dao.excluirAlunos(codigo);
+           
+            TarefaDAO dao = new TarefaDAO();
+            dao.excluirTarefa(codigo);
             
-            response.sendRedirect("listarAluno.jsp");
+            response.sendRedirect("todoist.jsp");
         %>
     </body>
 </html>
