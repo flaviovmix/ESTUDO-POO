@@ -86,8 +86,7 @@
                                                 .append("<input "
                                                         + "class='input-checkbox' "
                                                         + "type='checkbox' "
-                                                        + "id='checkbox-1'"
-                                                        + "onChange='ativarOuInativarTarefa()';"
+                                                        + "onchange='ativarOuInativarTarefa(" + tarefa.getCodigo() + ", " + tarefa.getAtiva() + ")' "
                                                         + "/>")
                                                 .append("<div class='linha-nome-icones'>")
                                                 .append("<p class='titulo-item'>")
@@ -153,9 +152,11 @@
                                                 .append("<input "
                                                         + "class='input-checkbox' "
                                                         + "type='checkbox' "
-                                                        + "id='checkbox-1' "
-                                                        + "onChange='ativarOuInativarTarefa()';"
+                                                        + "id='checkbox-" + tarefa.getCodigo() + "' "
+                                                        + "onchange='ativarOuInativarTarefa(" + tarefa.getCodigo() + ", " + tarefa.getAtiva() + ")' "
+                                                        + "checked "
                                                         + "/>")
+
                                                 .append("<div class='linha-nome-icones'>")
                                                 .append("<p class='titulo-item item-checado'>")
                                                 .append(tarefa.getTarefa())
@@ -207,8 +208,8 @@
         </main>
 
         <script>
-            function ativarOuInativarTarefa() {
-                location.reload();
+            function ativarOuInativarTarefa(codigo, ativa) {
+                location.href = "editarTodo.jsp?codigo=" + codigo + "&ativa=" + ativa;
             }
         </script>
 

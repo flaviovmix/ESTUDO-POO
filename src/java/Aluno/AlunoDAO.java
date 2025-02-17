@@ -82,6 +82,7 @@ public class AlunoDAO {
                 AlunoBean aluno = new AlunoBean();
                 aluno.setCodigo(rs.getInt("codigo"));
                 aluno.setNome(rs.getString("nome"));
+                aluno.setConjuge(rs.getString("conjuge"));
                 aluno.setCpf(rs.getString("cpf"));
                 aluno.setEmail(rs.getString("email"));
                 aluno.setTelefone(rs.getString("telefone"));

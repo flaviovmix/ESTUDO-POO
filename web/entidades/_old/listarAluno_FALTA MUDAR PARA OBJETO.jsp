@@ -1,7 +1,4 @@
 
-<%@page import="java.util.List"%>
-<%@page import="Aluno.AlunoBean"%>
-<%@page import="Aluno.AlunoDAO"%>
 <%@page import="funcoes.icones"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -113,49 +110,55 @@
 
                         <%
                             try {
-                                      AlunoDAO alunoDAO = new AlunoDAO(); 
-                                    String busca;
-                                    if (infoBuscada == "") {
-                                        busca = "SELECT * FROM aluno ORDER BY nome";
-                                    } else {
-                                        if (campoBuscado.equals("Codigo")) {
-                                            busca = ("select * from aluno WHERE codigo = " + infoBuscada);
-                                        } else {
-                                            busca = ("select * from aluno WHERE LOWER(" + campoBuscado + ") LIKE ('%" + infoBuscada + "%') order by " + campoBuscado);
-                                        }
-                                    }
-                                    
-                                    List<AlunoBean> alunos = alunoDAO.listarAlunos(busca);
+                                //CONECTAR COM O BANDO DE DADOS
+                                Connection conecta;
+                                PreparedStatement comando;
 
-                                for (AlunoBean aluno : alunos) {
+                                Class.forName("org.postgresql.Driver");
+                                conecta = DriverManager.getConnection(
+                                        "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
+                                );
+
+                                if (infoBuscada == "") {
+                                    comando = conecta.prepareStatement("select * from aluno order by nome");
+                                } else {
+                                    if (campoBuscado.equals("Codigo")) {
+                                        comando = conecta.prepareStatement("select * from aluno WHERE codigo = " + infoBuscada);
+                                    } else {
+                                        comando = conecta.prepareStatement("select * from aluno WHERE LOWER(" + campoBuscado + ") LIKE ('%" + infoBuscada + "%') order by " + campoBuscado);
+                                    }
+                                }
+                                ResultSet resultado = comando.executeQuery();
+
+                                while (resultado.next()) {
                                     out.print("<tr>");
 
                                     out.print("<th scope='row'>");
-                                    out.print(aluno.getCodigo());
+                                    out.print(resultado.getString("codigo"));
                                     out.print("</th>");
 
                                     out.print("<td>");
-                                    out.print(aluno.getNome());
+                                    out.print(resultado.getString("nome"));
                                     out.print("</td>");
 
                                     out.print("<td class='d-none d-md-table-cell'>");
-                                    out.print(aluno.getCpf());
+                                    out.print(resultado.getString("cpf"));
                                     out.print("</td>");
 
                                     out.print("<td class='d-none d-lg-table-cell'>");
-                                    out.print(aluno.getEmail());
+                                    out.print(resultado.getString("email"));
                                     out.print("</td>");
 
                                     out.print("<td class='d-none d-md-table-cell'>");
-                                    out.print(aluno.getTelefone());
+                                    out.print(resultado.getString("telefone"));
                                     out.print("</td>");
 
                                     StringBuilder tdCompletaAlterar = new StringBuilder();
                                     tdCompletaAlterar
                                             .append("<td class='text-center'>")
                                             .append("<a href=")
-                                            .append("FormEditarAluno.jsp")
-                                            .append("?codigo=" + aluno.getCodigo())
+                                            .append("http://localhost:8081/ESTUDO-POO/FormEditarAluno.jsp")
+                                            .append("?codigo=" + resultado.getString("codigo"))
                                             .append(">")
                                             .append(icones.editar())
                                             .append("</a>")
@@ -170,12 +173,12 @@
                                             .append("class='btn-excluir' ")
                                             .append("data-bs-toggle='modal' ")
                                             .append("data-bs-target='#staticBackdrop' ")
-                                            .append("data-id='" + aluno.getCodigo() + "' ")
-                                            .append("data-nome='" + aluno.getNome() + "' ")
-                                            .append("data-conjuge='" + aluno.getConjuge()+ "' ")
-                                            .append("data-cpf='" + aluno.getCpf() + "' ")
-                                            .append("data-email='" + aluno.getEmail() + "' ")
-                                            .append("data-nascimento='" + aluno.getData_nascimento() + "' ")
+                                            .append("data-id='" + resultado.getString("codigo") + "' ")
+                                            .append("data-nome='" + resultado.getString("nome") + "' ")
+                                            .append("data-conjuge='" + resultado.getString("conjuge") + "' ")
+                                            .append("data-cpf='" + resultado.getString("cpf") + "' ")
+                                            .append("data-email='" + resultado.getString("email") + "' ")
+                                            .append("data-nascimento='" + resultado.getString("data_nascimento") + "' ")
                                             .append(">")
                                             .append(icones.deletar())
                                             .append("</a>")
@@ -263,7 +266,9 @@
                     const id = modalId.value;
 
                     // Redirecionar para o script de exclusão (ou usar AJAX se preferir)
+//                    window.location.href = `excluirAluno.jsp?codigo=${id}`;
                       location.href = "excluirAluno.jsp?codigo=" + id;
+                      console.log(id);
                 });
             });
         </script>

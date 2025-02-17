@@ -1,7 +1,8 @@
 
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.util.List"%>
-<%@page import="Aluno.AlunoBean"%>
 <%@page import="Aluno.AlunoDAO"%>
+<%@page import="Aluno.AlunoBean"%>
 <%@page import="funcoes.icones"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -9,8 +10,9 @@
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%request.setCharacterEncoding("UTF-8");%>
+
 <%
-    request.setCharacterEncoding("UTF-8");
     String campoBuscado = request.getParameter("campoBuscado") != null && !request.getParameter("campoBuscado").isEmpty()
             ? request.getParameter("campoBuscado")
             : "";
@@ -112,8 +114,9 @@
                     <tbody class="table-group-divider">
 
                         <%
-                            try {
-                                      AlunoDAO alunoDAO = new AlunoDAO(); 
+
+                                try {
+                                    AlunoDAO alunoDAO = new AlunoDAO(); 
                                     String busca;
                                     if (infoBuscada == "") {
                                         busca = "SELECT * FROM aluno ORDER BY nome";
@@ -127,68 +130,65 @@
                                     
                                     List<AlunoBean> alunos = alunoDAO.listarAlunos(busca);
 
-                                for (AlunoBean aluno : alunos) {
-                                    out.print("<tr>");
+                                    // Exibir os alunos retornados
+                                    for (AlunoBean aluno : alunos) {
+                                        out.print("<tr>");
+                                        
+                                            out.print("<th scope='row'>");
+                                            out.print(aluno.getCodigo());
+                                            out.print("</th>");
+                                            
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getNome());
+                                            out.print("</td>");                                            
 
-                                    out.print("<th scope='row'>");
-                                    out.print(aluno.getCodigo());
-                                    out.print("</th>");
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getCpf());
+                                            out.print("</td>");                                            
 
-                                    out.print("<td>");
-                                    out.print(aluno.getNome());
-                                    out.print("</td>");
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getEmail());
+                                            out.print("</td>");                                                                                        
+                                            
+                                            out.print("<td scope='row'>");
+                                            out.print(aluno.getTelefone());
+                                            out.print("</td>");     
+                                            
+                                            StringBuilder tdCompletaAlterar = new StringBuilder();
+                                            tdCompletaAlterar
+                                                    .append("<td class='text-center'>")
+                                                    .append("<a href=")
+                                                    .append("FormEditarAluno.jsp")
+                                                    .append("?codigo=" + aluno.getCodigo())
+                                                    .append(">")
+                                                    .append(icones.editar())
+                                                    .append("</a>")
+                                                    .append("</td>");
+                                            out.print(tdCompletaAlterar);  
+                                            
+                                            StringBuilder tdCompletaDeletar = new StringBuilder();
+                                            tdCompletaDeletar
+                                                    .append("<td class='text-center'>")
+                                                    .append("<a ")
+                                                    .append("href=")
+                                                    .append("excluirAluno.jsp")
+                                                    .append("?codigo=" + aluno.getCodigo())
+                                                    .append(" id=\"")
+                                                    .append(aluno.getCodigo())
+                                                    .append("\"")
+                                                    .append(">")
+                                                    .append(icones.deletar())
+                                                    .append("</a>")
+                                                    .append("</td>");
+                                            out.print(tdCompletaDeletar);                                            
+                                            
+                                        
+                                        out.print("</tr>");
+                                    }
 
-                                    out.print("<td class='d-none d-md-table-cell'>");
-                                    out.print(aluno.getCpf());
-                                    out.print("</td>");
-
-                                    out.print("<td class='d-none d-lg-table-cell'>");
-                                    out.print(aluno.getEmail());
-                                    out.print("</td>");
-
-                                    out.print("<td class='d-none d-md-table-cell'>");
-                                    out.print(aluno.getTelefone());
-                                    out.print("</td>");
-
-                                    StringBuilder tdCompletaAlterar = new StringBuilder();
-                                    tdCompletaAlterar
-                                            .append("<td class='text-center'>")
-                                            .append("<a href=")
-                                            .append("FormEditarAluno.jsp")
-                                            .append("?codigo=" + aluno.getCodigo())
-                                            .append(">")
-                                            .append(icones.editar())
-                                            .append("</a>")
-                                            .append("</td>");
-                                    out.print(tdCompletaAlterar);
-
-                                    StringBuilder tdCompletaDeletar = new StringBuilder();
-                                    tdCompletaDeletar
-                                            .append("<td class='text-center'>")
-                                            .append("<a ")
-                                            .append("href='#' ")
-                                            .append("class='btn-excluir' ")
-                                            .append("data-bs-toggle='modal' ")
-                                            .append("data-bs-target='#staticBackdrop' ")
-                                            .append("data-id='" + aluno.getCodigo() + "' ")
-                                            .append("data-nome='" + aluno.getNome() + "' ")
-                                            .append("data-conjuge='" + aluno.getConjuge()+ "' ")
-                                            .append("data-cpf='" + aluno.getCpf() + "' ")
-                                            .append("data-email='" + aluno.getEmail() + "' ")
-                                            .append("data-nascimento='" + aluno.getData_nascimento() + "' ")
-                                            .append(">")
-                                            .append(icones.deletar())
-                                            .append("</a>")
-                                            .append("</td>");
-                                    out.print(tdCompletaDeletar);
-
-                                    out.print("</tr>");
-
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (Exception x) {
-                                out.print("Erro: " + x.getMessage());
-                            }
-
                         %>
 
                     </tbody>
@@ -198,7 +198,7 @@
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Launch static backdrop modal
+                   chama o modal
                 </button>
 
                 <!-- Modal -->
@@ -206,67 +206,34 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title fs-5" id="staticBackdropLabel">Tem certeza que deseja excluir o registro?</h4>
+                                <h4 class="modal-title fs-5" id="staticBackdropLabel">Tem certeza que deseja excluir o registro:</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p><strong>Nome completo:</strong> <span id="modal-nome"></span></p>
-                                <p><strong>Cônjuge:</strong> <span id="modal-conjuge"></span></p>
-                                <p><strong>CPF:</strong> <span id="modal-cpf"></span></p>
-                                <p><strong>Email:</strong> <span id="modal-email"></span></p>
-                                <p><strong>Data de Nascimento:</strong> <span id="modal-nascimento"></span></p>
-                                <input type="hidden" id="modal-id">
+                                <p><strong>Nome completo: </strong> Flávio José dos Passos</p>
+                                <p><strong>Conjuge: </strong>Adriely Baldo Sotele dos Passos</p>
+                                <p><strong>CPF: </strong> 114.897.999-83</p>
+                                <p><strong>Email: </strong> flaviovmix@gmail</p>
+                                <p><strong>Data Fabricação:</strong> 05/11/1982</p>
                             </div>
                             <div class="modal-footer">  
                                 <div class="col-12 text-center">
-                                    <button type="button" class="btn btn-danger col-5" id="btn-confirmar-exclusao">Excluir</button>
-                                    <button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-danger col-10">Excluir</button>
+                                    <!--<button type="button" class="btn btn-primary col-5" data-bs-dismiss="modal">Editar</button>-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                </div>              
             </div>
         </main>
+                        
+        
         <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("infoBuscada").focus();
             });
         </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const modalNome = document.getElementById("modal-nome");
-                const modalConjuge = document.getElementById("modal-conjuge");
-                const modalCpf = document.getElementById("modal-cpf");
-                const modalEmail = document.getElementById("modal-email");
-                const modalNascimento = document.getElementById("modal-nascimento");
-                const modalId = document.getElementById("modal-id");
-                const btnConfirmarExclusao = document.getElementById("btn-confirmar-exclusao");
-
-                // Atualizar o modal com os dados do registro
-                document.querySelectorAll(".btn-excluir").forEach(button => {
-                    button.addEventListener("click", function () {
-                        modalId.value = this.getAttribute("data-id");
-                        modalNome.textContent = this.getAttribute("data-nome");
-                        modalConjuge.textContent = this.getAttribute("data-conjuge");
-                        modalCpf.textContent = this.getAttribute("data-cpf");
-                        modalEmail.textContent = this.getAttribute("data-email");
-                        modalNascimento.textContent = this.getAttribute("data-nascimento");
-                    });
-                });
-
-                // Confirmar exclusão
-                btnConfirmarExclusao.addEventListener("click", function () {
-                    const id = modalId.value;
-
-                    // Redirecionar para o script de exclusão (ou usar AJAX se preferir)
-                      location.href = "excluirAluno.jsp?codigo=" + id;
-                });
-            });
-        </script>
-
     </body>
 </html>

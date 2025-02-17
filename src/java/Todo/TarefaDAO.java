@@ -57,6 +57,20 @@ public class TarefaDAO {
         return tarefas;
     }   
     
+    public void ativarOuDesativarTarefa(TarefaBean tarefa) throws SQLException {
+        
+        PreparedStatement ps;
+        String sql;
+        sql = ("UPDATE todo set ativa = ? WHERE codigo=?"
+            );
+        
+            ps = db.getConn().prepareStatement(sql);
+            ps.setInt(1, tarefa.getAtiva());
+            ps.setInt(2, tarefa.getCodigo());
+            ps.executeUpdate();        
+        
+    }    
+    
     public void excluirTarefa(Integer codigo) throws SQLException {
         PreparedStatement ps;
         String sql;
