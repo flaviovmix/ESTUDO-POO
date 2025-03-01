@@ -47,7 +47,7 @@ button {
     height: 320px;
     object-fit: cover;
     object-position: top;
-    transition: transform 0.7s ease, object-position 0.7s ease;
+    transition: transform .85s ease, object-position 0.7s ease;
 }
 
 .card-img-player {

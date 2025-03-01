@@ -16,7 +16,7 @@
   /* padding: 5px; */
   width: 300px;
   height: 500px;
-  transition: transform .9s ease;
+  transition: transform .85s ease;
 
   border: 1px solid rgba(0, 0, 0, .125);
 }

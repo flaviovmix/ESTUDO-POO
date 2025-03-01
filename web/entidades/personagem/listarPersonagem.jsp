@@ -60,6 +60,7 @@
         <link rel="stylesheet" href="../../assets/css/cards/table.css">
         <link rel="stylesheet" href="../../assets/css/cards/ancoras.css">
         <link rel="stylesheet" href="../../assets/css/cards/info.css">      
+        <link rel="stylesheet" href="../../assets/css/ajustes/ativo-inativo.css">      
 
   <link rel="stylesheet" href="../assets/css/ajustes/responsividade.css">
 </head>
@@ -86,15 +87,15 @@
           <% while (resultado.next()) {%>
         <div class="card">
           <div class="area-img-info">
-            <img class="img-principal" src="../../assets/img/<%= resultado.getString("nomearquivo")%>.png" alt="imagem da personagem 1" />
+            <img class="img-principal ativo" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
             <div class="info-personagem">
                 
                 
-               <img class="bandeira" src="../../assets/img/bandeira.png" /> 
+               <img class="bandeira" src="../../assets/img/<%= resultado.getString("pais")%>.png" /> 
               <div class="img-nome-personagem">
-                  <img class="imagem-circular" src="../../assets/img/r-<%= resultado.getString("nomearquivo")%>.png" alt="">
+                  <img class="imagem-circular" src="../../assets/img/r-<%= resultado.getString("nome_arquivo")%>.png" alt="">
                 <div>
-                  <h2><%= resultado.getString("nome")%> ANDRADE</h2>
+                  <h2><%= resultado.getString("nome")%></h2>
                   <p><%= resultado.getString("nacionalidade")%></p>
                 </div>
               </div>
@@ -107,7 +108,7 @@
                       
                                                 <%
                                                     // Obtendo a data de nascimento do banco
-                                                    java.sql.Date dataNascimentoSQL = resultado.getDate("nascimento");
+                                                    java.sql.Date dataNascimentoSQL = resultado.getDate("data_nascimento");
                                                     if (dataNascimentoSQL != null) {
                                                         // Convertendo para java.util.Date
                                                         java.util.Date dataNascimento = new java.util.Date(dataNascimentoSQL.getTime());
@@ -135,11 +136,11 @@
                 </tr>
                 <tr>
                   <td><strong>Quadril:</strong></td>
-                  <td><%= resultado.getString("quadil")%> cm</td>
+                  <td><%= resultado.getString("quadril")%> cm</td>
                 </tr>
                 <tr>
                   <td><strong>Cintura:</strong></td>
-                  <td>36 cm</td>
+                  <td><%= resultado.getString("cintura")%> cm</td>
                 </tr>
                 <tr>
                   <td><strong>Altura:</strong></td>
@@ -154,7 +155,7 @@
                 </tr>
 
               </table>
-              <h3><%= resultado.getString("civil")%></h3>
+              <h3><%= resultado.getString("estado_civil")%></h3>
               <div class="editar-excluir-dentro-info">
                 <a href="#"><span class="fa fa-pen"></span></a>
                 <a href="#"><span class="fa fa-trash"></span></a>

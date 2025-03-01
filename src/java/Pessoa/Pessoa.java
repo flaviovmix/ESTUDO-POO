@@ -4,14 +4,17 @@ import java.time.LocalTime;
 import java.util.Date;
 
 public class Pessoa {
+    private int ativo;
     private int codigo;
     private String nome;
     private String nomeArquivo;
     private String nacionalidade;
+    private String pais;
     private String orientacaoSexual;
     private String estadoCivil;
     private double peso;
     private double quadil;
+    private double cintura;
     private double busto;
     private double altura;
     private String hobbie;
@@ -29,6 +32,7 @@ public class Pessoa {
     private String endereco;
     private String numero;
     private Date data_nascimento;
+    private Date ultimo_acesso;
     private int matricula;
     private String pai;
     private String mae;
@@ -41,6 +45,14 @@ public class Pessoa {
     private String raca_cor;
     private String formacaoAcademica;
     private String obs;
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
     
     public int getCodigo() {
         return codigo;
@@ -68,6 +80,14 @@ public class Pessoa {
 
     public String getNacionalidade() {
         return nacionalidade;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
     public void setNacionalidade(String nacionalidade) {
@@ -104,6 +124,14 @@ public class Pessoa {
 
     public void setQuadil(double quadil) {
         this.quadil = quadil;
+    }
+
+    public double getCintura() {
+        return cintura;
+    }
+
+    public void setCintura(double cintura) {
+        this.cintura = cintura;
     }
 
     public double getBusto() {
@@ -241,6 +269,16 @@ public class Pessoa {
     public void setData_nascimento(Date data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
+
+    public Date getUltimo_acesso() {
+        return ultimo_acesso;
+    }
+
+    public void setUltimo_acesso(Date ultimo_acesso) {
+        this.ultimo_acesso = ultimo_acesso;
+    }
+    
+    
 
     public int getMatricula() {
         return matricula;

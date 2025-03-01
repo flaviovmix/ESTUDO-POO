@@ -1,0 +1,7 @@
+.ativo {
+    filter: grayscale(0%);
+}
+
+.inativo {
+    filter: grayscale(100%);
+}

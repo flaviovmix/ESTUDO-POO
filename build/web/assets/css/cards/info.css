@@ -91,6 +91,7 @@
 .area-img-info .info-personagem h2 {
   color: var(--cor-cor-h2-info-personagem);
   text-align: right;
+  font-size: 1rem;
 }
 
 .area-img-info .info-personagem p {
@@ -105,19 +106,19 @@
 
 .area-img-info .info-personagem h3 {
   color: var(--cor-cor-h3-info-personagem);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .area-img-info:hover .img-principal,
 .area-img-info .info-personagem:hover ~ .img-principal {
   transform: scale(1.2);
   transform: scale(1.2) translateY(20px) rotateZ(-10deg);
-  filter: blur(7px);
+  filter: blur(5px);
   /* filter: blur(2px) grayscale(80%); */
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   z-index: 1;
 }
 
