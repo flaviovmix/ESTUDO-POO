@@ -45,7 +45,7 @@
 
         <div id="game-container">
             <!--<h3 class="agradecimento-completar text-center"  id="timer">85:00</h3>-->
-
+<!--  
             <div class="estrelas">
                 <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
                 <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
@@ -58,7 +58,7 @@
             </div>        
 
 
-            <!--            <div class="estrelas">
+                      <div class="estrelas">
                             <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-01.png"> </spam>
                             <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-02.png"> </spam>
                             <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-03.png"> </spam>
@@ -78,13 +78,14 @@
             const canvas = document.getElementById("puzzleCanvas");
             const ctx = canvas.getContext("2d");
 
-            const rows = 15; // Número de linhas
-            const cols = 4; // Número de colunas
+            const rows = 2; // Número de linhas
+            const cols = 2; // Número de colunas
             const pieceWidth = 478 / cols;
             const pieceHeight = 849 / rows;
 
             const image = new Image();
-            image.src = "../../assets/img/<%= pagAtual %>"; // Use uma imagem qualquer
+            image.src = "../../assets/img/1.1.png"; // Use uma imagem qualquer
+            /*image.src = "../../assets/img/<%= pagAtual %>"; */
 
             let pieces = [];
             let draggingPiece = null;

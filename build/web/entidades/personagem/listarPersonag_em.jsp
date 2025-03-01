@@ -95,7 +95,7 @@
                     <ul>
 
                         <li>
-                            <a href="<%= request.getContextPath() %>/entidades/aluno/listarAluno.jsp"">
+                            <a href="<%= request.getContextPath() %>/entidades/aluno/listarAluno.jsp">
                                 <span class="fa fa-user"></span>
                                 <span>ALUNOS</span>
                             </a>

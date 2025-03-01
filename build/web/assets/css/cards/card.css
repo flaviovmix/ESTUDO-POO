@@ -26,6 +26,7 @@
   top: 85px;   
   left: 2px; 
   width: 55px;
+  z-index: 7;
 }
 
 .area-img-info .info-personagem h2 {

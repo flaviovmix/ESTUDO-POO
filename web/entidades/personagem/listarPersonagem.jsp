@@ -81,22 +81,23 @@
 
   <main>
 
-    <div id="estilo-card" class="ativo">
+    <div id="estilo-card">
       <div  class="container-xl">
 
           <% while (resultado.next()) {%>
         <div class="card">
           <div class="area-img-info">
-            <img class="img-principal ativo" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
+
+            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa" %>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
             <div class="info-personagem">
                 
                 
-               <img class="bandeira" src="../../assets/img/<%= resultado.getString("pais")%>.png" /> 
+               <img class="bandeira <%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/<%= resultado.getString("pais")%>.png" /> 
               <div class="img-nome-personagem">
-                  <img class="imagem-circular" src="../../assets/img/r-<%= resultado.getString("nome_arquivo")%>.png" alt="">
+                  <img class="imagem-circular <%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/r-<%= resultado.getString("nome_arquivo")%>.png" alt="">
                 <div>
                   <h2><%= resultado.getString("nome")%></h2>
-                  <p><%= resultado.getString("nacionalidade")%></p>
+                  <p class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" ><%= resultado.getString("nacionalidade")%></p>
                 </div>
               </div>
 
@@ -165,8 +166,8 @@
           </div>
           <div class="area-links">
             <div class="area-estrelas">
-                <a href="#">
-                    <img class="preto-branco" src="../../assets/img/emoje-1.png" />
+                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp">
+                    <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/emoje-1.png" />
                 </a>
                 <a href="#">
                     <img class="preto-branco" src="../../assets/img/emoje-2.png" />
