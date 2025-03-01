@@ -70,8 +70,8 @@
     <ul>
       <div class="container-nav">
         <div>
-          <li><a href="#home">NOVO REGISTRO</a></li>
           <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/aluno/listarAluno.jsp">ALUNOS</a></li>
+          <li><a class="nav-link active" aria-current="page" href="#">GAROTAS</a></li>
           <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/todo/todoist.jsp">TO-DO</a></li>
         </div>
         <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
@@ -166,20 +166,20 @@
           </div>
           <div class="area-links">
             <div class="area-estrelas">
-                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp">
+                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.1">
                     <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/emoje-1.png" />
                 </a>
-                <a href="#">
-                    <img class="preto-branco" src="../../assets/img/emoje-2.png" />
+                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.2">
+                    <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/emoje-2.png" />
                 </a>
                 <a href="#">
-                    <img class="preto-branco" src="../../assets/img/emoje-3.png" />
+                    <img class="inativo" src="../../assets/img/emoje-3.png" />
                 </a>                
                 <a href="#">
-                    <img class="preto-branco" src="../../assets/img/emoje-4.png" />
+                    <img class="inativo" src="../../assets/img/emoje-4.png" />
                 </a>                     
                 <a href="#">
-                    <img class="preto-branco" src="../../assets/img/emoje-5.png" />
+                    <img class="inativo" src="../../assets/img/emoje-5.png" />
                 </a>                     
             </div>
           </div>
@@ -228,8 +228,8 @@
     function mudarTema() {
       const linkTema = document.getElementById("tema");
       const btnTema = document.getElementById("btnTema");
-      const temaClaro = "../assets/css/temas/variaveis-tema-claro.css";
-      const temaEscuro = "../assets/css/temas/variaveis-tema-escuro.css";
+      const temaClaro = "../../assets/css/temas/variaveis-tema-claro.css";
+      const temaEscuro = "../../assets/css/temas/variaveis-tema-escuro.css";
 
       if (linkTema.getAttribute("href") === temaClaro) {
         // Muda para tema escuro

@@ -5,12 +5,15 @@
   --cor-body-background: #222;
 
   --cor-fundo-barra-menu: #333;
+  
+  --font-barra-menu: Raleway,Arial,Helvetica,sans-serif;
   --cor-bordas: #444;
   --cor-sombras: #c5c5c5;
 
   --cor-background-botao-menu: #222;
-  --cor-texto-botao-menu: #ddd;
-  --cor-background-botao-menu-hover: #ccc;
+  --cor-texto-botao-menu: #e5e5e5;
+  --cor-texto-botao-menu-hover: #222;
+  --cor-background-botao-menu-hover: #fff;
 
   --cor-background-link-menu-hover: #555;
   --cor-texto-link-menu: #eee;

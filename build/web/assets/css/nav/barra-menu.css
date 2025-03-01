@@ -60,4 +60,5 @@
 
 #btnTema:hover {
   background-color: var(--cor-background-botao-menu-hover);
+  color: var(--cor-texto-botao-menu-hover);  
 }

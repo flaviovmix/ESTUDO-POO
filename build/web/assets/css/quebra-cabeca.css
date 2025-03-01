@@ -6,6 +6,7 @@
 }
 
 .estrelas {
+    display: flex;
     position: absolute;
     top: 50px;
     left: 10px;
@@ -29,3 +30,9 @@
     object-position: top;
     border: 2px solid #222;
 }
+
+.estrelas img {
+    width: 70px;
+    padding: 10px;
+}
+

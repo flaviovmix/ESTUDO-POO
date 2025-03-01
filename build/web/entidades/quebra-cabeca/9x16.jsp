@@ -8,6 +8,7 @@
         <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../assets/css/style.css" rel="stylesheet">   
         <link href="../../assets/css/quebra-cabeca.css" rel="stylesheet">     
+        <link rel="stylesheet" href="../../assets/css/ajustes/ativo-inativo.css">      
 
         <style>
             body {
@@ -45,29 +46,36 @@
 
         <div id="game-container">
             <!--<h3 class="agradecimento-completar text-center"  id="timer">85:00</h3>-->
-<!--  
+
             <div class="estrelas">
-                <spam class="spam-estrelas-positiva"> <% out.print(icones.estrela()); %> </spam>
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela());%> </spam>
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela()); %> </spam>
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela());%> </spam>                
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela());%> </spam>                
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela());%> </spam>                
-                <spam class="spam-estrelas-neutra"> <% out.print(icones.estrela());%> </spam>                
+                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.1">
+                    <img class="emoje" src="../../assets/img/emoje-1.png" />
+                </a>   
+                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.2">
+                    <img class="emoje" src="../../assets/img/emoje-2.png" />
+                </a>  
+                <a href="#">
+                    <img class="inativo" src="../../assets/img/emoje-3.png" />
+                </a>                
+                <a href="#">
+                    <img class="inativo" src="../../assets/img/emoje-4.png" />
+                </a>                     
+                <a href="#">
+                    <img class="inativo" src="../../assets/img/emoje-5.png" />
+                </a>                 
             </div>        
 
-
-                      <div class="estrelas">
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-01.png"> </spam>
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-02.png"> </spam>
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-03.png"> </spam>
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-04.png"> </spam>
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-05.png"> </spam>                
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-06.png"> </spam>                
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-07.png"> </spam>                
-                            <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-08.png"> </spam>                
-                        </div>     -->
+            <!--  
+                                  <div class="estrelas">
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-01.png"> </spam>
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-02.png"> </spam>
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-03.png"> </spam>
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-04.png"> </spam>
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-05.png"> </spam>                
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-06.png"> </spam>                
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-07.png"> </spam>                
+                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-08.png"> </spam>                
+                                    </div>     -->
 
             <canvas id="puzzleCanvas" width="1440" height="870"></canvas>
 
@@ -79,13 +87,13 @@
             const ctx = canvas.getContext("2d");
 
             const rows = 2; // Número de linhas
-            const cols = 2; // Número de colunas
+            const cols = 1; // Número de colunas
             const pieceWidth = 478 / cols;
             const pieceHeight = 849 / rows;
 
             const image = new Image();
-            image.src = "../../assets/img/1.1.png"; // Use uma imagem qualquer
-            /*image.src = "../../assets/img/<%= pagAtual %>"; */
+            //image.src = "../../assets/img/1.1.png";  Use uma imagem qualquer
+            image.src = "../../assets/img/<%= pagAtual%>.png";
 
             let pieces = [];
             let draggingPiece = null;
