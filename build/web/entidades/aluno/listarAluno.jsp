@@ -113,7 +113,7 @@
 
                         <%
                             try {
-                                      AlunoDAO alunoDAO = new AlunoDAO(); 
+                                    AlunoDAO alunoDAO = new AlunoDAO(); 
                                     String busca;
                                     if (infoBuscada == "") {
                                         busca = "SELECT * FROM aluno ORDER BY nome";

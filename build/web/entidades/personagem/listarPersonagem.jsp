@@ -6,7 +6,6 @@
 
 <%
     request.setCharacterEncoding("UTF-8");
-
     String pagAtual = request.getParameter("pag");
     int paginaAtual = (pagAtual != null && !pagAtual.isEmpty()) ? Integer.parseInt(pagAtual) : 1;
 
@@ -27,12 +26,15 @@
             "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
     );
 
-    int limitePorPagina = 14;
-    int offset = (paginaAtual - 1) * limitePorPagina;
+//    int limitePorPagina = 14;
+//    int offset = (paginaAtual - 1) * limitePorPagina;
 
-    comando = conecta.prepareStatement("SELECT * FROM personagem ORDER BY codigo LIMIT ? OFFSET ?;");
-    comando.setInt(1, limitePorPagina);
-    comando.setInt(2, offset);
+//    comando = conecta.prepareStatement("SELECT * FROM personagem ORDER BY codigo LIMIT ? OFFSET ?;");
+    comando = conecta.prepareStatement("SELECT p.*, f.* FROM personagem_fase pf JOIN personagem p ON pf.personagem = p.codigo"
+            + " JOIN fase f ON pf.fase = f.codigo ORDER BY p.codigo, f.codigo;");
+    
+//    comando.setInt(1, limitePorPagina);
+//    comando.setInt(2, offset);
 
     //comando = conecta.prepareStatement("select * from personagem limit 8");
     ResultSet resultado = comando.executeQuery();
@@ -88,6 +90,7 @@
         <div class="card">
           <div class="area-img-info">
 
+            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa" %>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
             <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa" %>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
             <div class="info-personagem">
                 
@@ -166,21 +169,35 @@
           </div>
           <div class="area-links">
             <div class="area-estrelas">
-                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.1">
-                    <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/emoje-1.png" />
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_1") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-1.png" />
                 </a>
-                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.2">
-                    <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo" %>" src="../../assets/img/emoje-2.png" />
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_2") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-2.png" />
                 </a>
-                <a href="#">
-                    <img class="inativo" src="../../assets/img/emoje-3.png" />
-                </a>                
-                <a href="#">
-                    <img class="inativo" src="../../assets/img/emoje-4.png" />
-                </a>                     
-                <a href="#">
-                    <img class="inativo" src="../../assets/img/emoje-5.png" />
-                </a>                     
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_3") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-3.png" />
+                </a>  
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_4") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-4.png" />
+                </a>  
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_5") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-5.png" />
+                </a>                 
             </div>
           </div>
         </div>
