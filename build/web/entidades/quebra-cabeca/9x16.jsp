@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="funcoes.icones"%>
 <html>
     <head>
@@ -42,9 +46,61 @@
         <%@ include file="../../interface/navbar.html" %>
         <%
             String pagAtual = request.getParameter("pag");
+            String personagem = request.getParameter("personagem");
+            
+            String numero = pagAtual;
+            String[] partes = numero.split("\\."); // Divide em "1" e "2"
+            int parteDaFase = Integer.parseInt(partes[1]); // Converte "2" para inteiro
+            int peronsagem = Integer.parseInt(partes[0]); // Converte "2" para inteiro
+            int proximoPersonagem = peronsagem + 1;
+            peronsagem = (peronsagem == 14) ? 14 : peronsagem + 1;  
+            int parteDaFaseOriginal = parteDaFase; 
+            parteDaFase = (parteDaFase == 5) ? 5 : parteDaFase + 1;  
+
+            System.out.println(parteDaFase); 
+
+           System.out.println(parteDaFase);        
+            
+        //CONECTAR COM O BANDO DE DADOS
+        Connection conecta;
+        PreparedStatement atualizaParteDaFase;
+        PreparedStatement atualizaPersonagem;
+        PreparedStatement atualizaFaseProximoPersonagem;
+
+        Class.forName("org.postgresql.Driver");
+        conecta = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"
+        );
+
+        atualizaParteDaFase = conecta.prepareStatement(
+                "UPDATE fase SET quebra_cabeca_" + parteDaFase + "_ativo = 1 WHERE codigo = (" +
+                " SELECT pf.fase FROM personagem_fase pf JOIN personagem p ON pf.personagem = p.codigo " +
+                " WHERE p.codigo = " + personagem + ");"
+        );
+        
+        atualizaPersonagem = conecta.prepareStatement(
+            "UPDATE personagem SET ativo = 1 WHERE codigo = " + peronsagem + ";"
+        );      
+        
+        atualizaFaseProximoPersonagem = conecta.prepareStatement(
+            "UPDATE fase SET quebra_cabeca_1_ativo = 1 WHERE codigo = ("
+          + " SELECT pf.fase FROM personagem_fase pf JOIN personagem p ON "
+          + "pf.personagem = p.codigo WHERE p.codigo = " + proximoPersonagem + ");"
+        );     
+
+        atualizaParteDaFase.executeUpdate(); 
+        
+//        parteDaFase = (parteDaFase == 5) ? atualizaPersonagem.executeUpdate() : 5 ;
+        if (parteDaFaseOriginal == 5) {
+            atualizaPersonagem.executeUpdate();
+            atualizaFaseProximoPersonagem.executeUpdate();
+        }
+         
+
         %>
 
         <div id="game-container">
+            <%= peronsagem%> - <%= parteDaFase%>
             <!--<h3 class="agradecimento-completar text-center"  id="timer">85:00</h3>-->
 
             <div class="estrelas">
@@ -86,7 +142,7 @@
             const canvas = document.getElementById("puzzleCanvas");
             const ctx = canvas.getContext("2d");
 
-            const rows = 2; // Número de linhas
+            const rows = 1; // Número de linhas
             const cols = 1; // Número de colunas
             const pieceWidth = 478 / cols;
             const pieceHeight = 849 / rows;

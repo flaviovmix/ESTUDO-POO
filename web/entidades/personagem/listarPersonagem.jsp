@@ -75,6 +75,8 @@
           <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/aluno/listarAluno.jsp">ALUNOS</a></li>
           <li><a class="nav-link active" aria-current="page" href="#">GAROTAS</a></li>
           <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/todo/todoist.jsp">TO-DO</a></li>
+          <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/personagem/zerarPersonagem.jsp">ZERAR TODAS</a></li>
+          <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/personagem/AtivarTodosPersonagem.jsp">ATIVAR TODAS</a></li>
         </div>
         <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
       </div>
@@ -170,34 +172,34 @@
           <div class="area-links">
             <div class="area-estrelas">
                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) 
-                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_1") 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_1") + "&personagem=" +resultado.getString("codigo") 
                             : "#" %>">
                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-1.png" />
                 </a>
                 
                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) 
-                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_2") 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_2") + "&personagem=" +resultado.getString("codigo") 
                             : "#" %>">
                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-2.png" />
                 </a>
                 
                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) 
-                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_3") 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_3") + "&personagem=" +resultado.getString("codigo") 
                             : "#" %>">
                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-3.png" />
-                </a>  
+                </a>
                 
                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) 
-                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_4") 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_4") + "&personagem=" +resultado.getString("codigo") 
                             : "#" %>">
                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-4.png" />
-                </a>  
+                </a> 
                 
                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) 
-                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_5") 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_5") + "&personagem=" +resultado.getString("codigo") 
                             : "#" %>">
                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-5.png" />
-                </a>                 
+                </a>               
             </div>
           </div>
         </div>
