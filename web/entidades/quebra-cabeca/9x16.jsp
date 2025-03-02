@@ -51,7 +51,7 @@
             String numero = pagAtual;
             String[] partes = numero.split("\\."); // Divide em "1" e "2"
             int parteDaFase = Integer.parseInt(partes[1]); // Converte "2" para inteiro
-            int peronsagem = Integer.parseInt(partes[0]); // Converte "2" para inteiro
+            int peronsagem = Integer.parseInt(partes[0]); // Converte "1" para inteiro
             int proximoPersonagem = peronsagem + 1;
             peronsagem = (peronsagem == 14) ? 14 : peronsagem + 1;  
             int parteDaFaseOriginal = parteDaFase; 
@@ -66,6 +66,7 @@
         PreparedStatement atualizaParteDaFase;
         PreparedStatement atualizaPersonagem;
         PreparedStatement atualizaFaseProximoPersonagem;
+        PreparedStatement personagemAtualCompleto;
 
         Class.forName("org.postgresql.Driver");
         conecta = DriverManager.getConnection(
@@ -97,41 +98,64 @@
         }
          
 
+        personagemAtualCompleto = conecta.prepareStatement(
+            "SELECT p.*, f.* FROM personagem_fase pf JOIN personagem p ON pf.personagem = p.codigo"
+          + " JOIN fase f ON pf.fase = f.codigo WHERE p.codigo = " + personagem + " ORDER BY p.codigo, f.codigo;"
+        );   
+
+        ResultSet resultado = personagemAtualCompleto.executeQuery();
+
         %>
 
         <div id="game-container">
-            <%= peronsagem%> - <%= parteDaFase%>
             <!--<h3 class="agradecimento-completar text-center"  id="timer">85:00</h3>-->
-
+<% while (resultado.next()) {%>
             <div class="estrelas">
-                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.1">
-                    <img class="emoje" src="../../assets/img/emoje-1.png" />
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_1") + "&personagem=" +resultado.getString("codigo") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-1.png" />
+                </a>
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_2") + "&personagem=" +resultado.getString("codigo") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-2.png" />
+                </a>
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_3") + "&personagem=" +resultado.getString("codigo") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-3.png" />
+                </a>
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_4") + "&personagem=" +resultado.getString("codigo") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-4.png" />
+                </a> 
+                
+                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) 
+                            ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_5") + "&personagem=" +resultado.getString("codigo") 
+                            : "#" %>">
+                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-5.png" />
                 </a>   
-                <a href="<%= request.getContextPath() %>/entidades/quebra-cabeca/9x16.jsp?pag=1.2">
-                    <img class="emoje" src="../../assets/img/emoje-2.png" />
-                </a>  
-                <a href="#">
-                    <img class="inativo" src="../../assets/img/emoje-3.png" />
-                </a>                
-                <a href="#">
-                    <img class="inativo" src="../../assets/img/emoje-4.png" />
-                </a>                     
-                <a href="#">
-                    <img class="inativo" src="../../assets/img/emoje-5.png" />
-                </a>                 
-            </div>        
+            </div>  
+<%}%>                    
+
 
             <!--  
-                                  <div class="estrelas">
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-01.png"> </spam>
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-02.png"> </spam>
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-03.png"> </spam>
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-04.png"> </spam>
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-05.png"> </spam>                
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-06.png"> </spam>                
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-07.png"> </spam>                
-                                        <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-08.png"> </spam>                
-                                    </div>     -->
+            <div class="estrelas">
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-01.png"> </spam>
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-02.png"> </spam>
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-03.png"> </spam>
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-04.png"> </spam>
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-05.png"> </spam>                
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-06.png"> </spam>                
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-07.png"> </spam>                
+                  <spam> <img class="img-fase" src="assets/img/SAVANA/SAVANA-08.png"> </spam>                
+              </div>     
+            -->
 
             <canvas id="puzzleCanvas" width="1440" height="870"></canvas>
 
