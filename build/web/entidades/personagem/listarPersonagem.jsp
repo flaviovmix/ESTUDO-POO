@@ -84,14 +84,49 @@
                     <a href="#">GAROTAS</a>
                     <ul class="submenu">
                         <li><hr></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp?capa=<%= thumb%>">ZERAR TODAS</a></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp?capa=<%= thumb%>">ATIVAR TODAS</a></li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp?capa=<%= thumb%>">
+                                <span>ZERAR TODAS</span>
+                                <img class="emoje-menu inativo" src="../../assets/img/emoje-2.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp?capa=<%= thumb%>">
+                                <span>ATIVAR TODAS</span>
+                                <img class="emoje-menu" src="../../assets/img/emoje-5.png" />
+                            </a>
+                        </li>
                         <li><hr></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=1">CAPA COMO FASE 1</a></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=2">CAPA COMO FASE 2</a></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=3">CAPA COMO FASE 3</a></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=4">CAPA COMO FASE 4</a></li>
-                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=5">CAPA COMO FASE 5</a></li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=1">
+                                <span>CAPA COMO FASE 1</span>
+                                <img class="emoje-menu" src="../../assets/img/emoje-1.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=2">
+                                <span>CAPA COMO FASE 2</span>
+                                <img class="emoje-menu" src="../../assets/img/emoje-2.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=3">
+                                <span>CAPA COMO FASE 3</span>
+                                <img class="emoje-menu" src="../../assets/img/emoje-3.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=4">
+                                <span>CAPA COMO FASE 4</span>
+                                <img class="emoje-menu" src="../../assets/img/emoje-4.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=5">
+                                <span>CAPA COMO FASE 5</span>
+                                <img class="emoje-menu" src="../../assets/img/emoje-5.png" />
+                            </a>
+                        </li>
                         <li><hr></li>
                     </ul>
                 </li>
