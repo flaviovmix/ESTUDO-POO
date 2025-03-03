@@ -163,8 +163,23 @@
                     <% while (resultado.next()) {%>
                     <div class="card">
                         <div class="area-img-info">
-
-                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.<%= thumb%>.png" alt="imagem da personagem 1" />
+                            <%
+                                if ("0".equals(resultado.getString("ativo"))) { 
+                                    thumb = "1";
+                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_1_ativo")))) { 
+                                    thumb = request.getParameter("capa");
+                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_2_ativo")))) { 
+                                    thumb = request.getParameter("capa");
+                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_3_ativo")))) { 
+                                    thumb = request.getParameter("capa");
+                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_4_ativo")))) { 
+                                    thumb = request.getParameter("capa");
+                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_5_ativo")))) { 
+                                    thumb = request.getParameter("capa");
+                                } 
+                            %>
+                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.<%= thumb%>.png" 
+                                 alt="imagem da personagem 1" />
 <!--                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />-->
                             <div class="info-personagem">
 
