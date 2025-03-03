@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/cards/card.css</file>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/cards/table.css</file>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/cards/ancoras.css</file>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/ajustes/ativo-inativo.css</file>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/card-fase.css</file>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/cards/info.css</file>
+            <file>file:/C:/ESTUDO-POO/web/entidades/aluno/listarAluno.jsp</file>
+            <file>file:/C:/ESTUDO-POO/web/entidades/quebra-cabeca/9x16.jsp</file>
             <file>file:/C:/ESTUDO-POO/web/entidades/personagem/listarPersonagem.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/entidades/personagem/ativarTodosPersonagem.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/entidades/personagem/zerarPersonagem.jsp</file>
         </group>
     </open-files>
 </project-private>
