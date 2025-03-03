@@ -3,7 +3,7 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%
-    
+    String thumb = request.getParameter("capa");
     Connection conecta;
     PreparedStatement comando;
 
@@ -26,6 +26,6 @@
 
     comando.executeUpdate();
 
-response.sendRedirect("listarPersonagem.jsp");
+    response.sendRedirect("listarPersonagem.jsp?capa=" + thumb);
 
 %>

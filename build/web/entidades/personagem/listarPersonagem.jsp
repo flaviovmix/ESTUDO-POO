@@ -6,6 +6,9 @@
 
 <%
     request.setCharacterEncoding("UTF-8");
+    
+    String thumb = request.getParameter("capa");
+    
     String pagAtual = request.getParameter("pag");
     int paginaAtual = (pagAtual != null && !pagAtual.isEmpty()) ? Integer.parseInt(pagAtual) : 1;
 
@@ -65,23 +68,57 @@
         <link rel="stylesheet" href="../../assets/css/ajustes/ativo-inativo.css">      
 
         <link rel="stylesheet" href="../assets/css/ajustes/responsividade.css">
+        
+
     </head>
 
     <body>
         <nav class="menu-principal">
-            <ul>
-                <div class="container-nav">
-                    <div>
-                        <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/aluno/listarAluno.jsp">ALUNOS</a></li>
-                        <li><a class="nav-link active" aria-current="page" href="#">GAROTAS</a></li>
-                        <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/todo/todoist.jsp">TO-DO</a></li>
-                        <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp">ZERAR TODAS</a></li>
-                        <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp">ATIVAR TODAS</a></li>
-                    </div>
-                    <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
-                </div>
+
+            <ul class="menu">
+                <li>
+                    <a href="<%= request.getContextPath()%>/entidades/aluno/listarAluno.jsp">ALUNOS</a>
+
+                </li>
+                <li>
+                    <a href="#">GAROTAS</a>
+                    <ul class="submenu">
+                        <li><hr></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp?capa=<%= thumb%>">ZERAR TODAS</a></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp?capa=<%= thumb%>">ATIVAR TODAS</a></li>
+                        <li><hr></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=1">CAPA COMO FASE 1</a></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=2">CAPA COMO FASE 2</a></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=3">CAPA COMO FASE 3</a></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=4">CAPA COMO FASE 4</a></li>
+                        <li><a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp?capa=5">CAPA COMO FASE 5</a></li>
+                        <li><hr></li>
+                    </ul>
+                </li>
+                <li><a href="<%= request.getContextPath()%>/entidades/todo/todoist.jsp">TO-DO</a>
+                </li>
             </ul>
+
+            <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
         </nav>
+        <!--        <nav class="menu-principal menu">
+                    <ul>
+                        <div class="container-nav">
+                            <div>
+                                <li>
+                                    <a class="nav-link" href="<%= request.getContextPath()%>/entidades/aluno/listarAluno.jsp">ALUNOS</a>                          
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="#">GAROTAS</a>
+                                </li>
+                                <li><a class="nav-link" href="<%= request.getContextPath()%>/entidades/todo/todoist.jsp">TO-DO</a></li>
+                                <li><a class="nav-link" href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp">ZERAR TODAS</a></li>
+                                <li><a class="nav-link" href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp">ATIVAR TODAS</a></li>
+                            </div>
+                            
+                        </div>
+                    </ul>
+                </nav>-->
 
         <main>
 
@@ -92,8 +129,8 @@
                     <div class="card">
                         <div class="area-img-info">
 
-                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
-                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />
+                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.<%= thumb%>.png" alt="imagem da personagem 1" />
+<!--                            <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.png" alt="imagem da personagem 1" />-->
                             <div class="info-personagem">
 
 
@@ -172,32 +209,32 @@
                         <div class="area-links">
                             <div class="area-estrelas">
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo"))
-                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_1") + "&personagem=" + resultado.getString("codigo")
-                        : "#"%>">
+                                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_1") + "&personagem=" + resultado.getString("codigo")
+                                        : "#"%>">
                                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/emoje-1.png" />
                                 </a>
 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo"))
-                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_2") + "&personagem=" + resultado.getString("codigo")
-                        : "#"%>">
+                                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_2") + "&personagem=" + resultado.getString("codigo")
+                                        : "#"%>">
                                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/emoje-2.png" />
                                 </a>
 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo"))
-                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_3") + "&personagem=" + resultado.getString("codigo")
-                        : "#"%>">
+                                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_3") + "&personagem=" + resultado.getString("codigo")
+                                        : "#"%>">
                                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/emoje-3.png" />
                                 </a>
 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo"))
-                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_4") + "&personagem=" + resultado.getString("codigo")
-                        : "#"%>">
+                                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_4") + "&personagem=" + resultado.getString("codigo")
+                                        : "#"%>">
                                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/emoje-4.png" />
                                 </a> 
 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo"))
-                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_5") + "&personagem=" + resultado.getString("codigo")
-                        : "#"%>">
+                                        ? request.getContextPath() + "/entidades/quebra-cabeca/9x16.jsp?pag=" + resultado.getString("quebra_cabeca_5") + "&personagem=" + resultado.getString("codigo")
+                                        : "#"%>">
                                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/emoje-5.png" />
                                 </a>               
                             </div>
@@ -242,9 +279,9 @@
                 </table>
             </div>
         </main>
-            <footer>
-               <p> TODOS OS DIREITOS RESERVADOS</p>
-            </footer>
+        <footer>
+            <p> TODOS OS DIREITOS RESERVADOS</p>
+        </footer>
         <script>
             function mudarTema() {
                 const linkTema = document.getElementById("tema");
