@@ -57,6 +57,7 @@
         <link rel="stylesheet" href="../../assets/css/ajustes/normalize.css">
 
         <link rel="stylesheet" href="../../assets/css/nav/barra-menu.css">
+        <link rel="stylesheet" href="../../assets/css/nav/footer.css">
         <link rel="stylesheet" href="../../assets/css/cards/card.css">
         <link rel="stylesheet" href="../../assets/css/cards/table.css">
         <link rel="stylesheet" href="../../assets/css/cards/ancoras.css">
@@ -75,7 +76,7 @@
                         <li><a class="nav-link active" aria-current="page" href="#">GAROTAS</a></li>
                         <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/todo/todoist.jsp">TO-DO</a></li>
                         <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp">ZERAR TODAS</a></li>
-                        <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/personagem/AtivarTodosPersonagem.jsp">ATIVAR TODAS</a></li>
+                        <li><a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp">ATIVAR TODAS</a></li>
                     </div>
                     <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
                 </div>
@@ -241,7 +242,9 @@
                 </table>
             </div>
         </main>
-
+            <footer>
+               <p> TODOS OS DIREITOS RESERVADOS</p>
+            </footer>
         <script>
             function mudarTema() {
                 const linkTema = document.getElementById("tema");

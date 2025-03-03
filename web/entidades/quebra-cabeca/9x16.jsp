@@ -104,9 +104,28 @@
         );   
 
         ResultSet resultado = personagemAtualCompleto.executeQuery();
-
+        
+        String divisaoPecasRows = "1";
+        String divisaoPecasCols = "2";
+        
+//        if (parteDaFaseOriginal == 1) {
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "3";
+//        } else if (parteDaFaseOriginal == 2) {
+//            divisaoPecasRows = "5";
+//            divisaoPecasCols = "4";            
+//        } else if (parteDaFaseOriginal == 3) {
+//            divisaoPecasRows = "6";
+//            divisaoPecasCols = "5";     
+//        } else if (parteDaFaseOriginal == 4) {
+//            divisaoPecasRows = "7";
+//            divisaoPecasCols = "6";     
+//        } else if (parteDaFaseOriginal == 5) {
+//            divisaoPecasRows = "8";
+//            divisaoPecasCols = "7";     
+//        }
         %>
-
+        
         <div id="game-container">
             <!--<h3 class="agradecimento-completar text-center"  id="timer">85:00</h3>-->
 <% while (resultado.next()) {%>
@@ -160,14 +179,13 @@
             <canvas id="puzzleCanvas" width="1440" height="870"></canvas>
 
 
-        </div>
 
         <script>
             const canvas = document.getElementById("puzzleCanvas");
             const ctx = canvas.getContext("2d");
 
-            const rows = 1; // Número de linhas
-            const cols = 1; // Número de colunas
+            const rows = <%= divisaoPecasRows%>; // Número de linhas
+            const cols = <%= divisaoPecasCols%>; // Número de colunas
             const pieceWidth = 478 / cols;
             const pieceHeight = 849 / rows;
 
