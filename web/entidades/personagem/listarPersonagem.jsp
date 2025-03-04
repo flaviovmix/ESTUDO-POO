@@ -8,6 +8,7 @@
     request.setCharacterEncoding("UTF-8");
     
     String thumb = request.getParameter("capa");
+    String capaURL = request.getParameter("capa");
     
     String pagAtual = request.getParameter("pag");
     int paginaAtual = (pagAtual != null && !pagAtual.isEmpty()) ? Integer.parseInt(pagAtual) : 1;
@@ -164,19 +165,365 @@
                     <div class="card">
                         <div class="area-img-info">
                             <%
+                                thumb = "1";
                                 if ("0".equals(resultado.getString("ativo"))) { 
                                     thumb = "1";
-                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_1_ativo")))) { 
-                                    thumb = request.getParameter("capa");
-                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_2_ativo")))) { 
-                                    thumb = request.getParameter("capa");
-                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_3_ativo")))) { 
-                                    thumb = request.getParameter("capa");
-                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_4_ativo")))) { 
-                                    thumb = request.getParameter("capa");
-                                } else if (("1".equals(resultado.getString("ativo"))) && ("1".equals(resultado.getString("quebra_cabeca_5_ativo")))) { 
-                                    thumb = request.getParameter("capa");
+                                }
+                                
+                                
+                                //PARA 5 ATIVOS
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("5".equals(capaURL))
+                                    ){ 
+                                    thumb = "5";
                                 } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("4".equals(capaURL))
+                                    ){ 
+                                    thumb = "4";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("3".equals(capaURL))
+                                    ){ 
+                                    thumb = "3";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("2".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("1".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+
+                                
+                                
+                                
+                                
+                                
+                                //PARA 4 ATIVOS
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("5".equals(capaURL))
+                                    ){ 
+                                    thumb = "4";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("4".equals(capaURL))
+                                    ){ 
+                                    thumb = "4";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("3".equals(capaURL))
+                                    ){ 
+                                    thumb = "3";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("2".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("1".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+
+
+                                //PARA 3 ATIVOS
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("5".equals(capaURL))
+                                    ){ 
+                                    thumb = "3";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("4".equals(capaURL))
+                                    ){ 
+                                    thumb = "3";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("3".equals(capaURL))
+                                    ){ 
+                                    thumb = "3";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("2".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("1".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+
+
+
+                                //PARA 2 ATIVOS
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("5".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("4".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("3".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("2".equals(capaURL))
+                                    ){ 
+                                    thumb = "2";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("1".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("1".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+
+                                //PARA 1 ATIVOS
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("5".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("4".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("3".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("2".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+                                if (
+                                    ( 
+                                        ("1".equals(resultado.getString("quebra_cabeca_1_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_2_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_3_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_4_ativo"))) &&
+                                        ("0".equals(resultado.getString("quebra_cabeca_5_ativo"))) 
+                                    ) && 
+                                        ("1".equals(capaURL))
+                                    ){ 
+                                    thumb = "1";
+                                } 
+
+
+
+
+
+
+
+
+
+
+                                    
+                                   
                             %>
                             <img class="img-principal <%= "1".equals(resultado.getString("ativo")) ? " img-principal-ativa" : "img-principal-inativa"%>" src="../../assets/img/<%= resultado.getString("nome_arquivo")%>.<%= thumb%>.png" 
                                  alt="imagem da personagem 1" />
