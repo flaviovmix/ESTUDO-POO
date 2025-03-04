@@ -22,6 +22,19 @@
   background: var(--cor-background-info-personagem);
 }
 
+.info-personagem .ecolha-thumb {
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-bottom: -30px;
+    padding-right: 10px;
+    gap: 5px;
+}
+
+.info-personagem .ecolha-thumb img {
+    width: 25px;
+}
+
 .area-img-info:hover .info-personagem {
   right: 0;
 }
