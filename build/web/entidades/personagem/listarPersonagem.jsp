@@ -429,21 +429,36 @@
                             <div class="info-personagem">
 
                                 <div class="ecolha-thumb">
-                                    <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaThumb.jsp?personagem=<%= resultado.getString("codigo")%>&thumb=1">
-                                        <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo"%>" src="../../assets/img/t-1.png" /> 
-                                    </a>
-                                    <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaThumb.jsp?personagem=<%= resultado.getString("codigo")%>&thumb=2">
-                                        <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo"%>" src="../../assets/img/t-2.png" /> 
-                                    </a>
-                                    <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaThumb.jsp?personagem=<%= resultado.getString("codigo")%>&thumb=3">
-                                        <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo"%>" src="../../assets/img/t-3.png" /> 
-                                    </a>
-                                    <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaThumb.jsp?personagem=<%= resultado.getString("codigo")%>&thumb=4">
-                                        <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo"%>" src="../../assets/img/t-4.png" /> 
-                                    </a>
-                                    <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaThumb.jsp?personagem=<%= resultado.getString("codigo")%>&thumb=5">
-                                        <img class="<%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo"%>" src="../../assets/img/t-5.png" /> 
-                                    </a>
+                                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo"))
+                                        ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=1"
+                                        : "#"%>">
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/t-1.png" />
+                                </a>
+                                
+                                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo"))
+                                        ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=2"
+                                        : "#"%>">
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/t-2.png" />
+                                </a>    
+                                
+                                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo"))
+                                        ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=3"
+                                        : "#"%>">
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/t-3.png" />
+                                </a>
+
+                                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo"))
+                                        ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=4"
+                                        : "#"%>">
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/t-4.png" />
+                                </a>
+                                
+                                <a href="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo"))
+                                        ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=5"
+                                        : "#"%>">
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "inativo"%>" src="../../assets/img/t-5.png" />
+                                </a>                                
+ 
                                 </div>
                                 <img class="bandeira <%= "1".equals(resultado.getString("ativo")) ? " ativo" : "inativo"%>" src="../../assets/img/<%= resultado.getString("pais")%>.png" /> 
                                 <div class="img-nome-personagem">
