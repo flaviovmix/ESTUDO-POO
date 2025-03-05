@@ -3,11 +3,21 @@
 }
 
 .inativo {
-    filter: grayscale(100%);
+    /*filter: blur(2px) grayscale(100%);*/
+    filter: blur(5px) grayscale(100%);
+}
+
+.emoje-inativo {
+  filter: blur(2px) grayscale(100%);
+}
+
+.bolinhas-inativo {
+  filter: blur(3px) grayscale(100%);
 }
 
 .area-img-info .img-principal-inativa {
-  filter: blur(0px) grayscale(100%);
+  /*filter: blur(4px) grayscale(100%);*/
+  filter: blur(2px) grayscale(100%);
   transition: transform .85s ease, filter .85s ease, opacity .85s ease; 
 }
 
