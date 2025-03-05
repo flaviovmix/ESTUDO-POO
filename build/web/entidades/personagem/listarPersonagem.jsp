@@ -150,9 +150,15 @@
                             <%
                                 String thumb = resultado.getString("thumb");
                                 String emojeInativo = "emoje-inativo";
+                                String bolinhaInativa = "bolinhas-inativas";
                                 if ("0".equals(resultado.getString("ativo"))) {
                                     thumb = "1";
                                 }
+                                
+                                if ("1".equals(resultado.getString("ativo"))) {
+                                    emojeInativo = "emoje-para-card-ativo";
+                                    bolinhaInativa = "bolinha-para-card-ativo";
+                                }                                
 
                                 //PARA 1 ATIVOS
                                 if (( 
@@ -419,58 +425,7 @@
 
 
 
-                                //PARA EMOJE
-                                if (( 
-                                     "1".equals(resultado.getString("quebra_cabeca_1_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_2_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_3_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_4_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_5_ativo"))
-                                    ) && "5".equals(thumb)) {
-                                    thumb = "1";
-                                }
-
-                                
-                                if (( 
-                                     "1".equals(resultado.getString("quebra_cabeca_1_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_2_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_3_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_4_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_5_ativo"))
-                                    ) && "4".equals(thumb)) {
-                                    thumb = "1";
-                                }
-                                
-                                if (( 
-                                     "1".equals(resultado.getString("quebra_cabeca_1_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_2_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_3_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_4_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_5_ativo"))
-                                    ) && "3".equals(thumb)) {
-                                    thumb = "1";
-                                }
-                                
-                                if (( 
-                                     "1".equals(resultado.getString("quebra_cabeca_1_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_2_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_3_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_4_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_5_ativo"))
-                                    ) && "2".equals(thumb)) {
-                                    thumb = "1";
-                                }
-                                
-                                if (( 
-                                     "1".equals(resultado.getString("quebra_cabeca_1_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_2_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_3_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_4_ativo")) &&
-                                     "0".equals(resultado.getString("quebra_cabeca_5_ativo"))
-                                    ) && "1".equals(thumb)) {
-                                    thumb = "1";
-                                }
-                                
+                               
 
                                 
 
@@ -488,31 +443,31 @@
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo"))
                                         ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=1"
                                         : "#"%>">
-                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : "bolinhas-inativo"%>" src="../../assets/img/t-1.png" />
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_1_ativo")) ? "ativo" : bolinhaInativa %>" src="../../assets/img/t-1.png" />
                                 </a>
                                 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo"))
                                         ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=2"
                                         : "#"%>">
-                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : "bolinhas-inativo"%>" src="../../assets/img/t-2.png" />
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_2_ativo")) ? "ativo" : bolinhaInativa %>" src="../../assets/img/t-2.png" />
                                 </a>    
                                 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo"))
                                         ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=3"
                                         : "#"%>">
-                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : "bolinhas-inativo"%>" src="../../assets/img/t-3.png" />
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_3_ativo")) ? "ativo" : bolinhaInativa %>" src="../../assets/img/t-3.png" />
                                 </a>
 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo"))
                                         ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=4"
                                         : "#"%>">
-                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : "bolinhas-inativo"%>" src="../../assets/img/t-4.png" />
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_4_ativo")) ? "ativo" : bolinhaInativa %>" src="../../assets/img/t-4.png" />
                                 </a>
                                 
                                 <a href="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo"))
                                         ? request.getContextPath() + "/entidades/personagem/atualizaThumb.jsp?personagem=" + resultado.getString("codigo") + "&thumb=5"
                                         : "#"%>">
-                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "bolinhas-inativo"%>" src="../../assets/img/t-5.png" />
+                                    <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : bolinhaInativa %>" src="../../assets/img/t-5.png" />
                                 </a>                                
  
                                 </div>

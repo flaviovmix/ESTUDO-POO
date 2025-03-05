@@ -11,8 +11,13 @@
   filter: blur(2px) grayscale(100%);
 }
 
-.bolinhas-inativo {
-  filter: blur(3px) grayscale(100%);
+.emoje-para-card-ativo, .bolinha-para-card-ativo {
+  filter: blur(0px) grayscale(100%);
+}
+
+
+.bolinhas-inativas {
+  filter: blur(4px) grayscale(100%);
 }
 
 .area-img-info .img-principal-inativa {
