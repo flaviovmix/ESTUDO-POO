@@ -105,8 +105,9 @@
 
         ResultSet resultado = personagemAtualCompleto.executeQuery();
         
-        String divisaoPecasRows = "1";
-        String divisaoPecasCols = "2";
+        String divisaoPecasRows = "3";
+        String divisaoPecasCols = "3";
+        String distanciaParaEncaixe = "10";
         
 //        if (parteDaFaseOriginal == 1) {
 //            divisaoPecasRows = "4";
@@ -235,8 +236,8 @@
                 isInCorrectPosition() {
                     // Verifica se a peça está dentro de uma área de 50px da posição correta
                     return (
-                            Math.abs(this.canvasX - (this.imgX + 485)) < 50 &&
-                            Math.abs(this.canvasY - (this.imgY + 10)) < 50
+                            Math.abs(this.canvasX - (this.imgX + 485)) < <%= distanciaParaEncaixe %> &&
+                            Math.abs(this.canvasY - (this.imgY + 10)) < <%= distanciaParaEncaixe %>
                             );
                 }
 
