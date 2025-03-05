@@ -51,6 +51,27 @@
     <body>
         <%@ include file="../../interface/navbar.html" %>
         <%
+        String divisaoPecasRows = "1";
+        String divisaoPecasCols = "1";
+        String distanciaParaEncaixe = "10";
+        
+//        if (parteDaFaseOriginal == 1) {
+//            divisaoPecasRows = "2";
+//            divisaoPecasCols = "2";
+//        } else if (parteDaFaseOriginal == 2) {
+//            divisaoPecasRows = "3";
+//            divisaoPecasCols = "2";            
+//        } else if (parteDaFaseOriginal == 3) {
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "3";     
+//        } else if (parteDaFaseOriginal == 4) {
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "3";     
+//        } else if (parteDaFaseOriginal == 5) {
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "4";     
+//        }            
+            
             String pagAtual = request.getParameter("pag");
             String personagem = request.getParameter("personagem");
             
@@ -111,26 +132,7 @@
 
         ResultSet resultado = personagemAtualCompleto.executeQuery();
         
-        String divisaoPecasRows = "3";
-        String divisaoPecasCols = "2";
-        String distanciaParaEncaixe = "10";
-        
-//        if (parteDaFaseOriginal == 1) {
-//            divisaoPecasRows = "2";
-//            divisaoPecasCols = "2";
-//        } else if (parteDaFaseOriginal == 2) {
-//            divisaoPecasRows = "3";
-//            divisaoPecasCols = "2";            
-//        } else if (parteDaFaseOriginal == 3) {
-//            divisaoPecasRows = "4";
-//            divisaoPecasCols = "3";     
-//        } else if (parteDaFaseOriginal == 4) {
-//            divisaoPecasRows = "4";
-//            divisaoPecasCols = "3";     
-//        } else if (parteDaFaseOriginal == 5) {
-//            divisaoPecasRows = "4";
-//            divisaoPecasCols = "4";     
-//        }
+
         %>
         
         <div id="game-container">
@@ -180,8 +182,9 @@
                 <img class="imagem-circular d-block mx-auto" src="../../assets/img/r-<%= resultado.getString("nome_arquivo")%>.png" alt="Imagem">
                 
                 <p class="mt-3">
-                    Concluí mais uma fase e estou muito orgulhosa por ter conseguido finalizar essa etapa! Agora, mal posso esperar para nos encontrarmos novamente!
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 </p>
+                <strong><%= resultado.getString("nome")%></strong>
             </div>
             <div class="modal-footer d-flex justify-content-center"> <!-- Centraliza os botões -->
                 <button type="button" class="btn btn-primary w-50" data-bs-dismiss="modal">Você foi incríel!</button>
