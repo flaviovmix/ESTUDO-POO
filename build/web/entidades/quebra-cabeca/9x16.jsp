@@ -9,6 +9,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+        
+        
+        
         <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../assets/css/style.css" rel="stylesheet">   
         <link href="../../assets/css/quebra-cabeca.css" rel="stylesheet">     
@@ -106,24 +112,24 @@
         ResultSet resultado = personagemAtualCompleto.executeQuery();
         
         String divisaoPecasRows = "3";
-        String divisaoPecasCols = "3";
+        String divisaoPecasCols = "2";
         String distanciaParaEncaixe = "10";
         
 //        if (parteDaFaseOriginal == 1) {
-//            divisaoPecasRows = "4";
-//            divisaoPecasCols = "3";
+//            divisaoPecasRows = "2";
+//            divisaoPecasCols = "2";
 //        } else if (parteDaFaseOriginal == 2) {
-//            divisaoPecasRows = "5";
-//            divisaoPecasCols = "4";            
+//            divisaoPecasRows = "3";
+//            divisaoPecasCols = "2";            
 //        } else if (parteDaFaseOriginal == 3) {
-//            divisaoPecasRows = "6";
-//            divisaoPecasCols = "5";     
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "3";     
 //        } else if (parteDaFaseOriginal == 4) {
-//            divisaoPecasRows = "7";
-//            divisaoPecasCols = "6";     
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "3";     
 //        } else if (parteDaFaseOriginal == 5) {
-//            divisaoPecasRows = "8";
-//            divisaoPecasCols = "7";     
+//            divisaoPecasRows = "4";
+//            divisaoPecasCols = "4";     
 //        }
         %>
         
@@ -161,6 +167,32 @@
                     <img class="<%= "1".equals(resultado.getString("quebra_cabeca_5_ativo")) ? "ativo" : "inativo" %>" src="../../assets/img/emoje-5.png" />
                 </a>   
             </div>  
+                    
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="faseConcluidaModal" tabindex="-1" aria-labelledby="faseConcluidaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-center"> <!-- Centraliza o conteúdo -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="faseConcluidaLabel">Parabéns!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img class="imagem-circular d-block mx-auto" src="../../assets/img/r-<%= resultado.getString("nome_arquivo")%>.png" alt="Imagem">
+                
+                <p class="mt-3">
+                    Concluí mais uma fase e estou muito orgulhosa por ter conseguido finalizar essa etapa! Agora, mal posso esperar para nos encontrarmos novamente!
+                </p>
+            </div>
+            <div class="modal-footer d-flex justify-content-center"> <!-- Centraliza os botões -->
+                <button type="button" class="btn btn-primary w-50" data-bs-dismiss="modal">Você foi incríel!</button>
+                <!--<a href="#" class="btn btn-primary ms-2 w-50">Continuar</a>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+                  
+                    
 <%}%>                    
 
 
@@ -327,15 +359,55 @@
 
             canvas.addEventListener("mouseup", () => {
                 if (draggingPiece) {
-                    // Verifica se a peça foi colocada no lugar certo
                     if (draggingPiece.isInCorrectPosition()) {
-                        draggingPiece.lockPosition(); // Fixar a peça no lugar
+                        draggingPiece.lockPosition();
                     }
                     draggingPiece = null;
                     drawAll();
+                    checkCompletion(); 
+                    let todasNoLugar = pieces.every(piece => piece.locked);
+                    if (todasNoLugar) {
+                        mostrarModal(); // Exibe o modal
+                    }                    // Verifica se todas as peças foram encaixadas
                 }
             });
+            
+function showConfetti() {
+    // Cria confetes no centro da tela
+    confetti({
+        particleCount: 1000,    // Número de confetes
+        angle: 0,             // Ângulo de dispersão
+        spread: 700,            // Espalhamento dos confetes
+        origin: { x: 0.5, y: 0.0 }  // Posição inicial no centro
+    });
+}
+
+function checkCompletion() {
+    let allLocked = pieces.every(piece => piece.locked); // Verifica se todas as peças estão travadas
+
+    if (allLocked) {
+        // Exibe o modal Bootstrap
+        var modal = new bootstrap.Modal(document.getElementById('faseConcluidaModal'));
+        modal.show();
+
+        // Chama a função de confete
+        showConfetti();
+
+        // Adiciona evento ao botão "Continuar"
+        document.getElementById("continuarBtn").addEventListener("click", function () {
+            fetch("<%= request.getContextPath() %>/passarDeFase.jsp?personagem=<%= personagem %>&parte=<%= parteDaFaseOriginal %>")
+            .then(response => response.text())
+            .then(data => {
+                console.log("Fase atualizada:", data);
+                window.location.href = "<%= request.getContextPath() %>/proximaFase.jsp?personagem=<%= personagem %>";
+            })
+            .catch(error => console.error("Erro ao passar de fase:", error));
+        });
+    }
+}
+           
         </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
