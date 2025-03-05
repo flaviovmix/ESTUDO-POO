@@ -76,9 +76,9 @@
             String personagem = request.getParameter("personagem");
             
             String numero = pagAtual;
-            String[] partes = numero.split("\\."); // Divide em "1" e "2"
-            int parteDaFase = Integer.parseInt(partes[1]); // Converte "2" para inteiro
-            int peronsagem = Integer.parseInt(partes[0]); // Converte "1" para inteiro
+            String[] partes = numero.split("\\.");
+            int parteDaFase = Integer.parseInt(partes[1]);
+            int peronsagem = Integer.parseInt(partes[0]);
             int proximoPersonagem = peronsagem + 1;
             peronsagem = (peronsagem == 14) ? 14 : peronsagem + 1;  
             int parteDaFaseOriginal = parteDaFase; 
@@ -175,19 +175,19 @@
     <div class="modal-dialog">
         <div class="modal-content text-center"> <!-- Centraliza o conteúdo -->
             <div class="modal-header">
-                <h5 class="modal-title" id="faseConcluidaLabel">Parabéns!</h5>
+                <h5 class="modal-title" id="faseConcluidaLabel">Parabéns Jogador!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <img class="imagem-circular d-block mx-auto" src="../../assets/img/r-<%= resultado.getString("nome_arquivo")%>.png" alt="Imagem">
                 
                 <p class="mt-3">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    <%= resultado.getString("agradecimento_fase"+parteDaFase)%>
                 </p>
                 <strong><%= resultado.getString("nome")%></strong>
             </div>
             <div class="modal-footer d-flex justify-content-center"> <!-- Centraliza os botões -->
-                <button type="button" class="btn btn-primary w-50" data-bs-dismiss="modal">Você foi incríel!</button>
+                <button type="button" class="btn btn-primary w-50" data-bs-dismiss="modal"><%= resultado.getString("texto_botao"+parteDaFase)%></button>
                 <!--<a href="#" class="btn btn-primary ms-2 w-50">Continuar</a>-->
             </div>
         </div>
