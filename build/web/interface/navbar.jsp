@@ -1,8 +1,3 @@
-<%
-    String thumb = request.getParameter("capa");
-%>
-
-
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-none d-md-block fixed-top mb-5" aria-label="Third navbar example">
     <div class="container-xl">
         <a class="navbar-brand" href="http://localhost:8081/ESTUDO-POO/index.jsp">SISTEMA</a>
@@ -18,7 +13,7 @@
                 </li>       
                            
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/personagem/listarPersonagem.jsp?capa="<%= thumb%>>GAROTAS</a>
+                    <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/personagem/listarPersonagem.jsp">GAROTAS</a>
                 </li>    
                 
                 <li class="nav-item">
