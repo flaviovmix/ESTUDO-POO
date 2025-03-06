@@ -35,6 +35,7 @@
             <div class="form signupForm">
                 <form>
                     <h3>Cadastrar</h3>
+                    <input type="text" placeholder="Primeiro nome ou apelido" />
                     <input type="text" placeholder="usuário" />
                     <input type="text" placeholder="e-mail" />
                     <input type="password" placeholder="senha" />
