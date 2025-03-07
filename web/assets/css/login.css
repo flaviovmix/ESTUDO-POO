@@ -10,19 +10,35 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #03a9f4;    
-    transition: .5s;
+    background: #03a9f4;   
+    background-image: url('../img/login-left.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: auto 100%; /* Altura 100%, largura ajustável automaticamente */
+    background-position: right center; /* Alinha à esquerda e centraliza verticalmente */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página (opcional) */
+    transition: .6s;
 }
 
 body.ativa {
     background: #f43648;
+    background-image: url('../img/login-right.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: auto 100%; /* Altura 100%, largura ajustável automaticamente */
+    background-position: left center; /* Alinha à esquerda e centraliza verticalmente */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página (opcional) */
 }
 
 .container {
     position: relative;
     width: 800px;
-    height: 500px;
     margin: 20px;
+    margin-left: -380px;
+    height: 500px;
+    transition: 1s;
+}
+
+.container.ativa {
+    margin-left: 380px;
 }
 
 .container .blueBg {
@@ -33,7 +49,8 @@ body.ativa {
     top: 40px;
     width: 100%;
     height: 420px;
-    background: rgba(255,255,255,0.2);
+    /*background: rgba(255,255,255,0.2);*/
+    background: rgba(0,0,0,0.2);
     box-shadow: 0 5px 45px rgba(0,0,0,0.15);
 }
 
@@ -75,7 +92,7 @@ body.ativa {
     width: 50%;
     height: 100%;
     background: #fff;
-    transition: 0.5s ease;
+    transition: 1.25s ease;
     z-index: 1;
 }
 
@@ -88,7 +105,7 @@ body.ativa {
     left 0;
     width: 100%;
     padding: 50px;
-    transition: 0.5s;
+    transition: 1.2s;
 }
 
 .formBx .signinForm {

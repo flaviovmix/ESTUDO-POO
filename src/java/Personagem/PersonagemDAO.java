@@ -15,7 +15,7 @@ public class PersonagemDAO {
     
     public void adicionarPersonagem(PersonagemBean personagem) throws SQLException {
         PreparedStatement ps;
-        ps = db.getConn().prepareStatement(
+        ps = db.getConexao().prepareStatement(
             "INSERT INTO personagem "
                     + "(nome, nome_arquivo, nacionalidade, pais, orientacao_sexual, estado_civil, data_nascimento, quant_filhos, peso, quadil, cintura, busto, altura, hobbie, ultimo_acesso, obs) VALUES "
                     + "(   ?,           ?,             ?,    ?,                ?,            ?,               ?,            ?,     ?,      ?,      ?,     ?,      ?,      ?,             ?,   ?)"

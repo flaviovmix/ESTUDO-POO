@@ -6,13 +6,13 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-    private Connection conn; 
+    private Connection conexao; 
     
     public void abrirConexao() {
 
         try {
             Class.forName("org.postgresql.Driver");
-            this.conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"); 
+            this.conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/banco", "postgres", "masterkey"); 
         } catch (Exception e) {
             //System.out.println(e.getMessage());
             e.printStackTrace();
@@ -21,19 +21,19 @@ public class Conexao {
     
     public void fecharConexao() throws SQLException {
         try {
-            this.conn.close(); 
+            this.conexao.close(); 
         } catch (Exception e) {
 //            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
 
-    public Connection getConn() {
-        return conn;
+    public Connection getConexao() {
+        return conexao;
     }
 
-    public void setConn(Connection conn) {
-        this.conn = conn;
+    public void setConexao(Connection conexao) {
+        this.conexao = conexao;
     }
 
 }

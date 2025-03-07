@@ -11,11 +11,11 @@ import java.util.List;
 
 public class TarefaDAO {
     
-    private Conexao db;
+    private Conexao dataBase;
     
     public TarefaDAO() {
-        db = new Conexao();
-        db.abrirConexao();
+        dataBase = new Conexao();
+        dataBase.abrirConexao();
     }
     
     public void adicionarTarefa(TarefaBean tarefa) throws SQLException {
@@ -27,7 +27,7 @@ public class TarefaDAO {
                 + "(tarefa, data, ativa) VALUES (?,?,?)"
             );
         
-        ps = db.getConn().prepareStatement(sql);
+        ps = dataBase.getConexao().prepareStatement(sql);
         ps.setString(1, tarefa.getTarefa());
         ps.setDate(2, (Date) tarefa.getData());
         ps.setInt(3, tarefa.getAtiva());
@@ -39,7 +39,7 @@ public class TarefaDAO {
         try {
             String sql = busca;
 
-            PreparedStatement ps = db.getConn().prepareStatement(sql);
+            PreparedStatement ps = dataBase.getConexao().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -64,7 +64,7 @@ public class TarefaDAO {
         sql = ("UPDATE todo set ativa = ? WHERE codigo=?"
             );
         
-            ps = db.getConn().prepareStatement(sql);
+            ps = dataBase.getConexao().prepareStatement(sql);
             ps.setInt(1, tarefa.getAtiva());
             ps.setInt(2, tarefa.getCodigo());
             ps.executeUpdate();        
@@ -76,7 +76,7 @@ public class TarefaDAO {
         String sql;
         sql = ("DELETE FROM todo WHERE codigo=?");
         
-        ps = db.getConn().prepareStatement(sql);
+        ps = dataBase.getConexao().prepareStatement(sql);
         ps.setInt(1, codigo);       
         ps.executeUpdate();  
      

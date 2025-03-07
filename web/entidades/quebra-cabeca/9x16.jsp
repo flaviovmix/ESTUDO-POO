@@ -51,9 +51,9 @@
     <body>
         <%@ include file="../../interface/navbar.html" %>
         <%
-        String divisaoPecasRows = "1";
-        String divisaoPecasCols = "1";
-        String distanciaParaEncaixe = "10";
+        String divisaoPecasRows = "10";
+        String divisaoPecasCols = "10";
+        String distanciaParaEncaixe = "1000";
         
 //        if (parteDaFaseOriginal == 1) {
 //            divisaoPecasRows = "2";

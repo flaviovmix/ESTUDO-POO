@@ -26,7 +26,7 @@ public class AlunoDAO {
                 + "(   ?,       ?,   ?,        ?,     ?,   ?,      ?,      ?,        ?,      ?,   ?)"
             );
 
-        ps = db.getConn().prepareStatement(sql);
+        ps = db.getConexao().prepareStatement(sql);
         ps.setString(1, aluno.getNome());
         ps.setString(2, aluno.getConjuge());
         ps.setString(3, aluno.getCpf());
@@ -52,7 +52,7 @@ public class AlunoDAO {
                 + "WHERE codigo=?"
             );
         
-            ps = db.getConn().prepareStatement(sql);
+            ps = db.getConexao().prepareStatement(sql);
             ps.setString(1, aluno.getNome());
             ps.setString(2, aluno.getConjuge());
             ps.setString(3, aluno.getCpf());
@@ -75,7 +75,7 @@ public class AlunoDAO {
         try {
             String sql = busca;
 
-            PreparedStatement ps = db.getConn().prepareStatement(sql);
+            PreparedStatement ps = db.getConexao().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -100,7 +100,7 @@ public class AlunoDAO {
         String sql;
         sql = ("DELETE FROM aluno WHERE codigo=?");
         
-        ps = db.getConn().prepareStatement(sql);
+        ps = db.getConexao().prepareStatement(sql);
         ps.setInt(1, codigo);       
         ps.executeUpdate();  
      

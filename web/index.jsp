@@ -50,16 +50,19 @@
         const signinBtn = document.querySelector('.signinBtn');
         const signupBtn = document.querySelector('.signupBtn');
         const formBx = document.querySelector('.formBx');
+        const container = document.querySelector('.container');
         const body = document.querySelector('body');
         
         signupBtn.onclick = function() {
             formBx.classList.add('ativa');
             body.classList.add('ativa');
+            container.classList.add('ativa');
         }
         
         signinBtn.onclick = function() {
             formBx.classList.remove('ativa');
             body.classList.remove('ativa');
+            container.classList.remove('ativa');
         }        
     </script>
 </body>

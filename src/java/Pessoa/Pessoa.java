@@ -4,9 +4,16 @@ import java.time.LocalTime;
 import java.util.Date;
 
 public class Pessoa {
+
     private int ativo;
     private int codigo;
     private String nome;
+    
+    private String primeiroNomeOuApelido;
+    private String usuario;
+    private String email;
+    private String password;
+    
     private String nomeArquivo;
     private String nacionalidade;
     private String pais;
@@ -25,7 +32,6 @@ public class Pessoa {
     private Date data_do_registro;
     private String telefone;
     private double salario;
-    private String email;
     private String cep;
     private String cidade;
     private String estado;
@@ -68,6 +74,38 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getPrimeiroNomeOuApelido() {
+        return primeiroNomeOuApelido;
+    }
+
+    public void setPrimeiroNomeOuApelido(String primeiroNomeOuApelido) {
+        this.primeiroNomeOuApelido = primeiroNomeOuApelido;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNomeArquivo() {
@@ -212,14 +250,6 @@ public class Pessoa {
 
     public void setSalario(double salario) {
         this.salario = salario;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getCep() {
