@@ -27,17 +27,14 @@
                             id="input-item" type="text"
                             name="nome"
                             placeholder="Digite o item que deseja"
-                            value="Novo ítem"
                             />
                         <input 
                             class="input-item w-75" 
                             type="date"  
                             id="data" 
                             name="data" 
-                            placeholder="" 
-                            value="1982-11-05" 
                             required
-                            />
+                        />
                         <div class="check-ativo-inativo">
                             <input type="checkbox" 
                                    name="concluido" value="1"/>
@@ -212,6 +209,14 @@
                 location.href = "editarTodo.jsp?codigo=" + codigo + "&ativa=" + ativa;
             }
         </script>
+        
+        <script>
+            // Obtém a data atual no formato YYYY-MM-DD
+            let hoje = new Date().toISOString().split('T')[0];
+
+            // Define o valor do input com a data atual
+            document.getElementById("data").value = hoje;
+        </script>        
 
     </body>
 </html>

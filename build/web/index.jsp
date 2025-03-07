@@ -12,35 +12,65 @@
     <div class="container">
         <div class="blueBg">
             <div class="box signin">
+                <span>🍑</span>
                 <h2>Já tem uma conta?</h2>
-                <button class="signinBtn">Sign in</button>
+                <h3>Não vejo a hora de te desarivar!</h3>                
+                <button class="signinBtn">Loge já! 😈</button>
             </div>
             <div class="box signup">
+                <span>🔥</span>
                 <h2>Ainda não tem uma conta?</h2>
-                <button class="signupBtn">Sign up</button>
+                <h3>Estamos te esperando!</h3>
+                <button class="signupBtn">Cadastrar agora ✨</button>
             </div>            
         </div>
         <div class="formBx">
             <div class="form signinForm">
-                <form>
+                <form method="post" action="entidades/usuario/loginUsuario.jsp">
                     <h3>Logar</h3>
-                    <input type="text" placeholder="usuário" />
-                    <input type="password" placeholder="senha" />
-                    <!--<input type="submit" value="Login" />-->
-                    <a class="btn-logar" href="<%= request.getContextPath() %>/entidades/personagem/listarPersonagem.jsp">Logar</a>
+                    <input 
+                        type="text" 
+                        name="usuario"
+                        placeholder="usuário" 
+                    />
+                    <input 
+                        type="password" 
+                        name="senha"
+                        placeholder="senha" 
+                     />
+                    <button class="btn-logar" type="submit">Logar</button>
                     <a class="link" href="#">Esqueci minha senha</a>
                 </form>
             <div>
                 
             <div class="form signupForm">
-                <form>
+                <form method="post" action="entidades/usuario/salvarUsuario.jsp">
                     <h3>Cadastrar</h3>
-                    <input type="text" placeholder="Primeiro nome ou apelido" />
-                    <input type="text" placeholder="usuário" />
-                    <input type="text" placeholder="e-mail" />
-                    <input type="password" placeholder="senha" />
-                    <input type="password" placeholder="confirma a senha" />
-                    <a class="btn-logar" href="<%= request.getContextPath() %>/entidades/personagem/listarPersonagem.jsp">Cadastrar</a>
+                    <input 
+                        type="text"
+                        name="primeiroNomeOuApelido"
+                        placeholder="Primeiro nome ou apelido" 
+                    />
+                    
+                    <input 
+                        type="text" 
+                        name="usuario"
+                        placeholder="usuário" 
+                    />
+                    
+                    <input 
+                        type="text"
+                        name="email"
+                        placeholder="e-mail" 
+                    />
+                    <input 
+                        type="password"
+                        name="senha"
+                        placeholder="senha" 
+                    />
+
+                    <button class="btn-logar" type="submit">Cadastrar</button>
+
                 </form>
             <div>                
         </div>
