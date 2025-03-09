@@ -21,7 +21,7 @@ body {
 
 body.ativa {
     background: #f43648;
-    background-image: url('../img/login-right.png'); /* Substitua pelo caminho da sua imagem */
+    background-image: url('../img/login-right2.png'); /* Substitua pelo caminho da sua imagem */
     background-size: auto 100%; /* Altura 100%, largura ajustável automaticamente */
     background-position: left center; /* Alinha à esquerda e centraliza verticalmente */
     background-repeat: no-repeat; /* Evita repetição da imagem */
@@ -35,6 +35,26 @@ body.ativa {
     margin-left: -380px;
     height: 500px;
     transition: 1s;
+}
+
+.mensagem-18 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    background: #f8f8f850;
+}
+
+.mensagem-18 span {
+    position: absolute;
+    margin-left: -450px;
+    margin-top: -7px;
+    font-size: 60px;
 }
 
 .container.ativa {
@@ -62,6 +82,14 @@ body.ativa {
     height: 100%;
     justify-content: center;
     align-items: center;
+}
+
+.signinBtn  {
+    width: 260px;
+}
+
+.signupBtn {
+    width: 260px;
 }
 
 .container .blueBg .signup {
