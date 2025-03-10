@@ -155,6 +155,7 @@ body.ativa {
     width: 100%;
     padding: 50px;
     transition: 1.2s;
+    
 }
 
 .formBx .signinForm {
@@ -192,6 +193,8 @@ body.ativa {
     outline: none;
     font-size: 16px;
     border: 1px solid #333;
+    border-radius: 5px;
+    
 }
 
 .formBx .form form .btn-logar {
@@ -214,4 +217,41 @@ body.ativa {
 .formBx .form form .link:hover {
     text-decoration: underline;
 }
+
+
+
+
+
+.input-container {
+    position: relative;
+    width: 300px;
+}
+
+#nomeInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    /*border: 1px solid #ccc;*/
+    border-radius: 5px;
+}
+
+#textoPlaceholder {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+#nomeInput:focus + #textoPlaceholder {
+    display: none;
+}
+
+.apelido {
+    color: #333;
+    font-weight: 600;
+}
+
 

@@ -52,23 +52,23 @@
                         <div class="form signupForm">
                             <form method="post" action="entidades/usuario/salvarUsuario.jsp">
                                 <h3>Cadastrar</h3>
-                                <input 
-                                    type="text"
-                                    name="primeiroNomeOuApelido"
-                                    placeholder="Primeiro nome ou apelido" 
-                                    />
-
+                                <label>diga pra gente seu nome ou apelido</label>
+<div class="input-container">
+    <input 
+        type="text" 
+        name="primeiroNomeOuApelido" 
+        id="nomeInput"
+        onfocus="esconderTexto()" 
+        onblur="mostrarTexto()"
+    />
+    <span id="textoPlaceholder">certeza que é <span class="apelido">Docinho</span> 🍒💦👄</span>
+</div>
                                 <input 
                                     type="text" 
                                     name="usuario"
                                     placeholder="usuário" 
                                     />
 
-                                <input 
-                                    type="text"
-                                    name="email"
-                                    placeholder="e-mail" 
-                                    />
                                 <input 
                                     type="password"
                                     name="senha"
@@ -100,6 +100,41 @@
                                 body.classList.remove('ativa');
                                 container.classList.remove('ativa');
                             }
+                            
+                            
+                            
+                            //faz texto placeholder aparecer ou desaparecer
+function esconderTexto() {
+    // Não esconde o texto no foco, ele só desaparecerá quando o usuário começar a digitar
+    const input = document.getElementById('nomeInput');
+    const textoPlaceholder = document.getElementById('textoPlaceholder');
+    
+    // Exibe o texto do placeholder quando o campo está vazio e não em foco
+    if (input.value === '') {
+        textoPlaceholder.style.display = 'block';
+    }
+}
+
+function esconderQuandoDigitar() {
+    // Esconde o texto quando o usuário começa a digitar
+    const input = document.getElementById('nomeInput');
+    const textoPlaceholder = document.getElementById('textoPlaceholder');
+    
+    // Se o campo não estiver vazio, esconde o texto
+    if (input.value !== '') {
+        textoPlaceholder.style.display = 'none';
+    } else {
+        // Se o campo estiver vazio, mostra o texto novamente
+        textoPlaceholder.style.display = 'block';
+    }
+}
+
+document.getElementById('nomeInput').addEventListener('focus', esconderTexto);
+document.getElementById('nomeInput').addEventListener('blur', esconderTexto);
+document.getElementById('nomeInput').addEventListener('input', esconderQuandoDigitar);
+
+
+                          
                         </script>
                         </body>
                         </html>
