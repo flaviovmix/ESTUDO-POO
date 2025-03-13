@@ -327,39 +327,7 @@
 
                 </div>
             </div>
-
-            <div id="estilo-tabela" class="tabela-personagem oculto">
-                <table>
-
-                    <tr>
-                        <td><strong>Idade:</strong></td>
-                        <td><strong>Busto:</strong></td>
-                        <td><strong>Quadril:</strong></td>
-                        <td><strong>Cintura:</strong></td>
-                        <td><strong>Altura:</strong></td>
-                        <td><strong>Peso:</strong></td>
-                        <td><strong>Obs:</strong></td>
-                    </tr>
-
-                    <script>
-                        for (let i = 2; i < 15; i++) {
-                            document.write(` 
-                      <tr>
-                        <td>22 anos</td>
-                        <td>145 cm</td>
-                        <td>28 cm</td>
-                        <td>36 cm</td>
-                        <td>1,78 cm</td>
-                        <td>58 Kg</td>
-                        <td colspan="2" class="obs">Lorem Ipsum is</td>
-                      </tr>
-                     `);
-
-                        }
-                    </script>
-
-                </table>
-            </div>
+                    
         </main>
         <footer>
             <p> TODOS OS DIREITOS RESERVADOS</p>
