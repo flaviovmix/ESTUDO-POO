@@ -33,9 +33,33 @@
 //    int limitePorPagina = 14;
 //    int offset = (paginaAtual - 1) * limitePorPagina;
 //    comando = conecta.prepareStatement("SELECT * FROM personagem ORDER BY codigo LIMIT ? OFFSET ?;");
-    comando = conecta.prepareStatement("SELECT p.*, f.* FROM personagem_fase pf JOIN personagem p ON pf.personagem = p.codigo"
-            + " JOIN fase f ON pf.fase = f.codigo ORDER BY p.codigo, f.codigo;");
 
+/*
+    comando = conecta.prepareStatement(
+            "SELECT p.*, f.* FROM personagem_fase pf JOIN personagem p ON pf.personagem = p.codigo"
+            + " JOIN fase f ON pf.fase = f.codigo ORDER BY p.codigo, f.codigo");
+*/
+    
+    comando = conecta.prepareStatement(
+             "SELECT p.*, f.* FROM personagem_fase pf " +
+             "JOIN personagem p ON pf.personagem = p.codigo " +
+             "JOIN fase f ON pf.fase = f.codigo " +
+             "WHERE p.codigo IN (1, 3, 4, 10, 6, 8, 12, 13, 14) " +
+             "ORDER BY CASE " +
+             "    WHEN p.codigo = 1 THEN 1 " +
+             "    WHEN p.codigo = 12 THEN 2 " +
+             "    WHEN p.codigo = 4 THEN 3 " +
+             "    WHEN p.codigo = 13 THEN 4 " +
+             "    WHEN p.codigo = 14 THEN 5 " +
+             "    WHEN p.codigo = 8 THEN 6 " +
+             "    WHEN p.codigo = 3 THEN 7 " +
+             "    WHEN p.codigo = 10 THEN 8 " +
+             "    WHEN p.codigo = 6 THEN 9 " +
+             "    ELSE 10 " +
+             "END");
+    
+    
+    
 //    comando.setInt(1, limitePorPagina);
 //    comando.setInt(2, offset);
     //comando = conecta.prepareStatement("select * from personagem limit 8");

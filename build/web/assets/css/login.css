@@ -21,7 +21,7 @@ body {
 
 body.ativa {
     background: #f43648;
-    background-image: url('../img/login-right2.png'); /* Substitua pelo caminho da sua imagem */
+    background-image: url('../img/login-right.png'); /* Substitua pelo caminho da sua imagem */
     background-size: auto 100%; /* Altura 100%, largura ajustável automaticamente */
     background-position: left center; /* Alinha à esquerda e centraliza verticalmente */
     background-repeat: no-repeat; /* Evita repetição da imagem */
