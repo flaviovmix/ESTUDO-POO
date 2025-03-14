@@ -26,6 +26,7 @@ public class Pessoa {
     private String frase_de_efeito;
     
     private String nomeArquivo;
+    private String thumb;
     private String nacionalidade;
     private String pais;
     private String orientacaoSexual;
@@ -197,6 +198,14 @@ public class Pessoa {
 
     public void setFrase_de_efeito(String frase_de_efeito) {
         this.frase_de_efeito = frase_de_efeito;
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
     }
     
     
