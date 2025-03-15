@@ -1,4 +1,4 @@
-<%@page import="Vegetal.CardVegetal"%>
+<%@page import="MontarCard.Card"%>
 <%@page import="Vegetal.VegetalBean"%>
 <%@page import="Vegetal.VegetalDAO"%>
 <%@page import="java.util.List"%>
@@ -93,7 +93,8 @@
                         List<VegetalBean> vegetais = dao.listarVegetais(query);
 
                         for (VegetalBean vegetal : vegetais) {
-                            out.print(CardVegetal.gerarCard(vegetal, diretorio));
+//                            out.print(CardVegetal.gerarCard(vegetal, diretorio));
+                            out.print(Card.DesenharCard(vegetal, diretorio));
                         }
 
                     %>

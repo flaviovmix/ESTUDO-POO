@@ -1,7 +1,9 @@
-package DesenharCard;
+package MontarCard;
+
+import Vegetal.VegetalBean;
 
 public class EscolherThumb {
-        public static String gerarThumb(String diretorio, String pais) {
+        public static String gerarThumb(VegetalBean vegetal, String diretorio) {
         
         StringBuilder sb = new StringBuilder();
 
@@ -27,7 +29,7 @@ public class EscolherThumb {
                         sb.append("<img class='img-principal ativo' src='../../assets/" + diretorio + "/t-5.png' />");
                     sb.append("</a>");
                     
-                    sb.append("<img class='bandeira ativo' src='../../assets/" + diretorio + "/" + pais + ".png' />" );
+                    sb.append("<img class='bandeira ativo' src='../../assets/" + diretorio + "/" + vegetal.getPais() + ".png' />" );
                     
                 sb.append("</div>");
                   
