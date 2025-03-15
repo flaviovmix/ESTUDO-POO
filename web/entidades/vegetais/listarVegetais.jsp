@@ -36,44 +36,75 @@
         <%@ include file="../../interface/navbarAzul.jsp" %>
 
         <main>
-            
+
             <div id="estilo-card">
-                
+
                 <div  class="container-xl">
-                    
-                    
-                            <div class='card'>
-                                <div class='area-img-info'>
-                                    
+
+
+                    <div class='card'>
+                        <div class='area-img-info'>
+
                             <img 
                                 class="img-principal ativo" 
-                                src="../../assets/img/1.1.png"
+                                src="../../assets/img/14.1.png"
                                 alt="imagem da personagem 1"
-                            />                                    
-                                    
+                                />   
+
+                            <div class="info-personagem">
+                                <div class="ecolha-thumb">
+                                    <a href="#">
+                                        <img class="ativo" src="../../assets/img/t-1.png" />
+                                    </a>
+
+                                    <a href="#">
+                                        <img class="ativo" src="../../assets/img/t-2.png" />
+                                    </a>
+
+                                    <a href="#">
+                                        <img class="ativo" src="../../assets/img/t-3.png" />
+                                    </a>
+
+                                    <a href="#">
+                                        <img class="ativo" src="../../assets/img/t-4.png" />
+                                    </a>
+
+                                    <a href="#">
+                                        <img class="ativo" src="../../assets/img/t-5.png" />
+                                        
+                                    </a>
+
                                 </div>
-                            <div class='area-links'></div>
                             </div>
-                    
-                     <%  
+
+                        </div>
+                        <div class='area-links'></div>
+                    </div>
+
+                    <%
+                        
                         String busca = "select * from vegetais";
-                        VegetalDAO dao = new VegetalDAO(); 
+
+                        VegetalDAO dao = new VegetalDAO();
+
                         List<VegetalBean> vegetais = dao.listarVegetais(busca);
+
                         for (VegetalBean vegetal : vegetais) {
                             out.print(CardVegetal.gerarCard(vegetal));
-                        } 
-                     %>
-                    
-                    
-                        
-                    
-                    
+                        }
+
+                    %>
+
+
+
+
+
                 </div>
-                
+
             </div>
-            
+
         </main>
 
-        
+
     </body>
 </html>
