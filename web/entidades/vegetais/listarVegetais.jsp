@@ -47,32 +47,34 @@
 
                             <img 
                                 class="img-principal ativo" 
-                                src="../../assets/img/14.1.png"
+                                src="../../assets/vegetais/14.1.png"
                                 alt="imagem da personagem 1"
                                 />   
 
                             <div class="info-personagem">
                                 <div class="ecolha-thumb">
                                     <a href="#">
-                                        <img class="ativo" src="../../assets/img/t-1.png" />
+                                        <img class="ativo" src="../../assets/vegetais/t-1.png" />
                                     </a>
 
                                     <a href="#">
-                                        <img class="ativo" src="../../assets/img/t-2.png" />
+                                        <img class="ativo" src="../../assets/vegetais/t-2.png" />
                                     </a>
 
                                     <a href="#">
-                                        <img class="ativo" src="../../assets/img/t-3.png" />
+                                        <img class="ativo" src="../../assets/vegetais/t-3.png" />
                                     </a>
 
                                     <a href="#">
-                                        <img class="ativo" src="../../assets/img/t-4.png" />
+                                        <img class="ativo" src="../../assets/vegetais/t-4.png" />
                                     </a>
 
                                     <a href="#">
-                                        <img class="ativo" src="../../assets/img/t-5.png" />
+                                        <img class="ativo" src="../../assets/vegetais/t-5.png" />
                                         
                                     </a>
+                                    
+                                    <img class="bandeira ativo" src="../../assets/vegetais/Brasil.png" /> 
 
                                 </div>
                             </div>
@@ -83,28 +85,24 @@
 
                     <%
                         
-                        String busca = "select * from vegetais";
+                        String query = "select * from vegetais";
+                        String diretorio = "vegetais";
 
                         VegetalDAO dao = new VegetalDAO();
 
-                        List<VegetalBean> vegetais = dao.listarVegetais(busca);
+                        List<VegetalBean> vegetais = dao.listarVegetais(query);
 
                         for (VegetalBean vegetal : vegetais) {
-                            out.print(CardVegetal.gerarCard(vegetal));
+                            out.print(CardVegetal.gerarCard(vegetal, diretorio));
                         }
 
                     %>
-
-
-
-
 
                 </div>
 
             </div>
 
         </main>
-
 
     </body>
 </html>

@@ -3,7 +3,9 @@
     <ul class="menu">
         <li>
             <a href="<%= request.getContextPath()%>/entidades/aluno/listarAluno.jsp">ALUNOS</a>
-
+        </li>
+        <li>
+            <a href="<%= request.getContextPath()%>/entidades/vegetais/listarVegetais.jsp">VEGETAIS</a>
         </li>
         <li>
             <a href="#">GAROTAS</a>

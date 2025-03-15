@@ -9,6 +9,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-sm-0">
 
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<%= request.getContextPath()%>/entidades/vegetais/listarVegetais.jsp">VEGETAIS</a>
+                </li>       
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<%= request.getContextPath() %>/entidades/aluno/listarAluno.jsp">ALUNOS</a>
                 </li>       
                            
