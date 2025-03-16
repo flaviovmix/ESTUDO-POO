@@ -86,15 +86,13 @@
                     <%
                         
                         String query = "select * from vegetais";
-                        String diretorio = "vegetais";
 
                         VegetalDAO dao = new VegetalDAO();
 
                         List<VegetalBean> vegetais = dao.listarVegetais(query);
 
-                        for (VegetalBean vegetal : vegetais) {
-//                            out.print(CardVegetal.gerarCard(vegetal, diretorio));
-                            out.print(Card.DesenharCard(vegetal, diretorio));
+                        for (VegetalBean bean : vegetais) {
+                            out.print(Card.DesenharCard(bean));
                         }
 
                     %>
