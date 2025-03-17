@@ -73,10 +73,19 @@
                                         <img class="ativo" src="../../assets/vegetais/t-5.png" />
                                         
                                     </a>
-                                    
-                                    <img class="bandeira ativo" src="../../assets/vegetais/Brasil.png" /> 
 
                                 </div>
+                                
+                                <img class="bandeira ativo" src="../../assets/vegetais/Brasil.png" /> 
+                                
+                                <div class="img-nome-personagem">
+                                    <img class="imagem-circular ativo" src="../../assets/vegetais/r-1.png" alt="">
+                                    <div>
+                                        <h2 class="ativo">Mandioca</h2>
+                                        <p class="ativo">Brasileira</p>
+                                    </div>
+                                </div>
+                                    
                             </div>
 
                         </div>

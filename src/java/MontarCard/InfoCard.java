@@ -8,10 +8,14 @@ public class InfoCard {
         StringBuilder sb = new StringBuilder();
         
         sb.append("<div class= 'info-personagem'>");
-            sb.append(EscolherThumb.gerarThumb(bean));
+            
+            sb.append(Thumb.gerarThumb(bean));
+            sb.append(Nascionalidade.gerar(bean));
+            
         sb.append("</div>");
-        
         
         return sb.toString();
     }
+    
 }
+

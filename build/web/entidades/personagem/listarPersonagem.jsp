@@ -5,6 +5,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
+    
+    String usuario =  (String)session.getAttribute("usuario");
+    
+    if (usuario == null) {
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
+    }
+    
     request.setCharacterEncoding("UTF-8");
 
     //String thumb = request.getParameter("capa");
@@ -34,29 +41,31 @@
 //    int offset = (paginaAtual - 1) * limitePorPagina;
 //    comando = conecta.prepareStatement("SELECT * FROM personagem ORDER BY codigo LIMIT ? OFFSET ?;");
 
-/*
+
     comando = conecta.prepareStatement(
             "SELECT p.*, f.* FROM personagem_fase pf JOIN personagem p ON pf.personagem = p.codigo"
             + " JOIN fase f ON pf.fase = f.codigo ORDER BY p.codigo, f.codigo");
-*/
+
     
-    comando = conecta.prepareStatement(
-             "SELECT p.*, f.* FROM personagem_fase pf " +
-             "JOIN personagem p ON pf.personagem = p.codigo " +
-             "JOIN fase f ON pf.fase = f.codigo " +
-             "WHERE p.codigo IN (1, 3, 4, 10, 6, 8, 12, 13, 14) " +
-             "ORDER BY CASE " +
-             "    WHEN p.codigo = 1 THEN 1 " +
-             "    WHEN p.codigo = 12 THEN 2 " +
-             "    WHEN p.codigo = 4 THEN 3 " +
-             "    WHEN p.codigo = 13 THEN 4 " +
-             "    WHEN p.codigo = 14 THEN 5 " +
-             "    WHEN p.codigo = 8 THEN 6 " +
-             "    WHEN p.codigo = 3 THEN 7 " +
-             "    WHEN p.codigo = 10 THEN 8 " +
-             "    WHEN p.codigo = 6 THEN 9 " +
-             "    ELSE 10 " +
-             "END");
+//    comando = conecta.prepareStatement(
+//            
+//            
+//             "SELECT p.*, f.* FROM personagem_fase pf " +
+//             "JOIN personagem p ON pf.personagem = p.codigo " +
+//             "JOIN fase f ON pf.fase = f.codigo " +
+//             "WHERE p.codigo IN (1, 3, 4, 10, 6, 8, 12, 13, 14) " +
+//             "ORDER BY CASE " +
+//             "    WHEN p.codigo = 1 THEN 1 " +
+//             "    WHEN p.codigo = 12 THEN 2 " +
+//             "    WHEN p.codigo = 4 THEN 3 " +
+//             "    WHEN p.codigo = 13 THEN 4 " +
+//             "    WHEN p.codigo = 14 THEN 5 " +
+//             "    WHEN p.codigo = 8 THEN 6 " +
+//             "    WHEN p.codigo = 3 THEN 7 " +
+//             "    WHEN p.codigo = 10 THEN 8 " +
+//             "    WHEN p.codigo = 6 THEN 9 " +
+//             "    ELSE 10 " +
+//             "END");
     
     
     
@@ -98,70 +107,8 @@
     </head>
 
     <body>
-        <nav class="menu-principal">
 
-            <ul class="menu">
-                <li>
-                    <a href="<%= request.getContextPath()%>/entidades/aluno/listarAluno.jsp">ALUNOS</a>
-
-                </li>
-                <li>
-                    <a href="#">GAROTAS</a>
-                    <ul class="submenu">
-                        <li><hr></li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/zerarPersonagem.jsp?">
-                                <span>ZERAR TODAS</span>
-                                <img class="emoje-menu inativo" src="../../assets/img/emoje-2.png" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/ativarTodosPersonagem.jsp">
-                                <span>ATIVAR TODAS</span>
-                                <img class="emoje-menu" src="../../assets/img/emoje-5.png" />
-                            </a>
-                        </li>
-                        <li><hr></li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaTodasThumb.jsp?thumb=1">
-                                <span>CAPA COMO FASE 1</span>
-                                <img class="emoje-menu" src="../../assets/img/emoje-1.png" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaTodasThumb.jsp?thumb=2">
-                                <span>CAPA COMO FASE 2</span>
-                                <img class="emoje-menu" src="../../assets/img/emoje-2.png" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaTodasThumb.jsp?thumb=3">
-                                <span>CAPA COMO FASE 3</span>
-                                <img class="emoje-menu" src="../../assets/img/emoje-3.png" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaTodasThumb.jsp?thumb=4">
-                                <span>CAPA COMO FASE 4</span>
-                                <img class="emoje-menu" src="../../assets/img/emoje-4.png" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<%= request.getContextPath()%>/entidades/personagem/atualizaTodasThumb.jsp?thumb=5">
-                                <span>CAPA COMO FASE 5</span>
-                                <img class="emoje-menu" src="../../assets/img/emoje-5.png" />
-                            </a>
-                        </li>
-                        <li><hr></li>
-                    </ul>
-                </li>
-                <li><a href="<%= request.getContextPath()%>/entidades/todo/todoist.jsp">TO-DO</a>
-                </li>
-            </ul>
-
-            <button id="btnTema" onclick="mudarTema()">Mudar para modo escuro</button>
-        </nav>
-
+        <%@ include file="../../interface/navbarAzul.jsp" %>
         <main>
 
             <div id="estilo-card">

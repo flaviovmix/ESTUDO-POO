@@ -13,7 +13,13 @@
     UsuarioDAO dao = new UsuarioDAO();
     UsuarioBean usuarioBanco = dao.buscarUsuario(sql);
 
-    if (usuarioBanco != null && usuarioBanco.getUsuario().equals(usuarioForm) && usuarioBanco.getPassword().equals(senhaForm)) {
+    if (
+            usuarioBanco != null && 
+            usuarioBanco.getUsuario().equals(usuarioForm) && 
+            usuarioBanco.getPassword().equals(senhaForm)
+        ) {
+        HttpSession s = request.getSession();
+        s.setAttribute("usuario", usuarioForm);
         response.sendRedirect(request.getContextPath() + "/entidades/personagem/listarPersonagem.jsp");
     } else {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
