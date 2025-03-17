@@ -85,11 +85,36 @@
                                         <p class="ativo">Brasileira</p>
                                     </div>
                                 </div>
-                                    
+                                    <h3 class="ativo">Solteiro</h3>
                             </div>
 
                         </div>
-                        <div class='area-links'></div>
+                        <div class='area-links'>
+                            
+                            <div class="area-estrelas">
+                                <a href="#">
+                                    <img class="ativo" src="../../assets/img/emoje-1.png" />
+                                </a>
+
+                                <a href="#">
+                                    <img class="ativo" src="../../assets/img/emoje-2.png" />
+                                </a>
+
+                                <a href="#">
+                                    <img class="ativo" src="../../assets/img/emoje-3.png" />
+                                </a>
+
+                                <a href="#">
+                                    <img class="ativo" src="../../assets/img/emoje-4.png" />
+                                </a>
+
+                                <a href="#">
+                                    <img class="ativo" src="../../assets/img/emoje-5.png" />
+                                </a>
+                                
+                            </div>                            
+                            
+                        </div>
                     </div>
 
                     <%
@@ -103,7 +128,7 @@
                         for (VegetalBean bean : vegetais) {
                             out.print(Card.DesenharCard(bean));
                         }
-
+                        
                     %>
 
                 </div>

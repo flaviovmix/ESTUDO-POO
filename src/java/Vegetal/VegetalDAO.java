@@ -43,7 +43,9 @@ public class VegetalDAO {
                 vegetal.setNomeArquivo(rs.getString("nome_arquivo"));
                 vegetal.setDiretorio(rs.getString("diretorio"));
                 vegetal.setThumb(rs.getString("thumb"));
+                vegetal.setDiretorio(rs.getString("diretorio"));
                 vegetal.setPais(rs.getString("pais"));
+                vegetal.setPapel(rs.getString("papel"));
                 
                 vegetais.add(vegetal);
             }

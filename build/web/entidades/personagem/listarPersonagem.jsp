@@ -14,9 +14,6 @@
     
     request.setCharacterEncoding("UTF-8");
 
-    //String thumb = request.getParameter("capa");
-    //String capaURL = request.getParameter("capa");
-
     String pagAtual = request.getParameter("pag");
     int paginaAtual = (pagAtual != null && !pagAtual.isEmpty()) ? Integer.parseInt(pagAtual) : 1;
 
