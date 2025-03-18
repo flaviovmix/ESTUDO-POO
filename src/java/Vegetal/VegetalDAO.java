@@ -46,6 +46,12 @@ public class VegetalDAO {
                 vegetal.setDiretorio(rs.getString("diretorio"));
                 vegetal.setPais(rs.getString("pais"));
                 vegetal.setPapel(rs.getString("papel"));
+                vegetal.setEspecie(rs.getString("especie"));
+                vegetal.setPersonalidade(rs.getString("personalidade"));
+                vegetal.setInteligencia(rs.getInt("inteligencia"));
+                vegetal.setVelocidade(rs.getInt("velocidade"));
+                vegetal.setAcessorio(rs.getString("acessorio"));
+                vegetal.setObs(rs.getString("obs"));
                 
                 vegetais.add(vegetal);
             }

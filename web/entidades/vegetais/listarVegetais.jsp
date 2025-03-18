@@ -46,7 +46,7 @@
                         <div class='area-img-info'>
 
                             <img 
-                                class="img-principal ativo" 
+                                class="img-principal img-principal-ativa" 
                                 src="../../assets/vegetais/14.1.png"
                                 alt="imagem da personagem 1"
                                 />   

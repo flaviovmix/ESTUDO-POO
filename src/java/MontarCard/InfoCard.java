@@ -11,7 +11,7 @@ public class InfoCard {
             
             sb.append(Thumb.gerarThumb(bean));
             sb.append(Nascionalidade.gerar(bean));
-            
+            sb.append(TabelaDados.gerar(bean));
             
             sb.append("<h3 class='ativo'>" + bean.getPapel() + "</h3>");
             

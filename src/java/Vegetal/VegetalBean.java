@@ -8,8 +8,9 @@ public class VegetalBean extends Pessoa.Pessoa{
     private int nivel_energia;
     private int forca;
     private int inteligencia;
+    private int Energia;
     private int velocidade;
-    private int acessorio;
+    private String acessorio;
     private String frase_de_efeito;
     private String diretorio;
     
@@ -66,8 +67,16 @@ public class VegetalBean extends Pessoa.Pessoa{
         return inteligencia;
     }
 
+    public int getEnergia() {
+        return Energia;
+    }
+
     public void setInteligencia(int inteligencia) {
         this.inteligencia = inteligencia;
+    }    
+    
+    public void setEnergia(int Energia) {
+        this.Energia = Energia;
     }
 
     public int getVelocidade() {
@@ -78,11 +87,11 @@ public class VegetalBean extends Pessoa.Pessoa{
         this.velocidade = velocidade;
     }
 
-    public int getAcessorio() {
+    public String getAcessorio() {
         return acessorio;
     }
 
-    public void setAcessorio(int acessorio) {
+    public void setAcessorio(String acessorio) {
         this.acessorio = acessorio;
     }
 
