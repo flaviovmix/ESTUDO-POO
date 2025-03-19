@@ -20,8 +20,10 @@ public class Pessoa {
     private String pais;
     private String orientacaoSexual;
     private String estadoCivil;
+    private String personalidade;
+    
     private double peso;
-    private double quadil;
+    private double quadril;
     private double cintura;
     private double busto;
     private double altura;
@@ -158,6 +160,16 @@ public class Pessoa {
         this.estadoCivil = estadoCivil;
     }
 
+    public String getPersonalidade() {
+        return personalidade;
+    }
+
+    public void setPersonalidade(String personalidade) {
+        this.personalidade = personalidade;
+    }
+    
+    
+
     public double getPeso() {
         return peso;
     }
@@ -166,12 +178,12 @@ public class Pessoa {
         this.peso = peso;
     }
 
-    public double getQuadil() {
-        return quadil;
+    public double getQuadril() {
+        return quadril;
     }
 
-    public void setQuadil(double quadil) {
-        this.quadil = quadil;
+    public void setQuadril(double quadil) {
+        this.quadril = quadil;
     }
 
     public double getCintura() {

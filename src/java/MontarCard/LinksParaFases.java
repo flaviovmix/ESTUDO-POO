@@ -1,10 +1,11 @@
 package MontarCard;
 
-import Vegetal.VegetalBean;
+import GarotasPix.GarotasPixBean;
+//import Vegetal.VegetalBean;
 
 class LinksParaFases {
 
-    public static String gerar(VegetalBean bean) {
+    public static String gerar(GarotasPixBean bean) {
         
         StringBuilder sb = new StringBuilder();
         

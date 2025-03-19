@@ -1,9 +1,10 @@
 package MontarCard;
 
-import Vegetal.VegetalBean;
+import GarotasPix.GarotasPixBean;
+//import Vegetal.VegetalBean;
 
 public class Thumb {
-        public static String gerarThumb(VegetalBean bean) {
+        public static String gerarThumb(GarotasPixBean bean) {
         
         StringBuilder sb = new StringBuilder();
 

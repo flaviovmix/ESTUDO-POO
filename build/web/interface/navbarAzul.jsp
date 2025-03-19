@@ -8,6 +8,9 @@
             <a href="<%= request.getContextPath()%>/entidades/vegetais/listarVegetais.jsp">VEGETAIS</a>
         </li>
         <li>
+            <a href="<%= request.getContextPath()%>/entidades/personagem/ListarGarotasPix.jsp">GAROTAS PIX</a>
+        </li>        
+        <li>
              <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp">GAROTAS</a>
             <ul class="submenu">
                 <li><hr></li>

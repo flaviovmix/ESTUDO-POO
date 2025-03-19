@@ -51,4 +51,5 @@
 .area-img-info .info-personagem h3 {
   font-family: var(--font-principal);
   margin: 10px;
+  font-size: 30px;
 }

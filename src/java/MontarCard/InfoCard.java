@@ -1,9 +1,10 @@
 package MontarCard;
 
-import Vegetal.VegetalBean;
+import GarotasPix.GarotasPixBean;
+//import Vegetal.VegetalBean;
 
 public class InfoCard {
-    public static String InfoCard(VegetalBean bean) {
+    public static String InfoCard(GarotasPixBean bean) {
         
         StringBuilder sb = new StringBuilder();
         
@@ -13,7 +14,9 @@ public class InfoCard {
             sb.append(Nascionalidade.gerar(bean));
             sb.append(TabelaDados.gerar(bean));
             
-            sb.append("<h3 class='ativo'>" + bean.getPapel() + "</h3>");
+            sb.append("<h3 class='ativo'>")
+                .append(bean.getTatuagem())
+              .append("</h3>");
             
         sb.append("</div>");
         

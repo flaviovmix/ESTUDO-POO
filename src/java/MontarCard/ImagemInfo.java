@@ -1,9 +1,10 @@
 package MontarCard;
 
-import Vegetal.VegetalBean;
+import GarotasPix.GarotasPixBean;
+//import Vegetal.VegetalBean;
 
 public class ImagemInfo {
-    public static String imgInfo(VegetalBean bean) {
+    public static String imgInfo(GarotasPixBean bean) {
             
         StringBuilder sb = new StringBuilder();
         sb.append("<div class= 'area-img-info'>");
@@ -16,8 +17,4 @@ public class ImagemInfo {
         return sb.toString();
                     
     }
-    
-
-    
-    
 }

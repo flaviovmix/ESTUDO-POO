@@ -1,10 +1,12 @@
 package MontarCard;
 
-import Vegetal.VegetalBean;
+import GarotasPix.GarotasPixBean;
+//import Vegetal.VegetalBean;
 
 public class Card {
     
-    public static String DesenharCard(VegetalBean bean) {
+    //public static String DesenharCard(VegetalBean bean) {
+    public static String DesenharCard(GarotasPixBean bean) {
         //SE FOR CRIAR UM CAST AQUI PARA NÃO CHEGAR SOMENTE VEGETA
         //PRECISO APRENDER A FAZER
         StringBuilder sb = new StringBuilder();

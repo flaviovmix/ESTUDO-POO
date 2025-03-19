@@ -5,6 +5,7 @@ public class VegetalBean extends Pessoa.Pessoa{
     private String cor_principal;
     private String personalidade;
     private String papel; // heroi ou viao
+
     private int nivel_energia;
     private int forca;
     private int inteligencia;

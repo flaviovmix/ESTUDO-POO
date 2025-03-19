@@ -1,11 +1,12 @@
 
 package MontarCard;
 
-import Vegetal.VegetalBean;
+import GarotasPix.GarotasPixBean;
+//import Vegetal.VegetalBean;
 
 public class ImagemPrincipal {
     
-    public static String SetImagem(VegetalBean bean) {
+    public static String SetImagem(GarotasPixBean bean) {
         StringBuilder sb = new StringBuilder();
 
             sb.append("<img class='img-principal img-principal-ativa'");

@@ -30,7 +30,7 @@ public class PersonagemDAO {
         ps.setDate(7, (Date) personagem.getData_nascimento());
         ps.setInt(8, personagem.getQuant_filhos());
         ps.setDouble(9, personagem.getPeso());
-        ps.setDouble(10, personagem.getQuadil());
+        ps.setDouble(10, personagem.getQuadril());
         ps.setDouble(11, personagem.getBusto());
         ps.setDouble(12, personagem.getCintura());
         ps.setDouble(13, personagem.getAltura());
