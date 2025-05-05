@@ -1,8 +1,19 @@
+<%@page import="app.core.ConexaoCard"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="app.core.Conexao"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%
+    
+    //THUMBS SORTEDAS OU FIXA
+    //int thumbSorteada = 1 + (int)(Math.random() * 8);
+    int thumbSorteada = 1;
+    
+    //FACES SORTEDAS OU FIXA
+    //int faceSorteada = 1 + (int)(Math.random() * 8);
+    int faceSorteada = 1;
+    
+    
     request.setCharacterEncoding("UTF-8");
 
     // Parâmetros de página via URL, ex: ?pagina=1
@@ -21,7 +32,7 @@
     int offset = (pagina - 1) * limite;
 
     // Conectar com o banco de dados
-    Conexao conexao = new Conexao("card_adventure");
+    ConexaoCard conexao = new ConexaoCard("card_adventure");
 
     Connection conecta = conexao.abrirConexao();
     
@@ -60,12 +71,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Novo Card</title>
     
-        <link rel="stylesheet" href="../assets/css/ajustes/normalize.css">
-        <link rel="stylesheet" href="../assets/css/ajustes/responsividade.css">
-        <link rel="stylesheet" href="../assets/css/card.css">
-        <link rel="stylesheet" href="../assets/css/area-info-personagem.css">
+        <link id="tema" rel="stylesheet" href="../../assets/css/temas/variaveis-tema-claro.css">  
+        <link rel="stylesheet" href="../../assets/css/css-card/ajustes/normalize.css">
+        <link rel="stylesheet" href="../../assets/css/nav/barra-menu.css">
+        <link rel="stylesheet" href="../../assets/css/nav/footer.css">
+        <link rel="stylesheet" href="../../assets/css/css-card/ajustes/responsividade.css">
+        <link rel="stylesheet" href="../../assets/css/css-card/card.css">
+        <link rel="stylesheet" href="../../assets/css/css-card/area-info-personagem.css">
     </head>
 <body>
+    
+<%@ include file="../../interface/navbarAzul.jsp" %>    
+    
     <main>
         <div class="container-xl">
             
@@ -105,27 +122,27 @@
 
                 <div class="menu-lateral-card">
                     <div class="area-icones-thumb">
-                        <a href=""><img src="../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-4.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-3.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-2.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../assets/pixel_ai/t-1.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-4.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-3.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-2.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/t-1.png" title="Aqui vai uma explicação."  alt=""></a>
 
                     </div>
 
                     <div class="controle-card">
-                        <a href="#"><img class="svg" src="../assets/svg/apagar.svg" alt=""></a>
-                        <a href="#"><img class="svg" src="../assets/svg/compartilhar.svg" alt=""></a>
-                        <a href="#"><img class="svg" src="../assets/svg/editar.svg" alt=""></a>
-                        <a href="#"><img class="svg" src="../assets/svg/baixar.svg" alt=""></a>
+                        <a href="#"><img class="svg" src="../../assets/svg/apagar.svg" alt=""></a>
+                        <a href="#"><img class="svg" src="../../assets/svg/compartilhar.svg" alt=""></a>
+                        <a href="#"><img class="svg" src="../../assets/svg/editar.svg" alt=""></a>
+                        <a href="#"><img class="svg" src="../../assets/svg/baixar.svg" alt=""></a>
                         
                     </div>        
                                 
                     <div class="controle-card">
-                        <a href="#"><img class="svg lixeira" src="../assets/svg/lixeira.svg" alt=""></a>
+                        <a href="#"><img class="svg lixeira" src="../../assets/svg/lixeira.svg" alt=""></a>
                     </div>
                 </div>
 
@@ -157,16 +174,15 @@
                         <div class="cabecalho">
                             <img class="bandeira" src="../assets/pixel_ai/Brasil.png" alt="">
                             <div class="are-face">
-                                <% int faceSorteada = 1 + (int)(Math.random() * 8);%>
-                                <img class="face" src="../assets/pixel_ai/<%= thumb %>.<%= faceSorteada %>.png" alt="">
+                                <img class="face" src="../../assets/pixel_ai/<%= thumb %>.<%= faceSorteada %>.png" alt="">
                             </div>
                                 
                             <div class="classificacao">
-                                <a href="#"><img src="../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../assets/pixel_ai/ESTRELA_5.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_5.png" alt=""></a>
                             </div>
                         </div>
                             
@@ -212,22 +228,22 @@
                               </table>
                         </div>
                     </div>
-                    <% int thumbSorteada = 1 + (int)(Math.random() * 8);%>
-                    <img class="img-principal" src="../assets/pixel_ai/<%= thumb %>.<%= thumbSorteada %>.png" />
+                    
+                    <img class="img-principal" src="../../assets/pixel_ai/<%= thumb %>.<%= thumbSorteada %>.png" />
                     <div class="area-titulo-da-fase mostrar" id="area-titulo-da-fase">
                         <span id="areaTituloTexto"><%= nomeAtual %></span>
                     </div>
                 </div>
 
                 <div class="area-link-fases">
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="TRAJES NORMAIS"><img class="icone" src="../assets/pixel_ai/emoje-1.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="ACADEMIA"><img class="icone" src="../assets/pixel_ai/emoje-2.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="PRAIA"><img class="icone" src="../assets/pixel_ai/emoje-3.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="PISCINA"><img class="icone" src="../assets/pixel_ai/emoje-4.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="LENDO"><img class="icone" src="../assets/pixel_ai/emoje-5.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="DORMINDO"><img class="icone" src="../assets/pixel_ai/emoje-6.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="BANHO"><img class="icone" src="../assets/pixel_ai/emoje-7.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="NUA"><img class="icone" src="../assets/pixel_ai/emoje-8.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="TRAJES NORMAIS"><img class="icone" src="../../assets/pixel_ai/emoje-1.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="ACADEMIA"><img class="icone" src="../../assets/pixel_ai/emoje-2.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="PRAIA"><img class="icone" src="../../assets/pixel_ai/emoje-3.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="PISCINA"><img class="icone" src="../../assets/pixel_ai/emoje-4.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="LENDO"><img class="icone" src="../../assets/pixel_ai/emoje-5.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="DORMINDO"><img class="icone" src="../../assets/pixel_ai/emoje-6.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="BANHO"><img class="icone" src="../../assets/pixel_ai/emoje-7.png" /></a>
+                    <a href="../jogo/quebra-cabeça.html" data-titulo="NUA"><img class="icone" src="../../assets/pixel_ai/emoje-8.png" /></a>
                 </div>    
 
             </div>            
@@ -237,10 +253,12 @@
 %>
         </div>
     </main>
-    
-    <script src="../assets/js/mostrarAreaInfoPersonagem.js"></script>
-    <script src="../assets/js/alterarNomeFaseNomePersonagem.js"></script>
-    <script src="../assets/js/mostrarMenuLateralCard.js"></script>
+            <footer>
+            <p> TODOS OS DIREITOS RESERVADOS</p>
+        </footer>
+    <script src="../../assets/js/mostrarAreaInfoPersonagem.js"></script>
+    <script src="../../assets/js/alterarNomeFaseNomePersonagem.js"></script>
+    <script src="../../assets/js/mostrarMenuLateralCard.js"></script>
 
 </body>
 </html>
