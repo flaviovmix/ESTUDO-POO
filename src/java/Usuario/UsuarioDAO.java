@@ -10,7 +10,7 @@ public class UsuarioDAO {
     private Conexao dataBase;
     
     public UsuarioDAO() {
-        dataBase = new Conexao();
+        dataBase = new Conexao("banco");
         dataBase.abrirConexao();
     }
     

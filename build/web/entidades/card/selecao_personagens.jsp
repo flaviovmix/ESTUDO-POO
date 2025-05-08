@@ -32,7 +32,7 @@
     int offset = (pagina - 1) * limite;
 
     // Conectar com o banco de dados
-    ConexaoCard conexao = new ConexaoCard("card_adventure");
+    Conexao conexao = new Conexao("card_adventure");
 
     Connection conecta = conexao.abrirConexao();
     

@@ -12,7 +12,7 @@ public class AlunoDAO {
     private Conexao db;
 
     public AlunoDAO() {
-        db = new Conexao();
+        db = new Conexao("banco");
         db.abrirConexao();
     }
 

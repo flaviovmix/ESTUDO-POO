@@ -9,7 +9,7 @@ public class PersonagemDAO {
     private Conexao db;
     
     public PersonagemDAO() {
-        db = new Conexao();
+        db = new Conexao("banco");
         db.abrirConexao();
     }
     

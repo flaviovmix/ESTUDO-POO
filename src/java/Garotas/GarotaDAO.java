@@ -11,7 +11,7 @@ public class GarotaDAO {
     private Conexao bancoDados;
     
     public GarotaDAO() {
-        bancoDados = new Conexao();
+        bancoDados = new Conexao("banco");
         bancoDados.abrirConexao();
     }
     
