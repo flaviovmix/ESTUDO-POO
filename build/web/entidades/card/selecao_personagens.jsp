@@ -1,4 +1,3 @@
-<%@page import="app.core.ConexaoCard"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="app.core.Conexao"%>
 <%@page import="java.sql.ResultSet"%>
@@ -33,7 +32,6 @@
 
     // Conectar com o banco de dados
     Conexao conexao = new Conexao("card_adventure");
-
     Connection conecta = conexao.abrirConexao();
     
     StringBuilder sb = new StringBuilder();
@@ -69,7 +67,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Novo Card</title>
+        <title>Seleção de Personagem</title>
     
         <link id="tema" rel="stylesheet" href="../../assets/css/temas/variaveis-tema-claro.css">  
         <link rel="stylesheet" href="../../assets/css/css-card/ajustes/normalize.css">

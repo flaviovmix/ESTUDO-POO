@@ -38,11 +38,13 @@
                             type="text" 
                             name="usuario"
                             placeholder="usuário" 
+                            value="a"
                             />
                         <input 
                             type="password" 
                             name="senha"
                             placeholder="senha" 
+                            value="a"
                             />
                         <button class="btn-logar" type="submit">Logar</button>
                         <a class="link" href="#">Esqueci minha senha</a>

@@ -3,7 +3,6 @@ package org.apache.jsp.entidades.card;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import app.core.ConexaoCard;
 import java.sql.Connection;
 import app.core.Conexao;
 import java.sql.ResultSet;
@@ -55,11 +54,17 @@ public final class selecao_005fpersonagens_jsp extends org.apache.jasper.runtime
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
 
     
-//    int thumbSorteada = 1 + (int)(Math.random() * 8);
+    //THUMBS SORTEDAS OU FIXA
+    //int thumbSorteada = 1 + (int)(Math.random() * 8);
     int thumbSorteada = 1;
+    
+    //FACES SORTEDAS OU FIXA
+    //int faceSorteada = 1 + (int)(Math.random() * 8);
+    int faceSorteada = 1;
+    
+    
     request.setCharacterEncoding("UTF-8");
 
     // Parâmetros de página via URL, ex: ?pagina=1
@@ -78,8 +83,7 @@ public final class selecao_005fpersonagens_jsp extends org.apache.jasper.runtime
     int offset = (pagina - 1) * limite;
 
     // Conectar com o banco de dados
-    ConexaoCard conexao = new ConexaoCard("card_adventure");
-
+    Conexao conexao = new Conexao("card_adventure");
     Connection conecta = conexao.abrirConexao();
     
     StringBuilder sb = new StringBuilder();
@@ -314,9 +318,6 @@ public final class selecao_005fpersonagens_jsp extends org.apache.jasper.runtime
       out.write("                        <div class=\"cabecalho\">\r\n");
       out.write("                            <img class=\"bandeira\" src=\"../assets/pixel_ai/Brasil.png\" alt=\"\">\r\n");
       out.write("                            <div class=\"are-face\">\r\n");
-      out.write("                                ");
- int faceSorteada = 1 + (int)(Math.random() * 8);
-      out.write("\r\n");
       out.write("                                <img class=\"face\" src=\"../../assets/pixel_ai/");
       out.print( thumb );
       out.write('.');

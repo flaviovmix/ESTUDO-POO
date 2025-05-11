@@ -9,11 +9,11 @@ import java.util.List;
 
 public class AlunoDAO {
 
-    private Conexao db;
+    private Conexao dataBase;
 
     public AlunoDAO() {
-        db = new Conexao("banco");
-        db.abrirConexao();
+        dataBase = new Conexao("banco");
+        dataBase.abrirConexao();
     }
 
     public void adicionarAluno(AlunoBean aluno) throws SQLException {
@@ -26,7 +26,7 @@ public class AlunoDAO {
                 + "(   ?,       ?,   ?,        ?,     ?,   ?,      ?,      ?,        ?,      ?,   ?)"
             );
 
-        ps = db.getConexao().prepareStatement(sql);
+        ps = dataBase.getConexao().prepareStatement(sql);
         ps.setString(1, aluno.getNome());
         ps.setString(2, aluno.getConjuge());
         ps.setString(3, aluno.getCpf());
@@ -52,7 +52,7 @@ public class AlunoDAO {
                 + "WHERE codigo=?"
             );
         
-            ps = db.getConexao().prepareStatement(sql);
+            ps = dataBase.getConexao().prepareStatement(sql);
             ps.setString(1, aluno.getNome());
             ps.setString(2, aluno.getConjuge());
             ps.setString(3, aluno.getCpf());
@@ -75,7 +75,7 @@ public class AlunoDAO {
         try {
             String sql = busca;
 
-            PreparedStatement ps = db.getConexao().prepareStatement(sql);
+            PreparedStatement ps = dataBase.getConexao().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -100,7 +100,7 @@ public class AlunoDAO {
         String sql;
         sql = ("DELETE FROM aluno WHERE codigo=?");
         
-        ps = db.getConexao().prepareStatement(sql);
+        ps = dataBase.getConexao().prepareStatement(sql);
         ps.setInt(1, codigo);       
         ps.executeUpdate();  
      

@@ -31,6 +31,9 @@ public class Conexao {
             System.out.println("Driver JDBC não encontrado: " + e.getMessage());
         } catch (SQLException e) {
             System.out.println("Erro ao conectar ao banco: " + e.getMessage());
+        }catch (Exception e) {
+            System.out.println("Erro inesperado: " + e.getMessage());
+            e.printStackTrace();
         }
 
         return this.conexao;
