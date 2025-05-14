@@ -92,6 +92,7 @@
 
         <link rel="stylesheet" href="../../assets/css/nav/barra-menu.css">
         <link rel="stylesheet" href="../../assets/css/nav/footer.css">
+        <link rel="stylesheet" href="../../assets/css/ajustes-de-tela.css">
         <link rel="stylesheet" href="../../assets/css/cards/card.css">
         <link rel="stylesheet" href="../../assets/css/cards/table.css">
         <link rel="stylesheet" href="../../assets/css/cards/ancoras.css">
@@ -107,7 +108,7 @@
 
         <%@ include file="../../interface/navbarAzul.jsp" %>
         <main>
-
+            <div class="container-tela">
             <div id="estilo-card">
                 <div  class="container-xl">
 
@@ -293,6 +294,7 @@
                     <%}%>  
 
 
+                </div>
                 </div>
             </div>
                     

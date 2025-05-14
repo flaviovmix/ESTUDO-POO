@@ -49,7 +49,6 @@ public class Conexao {
         }
     }
 
-    // --- NOVOS MÉTODOS GET E SET ---
     public Connection getConexao() {
         return this.conexao;
     }

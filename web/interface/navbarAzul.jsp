@@ -8,7 +8,7 @@
             <a href="<%= request.getContextPath()%>/entidades/vegetais/listarVegetais.jsp">VEGETAIS</a>
         </li>
         <li>
-            <a href="<%= request.getContextPath()%>/entidades/card/selecao_personagens.jsp">GAROTAS PIX</a>
+            <a href="<%= request.getContextPath()%>/entidades/card/selecao_personagens.jsp">GAROTAS AI</a>
         </li>        
         <li>
              <a href="<%= request.getContextPath()%>/entidades/personagem/listarPersonagem.jsp">GAROTAS</a>

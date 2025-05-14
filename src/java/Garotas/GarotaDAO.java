@@ -16,39 +16,33 @@ public class GarotaDAO {
         bancoDados.abrirConexao();
     }
 
-    public List<GarotaBean> listarGArotas(String busca) throws SQLException {
+    public List<GarotaBean> listarGarotas(String sql1) throws SQLException {
         List<GarotaBean> garotas = new ArrayList<>();
+        bancoDados.abrirConexao();
+
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            String sql = busca;
-            ps = bancoDados.getConexao().prepareStatement(sql);
+            // Primeira consulta
+            ps = bancoDados.getConexao().prepareStatement(sql1);
             rs = ps.executeQuery();
-
             while (rs.next()) {
-                GarotaBean garota = new GarotaBean();
-                garota.setNome(rs.getString("nome"));
-                garotas.add(garota);
+                GarotaBean g = new GarotaBean();
+                g.setNome(rs.getString("nome"));
+                garotas.add(g);
             }
+            rs.close();
+            ps.close();
+            //fim primeira consulta
 
+            // Segunda consulta
+            
+            //fim segunda consulta
+           
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
             bancoDados.fecharConexao();
         }
 

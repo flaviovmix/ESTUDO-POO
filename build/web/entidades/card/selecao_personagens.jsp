@@ -4,14 +4,21 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%
     
-    //THUMBS SORTEDAS OU FIXA
-    //int thumbSorteada = 1 + (int)(Math.random() * 8);
-    int thumbSorteada = 1;
+    int thumbSorteada;
+    int roupaThumbSorteada;
+    int faceSorteada;
     
-    //FACES SORTEDAS OU FIXA
-    //int faceSorteada = 1 + (int)(Math.random() * 8);
-    int faceSorteada = 1;
-    
+    //SORTEIRO DE IMAGENS MÁXIMO 8
+    if (false) {
+        thumbSorteada = 1 + (int)(Math.random() * 1);
+        roupaThumbSorteada = 1 + (int)(Math.random() * 8);
+        faceSorteada = 1 + (int)(Math.random() * 1);        
+    } else {
+        thumbSorteada = 1;
+        roupaThumbSorteada = 1;
+        faceSorteada = 1;
+    }
+        
     
     request.setCharacterEncoding("UTF-8");
 
@@ -70,6 +77,7 @@
         <title>Seleção de Personagem</title>
     
         <link id="tema" rel="stylesheet" href="../../assets/css/temas/variaveis-tema-claro.css">  
+        <link rel="stylesheet" href="../../assets/css/ajustes-de-tela.css">
         <link rel="stylesheet" href="../../assets/css/css-card/ajustes/normalize.css">
         <link rel="stylesheet" href="../../assets/css/nav/barra-menu.css">
         <link rel="stylesheet" href="../../assets/css/nav/footer.css">
@@ -82,12 +90,13 @@
 <%@ include file="../../interface/navbarAzul.jsp" %>    
     
     <main>
+        <div class="container-tela">
+        
         <div class="container-xl">
             
 <%
     String obs = null;
     String thumb = null;
-    //boolean primeiro = true;
     java.util.List<String[]> atributos = new java.util.ArrayList<String[]>();
 
     boolean temMais = resultado.next();
@@ -120,14 +129,14 @@
 
                 <div class="menu-lateral-card">
                     <div class="area-icones-thumb">
-                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-4.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-3.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-2.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/t-1.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-4.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-3.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-2.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-1.png" title="Aqui vai uma explicação."  alt=""></a>
 
                     </div>
 
@@ -172,15 +181,15 @@
                         <div class="cabecalho">
                             <img class="bandeira" src="../assets/pixel_ai/Brasil.png" alt="">
                             <div class="are-face">
-                                <img class="face" src="../../assets/pixel_ai/<%= thumb %>.<%= faceSorteada %>.png" alt="">
+                                <img class="face" src="../../assets/pixel_ai/personagens/<%= thumb %>/face.png" alt="">
                             </div>
                                 
                             <div class="classificacao">
-                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_1-4.png" alt=""></a>
-                                <a href="#"><img src="../../assets/pixel_ai/ESTRELA_5.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/icones/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/icones/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/icones/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/icones/ESTRELA_1-4.png" alt=""></a>
+                                <a href="#"><img src="../../assets/pixel_ai/icones/ESTRELA_5.png" alt=""></a>
                             </div>
                         </div>
                             
@@ -227,21 +236,21 @@
                         </div>
                     </div>
                     
-                    <img class="img-principal" src="../../assets/pixel_ai/<%= thumb %>.<%= thumbSorteada %>.png" />
+                    <img class="img-principal" src="../../assets/pixel_ai/personagens/<%= thumb %>/<%= thumbSorteada %>/<%= roupaThumbSorteada %>.png" />
                     <div class="area-titulo-da-fase mostrar" id="area-titulo-da-fase">
                         <span id="areaTituloTexto"><%= nomeAtual %></span>
                     </div>
                 </div>
 
                 <div class="area-link-fases">
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="TRAJES NORMAIS"><img class="icone" src="../../assets/pixel_ai/emoje-1.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="ACADEMIA"><img class="icone" src="../../assets/pixel_ai/emoje-2.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="PRAIA"><img class="icone" src="../../assets/pixel_ai/emoje-3.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="PISCINA"><img class="icone" src="../../assets/pixel_ai/emoje-4.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="LENDO"><img class="icone" src="../../assets/pixel_ai/emoje-5.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="DORMINDO"><img class="icone" src="../../assets/pixel_ai/emoje-6.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="BANHO"><img class="icone" src="../../assets/pixel_ai/emoje-7.png" /></a>
-                    <a href="../jogo/quebra-cabeça.html" data-titulo="NUA"><img class="icone" src="../../assets/pixel_ai/emoje-8.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="TRAJES NORMAIS"><img class="icone" src="../../assets/pixel_ai/icones/emoje-1.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="ACADEMIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-2.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="PRAIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-3.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="PISCINA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-4.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="LENDO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-5.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="DORMINDO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-6.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="BANHO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-7.png" /></a>
+                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="NUA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-8.png" /></a>
                 </div>    
 
             </div>            
@@ -249,6 +258,7 @@
  <%
     } // fim while
 %>
+        </div>
         </div>
     </main>
             <footer>

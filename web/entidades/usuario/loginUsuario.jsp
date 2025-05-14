@@ -20,7 +20,7 @@
         ) {
         HttpSession s = request.getSession();
         s.setAttribute("usuario", usuarioForm);
-        response.sendRedirect(request.getContextPath() + "/entidades/personagem/listarPersonagem.jsp");
+        response.sendRedirect(request.getContextPath() + "/entidades/card/selecao_personagens.jsp");
     } else {
         response.sendRedirect(request.getContextPath() + "/index.jsp");
     }
