@@ -4,17 +4,17 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%
     
-    int thumbSorteada;
+    int nivel;
     int roupaThumbSorteada;
     int faceSorteada;
     
     //SORTEIRO DE IMAGENS MÁXIMO 8
     if (false) {
-        thumbSorteada = 1 + (int)(Math.random() * 1);
+        nivel = 1 + (int)(Math.random() * 1);
         roupaThumbSorteada = 1 + (int)(Math.random() * 8);
         faceSorteada = 1 + (int)(Math.random() * 1);        
     } else {
-        thumbSorteada = 1;
+        nivel = 1;
         roupaThumbSorteada = 1;
         faceSorteada = 1;
     }
@@ -236,21 +236,21 @@
                         </div>
                     </div>
                     
-                    <img class="img-principal" src="../../assets/pixel_ai/personagens/<%= thumb %>/<%= thumbSorteada %>/<%= roupaThumbSorteada %>.png" />
+                    <img class="img-principal" src="../../assets/pixel_ai/personagens/<%= thumb %>/<%= nivel %>/<%= roupaThumbSorteada %>.png" />
                     <div class="area-titulo-da-fase mostrar" id="area-titulo-da-fase">
                         <span id="areaTituloTexto"><%= nomeAtual %></span>
                     </div>
                 </div>
 
                 <div class="area-link-fases">
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="TRAJES NORMAIS"><img class="icone" src="../../assets/pixel_ai/icones/emoje-1.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="ACADEMIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-2.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="PRAIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-3.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="PISCINA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-4.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="LENDO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-5.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="DORMINDO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-6.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="BANHO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-7.png" /></a>
-                    <a href="../quebra-cabeca/9x16.jsp" data-titulo="NUA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-8.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=1" data-titulo="TRAJES NORMAIS"><img class="icone" src="../../assets/pixel_ai/icones/emoje-1.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=2" data-titulo="ACADEMIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-2.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=3" data-titulo="PRAIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-3.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=4" data-titulo="PISCINA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-4.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=5" data-titulo="LENDO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-5.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=6" data-titulo="DORMINDO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-6.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=7" data-titulo="BANHO"><img class="icone" src="../../assets/pixel_ai/icones/emoje-7.png" /></a>
+                    <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=8" data-titulo="NUA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-8.png" /></a>
                 </div>    
 
             </div>            
