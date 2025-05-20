@@ -129,9 +129,9 @@
 
                 <div class="menu-lateral-card">
                     <div class="area-icones-thumb">
-                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
-                        <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-8.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-7.png" title="Aqui vai uma explicação."  alt=""></a>
+                        <a href="#"><img src="../../assets/pixel_ai/icones/t-6.png" title="Aqui vai uma explicação."  alt=""></a>
                         <a href="#"><img src="../../assets/pixel_ai/icones/t-5.png" title="Aqui vai uma explicação."  alt=""></a>
                         <a href="#"><img src="../../assets/pixel_ai/icones/t-4.png" title="Aqui vai uma explicação."  alt=""></a>
                         <a href="#"><img src="../../assets/pixel_ai/icones/t-3.png" title="Aqui vai uma explicação."  alt=""></a>
@@ -243,6 +243,20 @@
                 </div>
 
                 <div class="area-link-fases">
+                    
+                    <div class="selecao-da-fase">
+                      <div class="fase">
+                        <img src="../../assets/pixel_ai/icones/emoje-1.png" alt="">
+                      </div>
+                      <div class="roupa">
+                        <img src="../../assets/pixel_ai/icones/t-1.png" alt="">
+                      </div>
+                      <div class="jogar">
+                        <a class="link" href="#">Jogar</a>
+                      </div>                          
+                    </div>
+                    
+                    
                     <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=1" data-titulo="TRAJES NORMAIS"><img class="icone" src="../../assets/pixel_ai/icones/emoje-1.png" /></a>
                     <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=2" data-titulo="ACADEMIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-2.png" /></a>
                     <a href="../quebra-cabeca/7x9.jsp?personagem=<%= thumb %>&nivel=3" data-titulo="PRAIA"><img class="icone" src="../../assets/pixel_ai/icones/emoje-3.png" /></a>
