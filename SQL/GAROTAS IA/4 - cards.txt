@@ -1,0 +1,27 @@
+nome do banco = card_adventure
+
+CREATE TABLE cards (
+    id_card SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    url_imagem VARCHAR(255),
+    ativo BOOLEAN DEFAULT TRUE,
+    fk_tema INT NOT NULL REFERENCES temas(id_tema) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE,
+    fk_classificacao INT NOT NULL REFERENCES classificacao(id_classificacao) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+);
+
+INSERT INTO cards (nome, fk_tema, fk_classificacao) 
+VALUES 
+	('Bulma', 1, 4),  
+	('Videl', 1, 4),
+	('Hinata', 2, 3), 
+	('Chul-li', 2, 3),
+	('Cenoura', 3, 1),  
+	('Tomate', 3, 1),
+	('Fusca', 4, 1),  
+	('Camaro', 4, 1)
+;

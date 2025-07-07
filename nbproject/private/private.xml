@@ -4,11 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/ESTUDO-POO/web/entidades/garotas/listarGarotas.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/assets/css/css-card/card.css</file>
-            <file>file:/C:/ESTUDO-POO/web/entidades/quebra-cabeca/9x16.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/entidades/quebra-cabeca/7x9.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/entidades/card/selecao_personagens.jsp</file>
-            <file>file:/C:/ESTUDO-POO/web/entidades/personagem/listarPersonagem.jsp</file>
+            <file>file:/C:/ESTUDO-POO/src/java/app/core/ConectaVegetais.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/app/core/Conexao.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/app/core/ConectagarotasPixs.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/Garotas/GarotaBean.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/app/core/ConectaVegetais__.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/app/core/ConectaGrils.java</file>
+            <file>file:/C:/ESTUDO-POO/src/java/Garotas/GarotaDAO.java</file>
+            <file>file:/C:/ESTUDO-POO/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,17 @@
+nome do banco = card_adventure
+
+CREATE TABLE temas (
+    id_tema SERIAL PRIMARY KEY,  -- Identificador único do tema
+    nome VARCHAR(100) UNIQUE NOT NULL,  -- Único e não nulo
+    descricao TEXT,  -- Breve explicação sobre o tema
+    url_imagem VARCHAR(255),  -- Caminho do arquivo da imagem do tema
+    ativo BOOLEAN DEFAULT TRUE  -- Indica se o tema está ativo no jogo
+);
+
+INSERT INTO temas (nome, descricao, url_imagem, ativo) 
+VALUES 
+    ('Garotas 18+', 'Personagens femininas com conteúdo adulto.', 'imagens/temas/garotas_18.png', TRUE),
+    ('Garotas Livre', 'Personagens femininas sem restrição de idade.', 'imagens/temas/garotas_livre.png', TRUE),
+    ('Carros Livre', 'Imagens de carros sem restrição de idade.', 'imagens/temas/garotas_livre.png', TRUE),
+    ('Vegetais', 'Personagens baseados em vegetais.', 'imagens/temas/vegetais.png', TRUE)
+;

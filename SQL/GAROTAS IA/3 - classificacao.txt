@@ -1,0 +1,18 @@
+nome do banco = card_adventure
+
+CREATE TABLE classificacao (
+    id_classificacao  SERIAL PRIMARY KEY,  -- Identificador único do classificacao 
+    nome VARCHAR(100) UNIQUE NOT NULL,  -- Nome da classificacao (ex: "Livre", "16+", "18+")
+    descricao TEXT,  -- Breve explicação sobre a classificacao 
+    url_imagem VARCHAR(255),  -- Caminho do arquivo da imagem da classificacao 
+    ativo BOOLEAN DEFAULT TRUE  -- Indica se a classificacao está ativo no jogo
+);
+
+
+INSERT INTO classificacao (nome, descricao, url_imagem, ativo) 
+VALUES 
+    ('Livre', 'Indicado para todas as idades.', 'imagens/classificacao/livre.png', TRUE),
+    ('12 anos', 'Não recomendado para menores de 12 anos.', 'imagens/classificacao/12anos.png', TRUE),
+    ('16 anos', 'Não recomendado para menores de 16 anos.', 'imagens/classificacao/16anos.png', TRUE),
+    ('18 anos', 'Conteúdo adulto, permitido apenas para maiores de 18 anos.', 'imagens/classificacao/18anos.png', TRUE)
+;

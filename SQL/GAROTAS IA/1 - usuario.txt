@@ -1,0 +1,16 @@
+-- banco de dados para o login, 
+-- foi criado em fase de estudo
+-- melhorando
+
+nome do banco = banco
+
+apenas 1 tabela
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    primeiroNomeOuApelido VARCHAR(100) NOT NULL,
+    usuario VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(100) NOT NULL
+);
+
+ao criar essa tabela vai ser possível criar um usuário na tela de logim e logar
